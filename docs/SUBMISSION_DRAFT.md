@@ -4,7 +4,7 @@
 
 Prepared for the Indie Developer track, Build for Your World.
 
-Public source: [himanshu748/bugarcade](https://github.com/himanshu748/bugarcade) · [Demo video](https://github.com/himanshu748/bugarcade/blob/main/proof/demo.mp4)
+Public source: [himanshu748/bugarcade](https://github.com/himanshu748/bugarcade) · [Demo video](https://youtu.be/RnbcI01d7oE)
 
 ## Project description
 

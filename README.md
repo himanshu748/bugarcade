@@ -6,7 +6,7 @@ Can you make a React app lose your note in three moves? BugArcade turns real UI 
 
 ![BugArcade: a playable React note app alongside the three-move debugging challenge](docs/assets/bugarcade.png)
 
-[Get started](docs/GETTING_STARTED.md) · [Watch the demo](proof/demo.mp4) · [Explore captured Meta proof](proof/index.html) · [How it works](docs/ARCHITECTURE.md)
+[Get started](docs/GETTING_STARTED.md) · [Watch the demo](https://youtu.be/RnbcI01d7oE) · [Explore captured Meta proof](proof/index.html) · [How it works](docs/ARCHITECTURE.md)
 
 ## Play the bug, then make the fix earn it
 
