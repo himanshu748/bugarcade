@@ -1,0 +1,34 @@
+/* Hallmark · preserved BugArcade brand tokens · local system typography · v2.0.0 */
+:root {
+  --color-paper: #11150f;
+  --color-surface: #1a2117;
+  --color-raised: #232d1e;
+  --color-ink: #edf1e6;
+  --color-muted: #b1bca7;
+  --color-subtle: #89977e;
+  --color-line: #45513d;
+  --color-accent: #c7f78d;
+  --color-accent-hover: #d8ffa9;
+  --color-accent-ink: #19240f;
+  --color-failure: #f4b497;
+  --color-failure-surface: #30251e;
+  --color-success: #b1e6cd;
+  --color-success-surface: #20332b;
+  --color-image-paper: #f2f3e9;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--font-body);
+  --font-code: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-7: 32px; --space-8: 40px;
+  --space-9: 48px; --space-10: 64px; --space-11: 80px; --space-12: 96px;
+  --space-xs: var(--space-2); --space-sm: var(--space-3); --space-md: var(--space-4);
+  --space-lg: var(--space-6); --space-xl: var(--space-7); --space-2xl: var(--space-9); --space-3xl: var(--space-10);
+  --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px;
+  --radius-panel: 12px; --radius-control: 7px;
+  --dur-micro: 120ms; --dur-short: 180ms;
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --bg: var(--color-paper); --surface: var(--color-surface); --text: var(--color-ink);
+  --muted: var(--color-muted); --lime: var(--color-accent); --line: var(--color-line);
+  --red: var(--color-failure); --mint: var(--color-success);
+}

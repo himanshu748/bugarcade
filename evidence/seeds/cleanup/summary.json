@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "id": "cleanup",
+  "title": "The ghost of a screen",
+  "verified": true,
+  "evidenceKind": "captured-local-browser",
+  "mode": "recorded",
+  "provenance": {
+    "planner": "authored-seed-plan",
+    "liveModel": false,
+    "model": null,
+    "modelCalls": 0,
+    "promptTokens": 0,
+    "completionTokens": 0,
+    "estimatedCostUsd": 0,
+    "note": "Authored initial plans, real browser capture. No live Meta call was made."
+  },
+  "seed": 0,
+  "sourceHashes": {
+    "buggy": "49cbee9e419c641e40fbeaa8b3fff96ee937d5b6525474980281bd30a73bd955",
+    "fixed": "a549ebd11e24b9f7f45ceaf9dc22b946ccbf7b9a338953d1d7e67845e8e68746"
+  },
+  "manifestHash": "44adc3e34e027eca38c38006e07bcc57f84401d17aa7ac06d4b1993c706f51ce",
+  "lockfileHash": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b",
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@playwright/test": "1.64.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "eslint": "9.39.1",
+    "typescript-eslint": "8.46.3"
+  },
+  "browserVersion": "156.0.8078.4",
+  "assertion": {
+    "target": "project-title",
+    "operator": "equals",
+    "expected": "Project B · Launch calendar",
+    "hash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c"
+  },
+  "completion": {
+    "target": "load-state",
+    "value": "2 loads settled"
+  },
+  "schedule": [
+    {
+      "id": "project-a-1",
+      "key": "project-a",
+      "status": 200,
+      "response": {
+        "title": "Project A · Studio refresh"
+      }
+    },
+    {
+      "id": "project-b-1",
+      "key": "project-b",
+      "status": 200,
+      "response": {
+        "title": "Project B · Launch calendar"
+      }
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "wait",
+      "target": "project-title",
+      "value": "Loading project…"
+    },
+    {
+      "type": "click",
+      "target": "nav-b"
+    },
+    {
+      "type": "release",
+      "request": "project-b-1"
+    },
+    {
+      "type": "release",
+      "request": "project-a-1"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "nav-b"
+    },
+    {
+      "type": "release",
+      "request": "project-b-1"
+    },
+    {
+      "type": "release",
+      "request": "project-a-1"
+    }
+  ],
+  "initialActionCount": 4,
+  "minimizedActionCount": 3,
+  "minimality": "1-minimal for single-action deletion under this schedule",
+  "repetitions": {
+    "buggy": [
+      {
+        "status": "failed",
+        "elapsedMs": 6157,
+        "result": "buggy-1/result.json",
+        "actual": "Project A · Studio refresh",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 6286,
+        "result": "buggy-2/result.json",
+        "actual": "Project A · Studio refresh",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 4837,
+        "result": "buggy-3/result.json",
+        "actual": "Project A · Studio refresh",
+        "error": null
+      }
+    ],
+    "fixed": [
+      {
+        "status": "passed",
+        "elapsedMs": 6085,
+        "result": "fixed-1/result.json",
+        "actual": "Project B · Launch calendar",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 6011,
+        "result": "fixed-2/result.json",
+        "actual": "Project B · Launch calendar",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 3112,
+        "result": "fixed-3/result.json",
+        "actual": "Project B · Launch calendar",
+        "error": null
+      }
+    ]
+  },
+  "reproductionRate": {
+    "failures": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "fixedPassRate": {
+    "passes": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "initialResults": {
+    "buggy": "failed",
+    "fixed": "passed"
+  },
+  "regressionResults": {
+    "buggy": {
+      "exitCode": 1,
+      "log": "regression-buggy.txt",
+      "status": "failed",
+      "assertionHash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c"
+    },
+    "fixed": {
+      "exitCode": 0,
+      "log": "regression-fixed.txt",
+      "status": "passed",
+      "assertionHash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c"
+    }
+  },
+  "elapsedMs": 88432,
+  "artifacts": {
+    "regression": "regression.test.mjs",
+    "recording": "recording.json",
+    "buggyTrace": "buggy-1/trace.zip",
+    "fixedTrace": "fixed-1/trace.zip",
+    "buggyScreenshot": "buggy-1/final.png",
+    "fixedScreenshot": "fixed-1/final.png",
+    "minimization": "minimization.json"
+  },
+  "limits": "Three repetitions under one controlled schedule establish repeatability for this seed only. No held-out/generalization or live-provider evidence."
+}

@@ -1,0 +1,22 @@
+# BUILD RECIPE ONLY. The guarded build command adds Python 3.12 with Modal's add_python.
+# Building/registering this private image requires separate authorization.
+# Set to a verified digest of the official Playwright image matching package-lock.json (1.64.0).
+# Example shape: mcr.microsoft.com/playwright:v1.64.0-noble@sha256:<verified digest>
+FROM mcr.microsoft.com/playwright:v1.64.0-noble@sha256:06a9939e57531807f8d5fd76ce44b53165ffb7d7501d87ab10e285c20b1e971f
+WORKDIR /opt/bugarcade
+COPY package.json package-lock.json ./
+RUN npm ci --ignore-scripts --no-audit --no-fund
+COPY worker ./worker
+COPY fixtures ./fixtures
+COPY shared ./shared
+COPY backend/sandbox_entry.py ./backend/sandbox_entry.py
+COPY backend/cgroup_guard.py ./backend/cgroup_guard.py
+COPY backend/regression_entry.py ./backend/regression_entry.py
+COPY backend/boundary_probe.py ./backend/boundary_probe.py
+COPY backend/artifact_transfer.py ./backend/artifact_transfer.py
+RUN mkdir -p /opt/bugarcade/evidence /tmp/home && chown -R pwuser:pwuser /opt/bugarcade/evidence /tmp/home
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright NODE_ENV=test BUGARCADE_SANDBOX=1
+# Modal starts containers as root and ignores Dockerfile USER. Trusted Python entrypoints
+# drop groups/GID/UID to pwuser and enforce no-new-privileges before reading submitted data.
+USER root
+CMD ["python3", "-c", "import time; time.sleep(180)"]

@@ -1,0 +1,203 @@
+{
+  "verified": true,
+  "mode": "live",
+  "runner": "modal-sandbox",
+  "challengeId": "lost-note",
+  "sourceHashes": {
+    "fixed/App.tsx": "734bd14d0e4b44db1d2356164ee1b813863c0a12152709a7412776fcafc0652b",
+    "README.md": "af1d7e8b9406d0bec775fb133f298464f9716e495709297c9fe12019c3ca924c",
+    "manifest.json": "21148a21ea319d9811c85f75175d4abbd38cf38c6505abfff717abfb86a19019",
+    "buggy/App.tsx": "3e3691816b35c455c4b6110de9dd8bd113ffe42abcdaf7714eea6818a099a882"
+  },
+  "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+  "assertion": {
+    "target": "notes",
+    "operator": "contains",
+    "expected": "Book the demo slot"
+  },
+  "completion": {
+    "target": "sync-state",
+    "value": "Synced · 1 added"
+  },
+  "seed": 0,
+  "schedule": [
+    {
+      "id": "save-1",
+      "key": "save",
+      "response": {
+        "saved": true
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    },
+    {
+      "type": "wait",
+      "target": "sync-state",
+      "value": "Synced · 1 added"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    }
+  ],
+  "initialActionCount": 4,
+  "minimizedActionCount": 3,
+  "minimizationProbes": 7,
+  "minimality": "bounded deletion search; not a global optimum",
+  "buggyFailures": 3,
+  "fixedPasses": 3,
+  "validationRuns": 6,
+  "browserRuns": 16,
+  "infrastructureErrors": 6,
+  "elapsedMs": 276552,
+  "modelCalls": 1,
+  "modelUsage": [
+    {
+      "prompt_tokens": 1918,
+      "completion_tokens": 921,
+      "total_tokens": 2839
+    }
+  ],
+  "modelProvider": "modal",
+  "estimatedModelCostUsd": 0.00631175,
+  "limits": "Repeatability under one controlled schedule is not broad reliability or held-out generalization evidence.",
+  "publicDerivative": true,
+  "evaluationScope": "One known seed; not held-out generalization",
+  "modelIdentity": "meta-models/Muse-Spark-Open-816B-A42B",
+  "workspaceEndpoint": "redacted",
+  "originalSummarySha256": "b105e6e399ae2737f5e54a7d325f7d7882589ff7bafc66abf248d0bb208a607f",
+  "originalProvenanceSha256": "c61b7b1752608ad5627f284b4720bb350740c6cf34316b496c9970ca310f0ca6",
+  "validation": [
+    {
+      "directory": "10-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "Ship the rough cut",
+      "resultSha256": "8196ce12503d6e7ddb4413f948bcdc3dbecaacc71a34083972fdc653f7bd7def"
+    },
+    {
+      "directory": "11-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "Ship the rough cutBook the demo slot",
+      "resultSha256": "fcb077e945cd773fc7b5092ccf5fbf2b7f1690b6e615e78855af148e9be44dc9"
+    },
+    {
+      "directory": "12-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "Ship the rough cut",
+      "resultSha256": "0286c89f702993f39723d6509172d712502f1a314256d5593bcdd42965148032"
+    },
+    {
+      "directory": "13-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "Ship the rough cutBook the demo slot",
+      "resultSha256": "af9dcb21c188445b44d81c0494a5d723ec6c2a3e021528a7cfa59e4d202e7b59"
+    },
+    {
+      "directory": "14-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "Ship the rough cut",
+      "resultSha256": "6817373742ae817616cfaa009b155af5a274e733744e222513c61256ce1343d4"
+    },
+    {
+      "directory": "15-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "Ship the rough cutBook the demo slot",
+      "resultSha256": "958dca01ae0cf2cf8d26487ed616444e864f269529d0a8b4be8c2dfe7f7b046a"
+    }
+  ],
+  "proposal": {
+    "actions": [
+      {
+        "type": "click",
+        "target": "sync"
+      },
+      {
+        "type": "click",
+        "target": "add-note"
+      },
+      {
+        "type": "release",
+        "request": "save-1"
+      },
+      {
+        "type": "wait",
+        "target": "sync-state",
+        "value": "Synced · 1 added"
+      }
+    ],
+    "candidateAssertion": {
+      "target": "notes",
+      "operator": "contains",
+      "expected": "Book the demo slot"
+    },
+    "rationale": "Start sync to capture stale snapshot, add note while Syncing to create optimistic update, then release save to let stale setNotes(snapshot) overwrite and lose the note while still reaching Synced completion."
+  },
+  "proposalPayloadSha256": "4b35729c729a5c754b7e01efaa46390febfd3001218ecc4786d4a6ddc4379e1f",
+  "regressionSha256": "ea47155bf32626691e0324645cc4934debf68f9af28d2b1dd6fc4b98ad616e48",
+  "inputFrames": [
+    {
+      "timestampMs": 0,
+      "sha256": "3d96f85468a852c00a960d54cda8cbf5496e3bdb8b0fec7ded557a83e861c20b",
+      "file": "frame-00.png"
+    },
+    {
+      "timestampMs": 720,
+      "sha256": "19f642000041fb388f0c9f017a3aa908a045fbb1c320ba44c4e9f3ee29cd59b0",
+      "file": "frame-01.png"
+    },
+    {
+      "timestampMs": 1400,
+      "sha256": "709c2f2407394b12c2553bc7e23dc6b465659d883c6a85b91991a9a0c4dea186",
+      "file": "frame-02.png"
+    },
+    {
+      "timestampMs": 2080,
+      "sha256": "f8fc0f6053dab3ce6e62f3a7e49de06bde5fa1e7dab8987195649b125f575ddf",
+      "file": "frame-03.png"
+    }
+  ],
+  "regressionOutputs": {
+    "buggy": {
+      "exitCode": 1,
+      "originalSha256": "5e5a953e5efd1c925cd7b9060adebf61d55af1cebbae84b7737bdeaeade49eaa",
+      "publicSha256": "5e5a953e5efd1c925cd7b9060adebf61d55af1cebbae84b7737bdeaeade49eaa",
+      "output": "✖ The vanishing note invariant (2971.515275ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3038.054059\n\n✖ failing tests:\n\ntest at ../../tmp/regression.test.mjs:8:1\n✖ The vanishing note invariant (2971.515275ms)\n  AssertionError [ERR_ASSERTION]: {\"target\":\"notes\",\"operator\":\"contains\",\"expected\":\"Book the demo slot\",\"actual\":\"Ship the rough cut\",\"pass\":false,\"hash\":\"072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951\",\"completion\":{\"target\":\"sync-state\",\"value\":\"Synced · 1 added\"}}\n  \n  'failed' !== 'passed'\n  \n      at TestContext.<anonymous> (file:///tmp/regression.test.mjs:16:10)\n      at Test.runInAsyncScope (node:async_hooks:227:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.start (node:internal/test_runner/test:1262:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 'failed',\n    expected: 'passed',\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n"
+    },
+    "fixed": {
+      "exitCode": 0,
+      "originalSha256": "c518397bebe65a08fa04ff7065be69bebcd19df6e085fa826a286bf4bee61150",
+      "publicSha256": "c518397bebe65a08fa04ff7065be69bebcd19df6e085fa826a286bf4bee61150",
+      "output": "✔ The vanishing note invariant (3545.355904ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3630.421858\n"
+    }
+  }
+}

@@ -1,0 +1,414 @@
+[
+  {
+    "id": "lost-note",
+    "title": "The vanishing note",
+    "subtitle": "A save that takes more than it gives.",
+    "category": "Stale state",
+    "difficulty": "Warm-up",
+    "goal": "Make Papertrail lose your new note in three moves.",
+    "hint": "A sync takes a snapshot. What happens if you keep writing before it finishes?",
+    "explanation": "Sync captures the current notes array. Its delayed acknowledgement replaces state with that old snapshot, deleting notes added while the request was pending. The fix treats the response as an acknowledgement and keeps newer local state; appends use a functional state update.",
+    "accent": "lime",
+    "targetMoves": 3,
+    "allowedTargets": [
+      "sync",
+      "add-note",
+      "draft",
+      "notes",
+      "sync-state"
+    ],
+    "initialActions": [
+      {
+        "type": "fill",
+        "target": "draft",
+        "value": "Book the demo slot"
+      },
+      {
+        "type": "click",
+        "target": "sync"
+      },
+      {
+        "type": "click",
+        "target": "add-note"
+      },
+      {
+        "type": "release",
+        "request": "save-1"
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "target": "sync"
+      },
+      {
+        "type": "click",
+        "target": "add-note"
+      },
+      {
+        "type": "release",
+        "request": "save-1"
+      }
+    ],
+    "assertion": {
+      "target": "notes",
+      "operator": "contains",
+      "expected": "Book the demo slot"
+    },
+    "completion": {
+      "target": "sync-state",
+      "value": "Synced \u00b7 1 added"
+    },
+    "schedule": [
+      {
+        "id": "save-1",
+        "key": "save",
+        "status": 200,
+        "response": {
+          "saved": true
+        }
+      }
+    ],
+    "seed": 0
+  },
+  {
+    "id": "rollback",
+    "title": "The undo from the past",
+    "subtitle": "Yesterday's failure. Today's damage.",
+    "category": "Optimistic rollback",
+    "difficulty": "Tricky",
+    "goal": "Make a failed rename undo a newer, successful rename.",
+    "hint": "Make two changes. Let the newer one succeed before the older one fails.",
+    "explanation": "Each rename captures a previous title. An older request failing after a newer success rolls the board back unconditionally. The fixed version assigns each mutation a revision and only rolls back if it still owns the current state.",
+    "accent": "orange",
+    "targetMoves": 4,
+    "allowedTargets": [
+      "rename-weekend",
+      "rename-launch",
+      "board-title",
+      "rename-state"
+    ],
+    "initialActions": [
+      {
+        "type": "wait",
+        "target": "board-title",
+        "value": "Untitled board"
+      },
+      {
+        "type": "click",
+        "target": "rename-weekend"
+      },
+      {
+        "type": "click",
+        "target": "rename-launch"
+      },
+      {
+        "type": "release",
+        "request": "rename-2"
+      },
+      {
+        "type": "release",
+        "request": "rename-1"
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "target": "rename-weekend"
+      },
+      {
+        "type": "click",
+        "target": "rename-launch"
+      },
+      {
+        "type": "release",
+        "request": "rename-2"
+      },
+      {
+        "type": "release",
+        "request": "rename-1"
+      }
+    ],
+    "assertion": {
+      "target": "board-title",
+      "operator": "equals",
+      "expected": "Launch board"
+    },
+    "completion": {
+      "target": "rename-state",
+      "value": "2 updates settled"
+    },
+    "schedule": [
+      {
+        "id": "rename-1",
+        "key": "rename",
+        "status": 503,
+        "response": {
+          "error": "Temporary write failure"
+        }
+      },
+      {
+        "id": "rename-2",
+        "key": "rename",
+        "status": 200,
+        "response": {
+          "saved": true
+        }
+      }
+    ],
+    "seed": 0
+  },
+  {
+    "id": "search",
+    "title": "Results from another time",
+    "subtitle": "The last response isn't the latest search.",
+    "category": "Response ordering",
+    "difficulty": "Tricky",
+    "goal": "Show results for an older query while the search box says react.",
+    "hint": "Search for re, then react. A network response can arrive out of order.",
+    "explanation": "Both searches update the same results state when their promises resolve. A slower response for re arrives after react and overwrites the relevant results. A monotonically increasing request sequence lets the fix ignore outdated responses.",
+    "accent": "cyan",
+    "targetMoves": 4,
+    "allowedTargets": [
+      "query",
+      "results",
+      "search-state"
+    ],
+    "initialActions": [
+      {
+        "type": "wait",
+        "target": "search-state",
+        "value": "0 searches settled"
+      },
+      {
+        "type": "fill",
+        "target": "query",
+        "value": "re"
+      },
+      {
+        "type": "fill",
+        "target": "query",
+        "value": "react"
+      },
+      {
+        "type": "release",
+        "request": "search-2"
+      },
+      {
+        "type": "release",
+        "request": "search-1"
+      }
+    ],
+    "actions": [
+      {
+        "type": "fill",
+        "target": "query",
+        "value": "re"
+      },
+      {
+        "type": "fill",
+        "target": "query",
+        "value": "react"
+      },
+      {
+        "type": "release",
+        "request": "search-2"
+      },
+      {
+        "type": "release",
+        "request": "search-1"
+      }
+    ],
+    "assertion": {
+      "target": "results",
+      "operator": "contains",
+      "expected": "React handbook"
+    },
+    "completion": {
+      "target": "search-state",
+      "value": "2 searches settled"
+    },
+    "schedule": [
+      {
+        "id": "search-1",
+        "key": "search",
+        "status": 200,
+        "response": {
+          "items": [
+            "Remote work field guide",
+            "Reading the room"
+          ]
+        }
+      },
+      {
+        "id": "search-2",
+        "key": "search",
+        "status": 200,
+        "response": {
+          "items": [
+            "React handbook",
+            "React patterns in practice"
+          ]
+        }
+      }
+    ],
+    "seed": 0
+  },
+  {
+    "id": "duplicate",
+    "title": "One click too many",
+    "subtitle": "One intention. Two orders.",
+    "category": "Pending submission",
+    "difficulty": "Warm-up",
+    "goal": "Send two order requests before the first one finishes.",
+    "hint": "The first request is still pending. Does the button know that?",
+    "explanation": "The submit handler issues a new request on every click, even while an identical request is pending. The fixed handler claims an in-flight ref before issuing a request and releases it in finally. This is a client guard; a production checkout also needs server-side idempotency.",
+    "accent": "pink",
+    "targetMoves": 3,
+    "allowedTargets": [
+      "place-order",
+      "request-count",
+      "order-state"
+    ],
+    "initialActions": [
+      {
+        "type": "wait",
+        "target": "request-count",
+        "value": "0"
+      },
+      {
+        "type": "click",
+        "target": "place-order"
+      },
+      {
+        "type": "click",
+        "target": "place-order"
+      },
+      {
+        "type": "release",
+        "request": "order-1"
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "target": "place-order"
+      },
+      {
+        "type": "click",
+        "target": "place-order"
+      },
+      {
+        "type": "release",
+        "request": "order-1"
+      }
+    ],
+    "assertion": {
+      "target": "request-count",
+      "operator": "equals",
+      "expected": "1"
+    },
+    "completion": {
+      "target": "order-state",
+      "value": "Order confirmed"
+    },
+    "schedule": [
+      {
+        "id": "order-1",
+        "key": "order",
+        "status": 200,
+        "response": {
+          "receipt": "ORD-001"
+        }
+      },
+      {
+        "id": "order-2",
+        "key": "order",
+        "status": 200,
+        "response": {
+          "receipt": "ORD-002"
+        }
+      }
+    ],
+    "seed": 0
+  },
+  {
+    "id": "cleanup",
+    "title": "The ghost of a screen",
+    "subtitle": "You left. Its request didn't.",
+    "category": "Effect cleanup",
+    "difficulty": "Expert",
+    "goal": "Make Project A's late response take over Project B's screen.",
+    "hint": "Navigate away while the first project is loading. Let its response arrive last.",
+    "explanation": "A component's effect loads details into its parent's shared panel. After navigating, the unmounted component's promise still writes to that panel. Effect cleanup marks the old request inactive, so the fixed version ignores its late result.",
+    "accent": "violet",
+    "targetMoves": 3,
+    "allowedTargets": [
+      "nav-a",
+      "nav-b",
+      "project-title",
+      "load-state"
+    ],
+    "initialActions": [
+      {
+        "type": "wait",
+        "target": "project-title",
+        "value": "Loading project\u2026"
+      },
+      {
+        "type": "click",
+        "target": "nav-b"
+      },
+      {
+        "type": "release",
+        "request": "project-b-1"
+      },
+      {
+        "type": "release",
+        "request": "project-a-1"
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "target": "nav-b"
+      },
+      {
+        "type": "release",
+        "request": "project-b-1"
+      },
+      {
+        "type": "release",
+        "request": "project-a-1"
+      }
+    ],
+    "assertion": {
+      "target": "project-title",
+      "operator": "equals",
+      "expected": "Project B \u00b7 Launch calendar"
+    },
+    "completion": {
+      "target": "load-state",
+      "value": "2 loads settled"
+    },
+    "schedule": [
+      {
+        "id": "project-a-1",
+        "key": "project-a",
+        "status": 200,
+        "response": {
+          "title": "Project A \u00b7 Studio refresh"
+        }
+      },
+      {
+        "id": "project-b-1",
+        "key": "project-b",
+        "status": 200,
+        "response": {
+          "title": "Project B \u00b7 Launch calendar"
+        }
+      }
+    ],
+    "seed": 0
+  }
+]

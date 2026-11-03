@@ -1,0 +1,416 @@
+{
+  "origin": "live-model",
+  "provider": "modal",
+  "model": "workspace-endpoint-redacted.us-west.modal.direct",
+  "endpoint": "https://inference.us-west.modal.direct/v1/chat/completions",
+  "configuration": {
+    "maxOutputTokens": 2048,
+    "temperature": 0.2
+  },
+  "providerCallAttempted": true,
+  "attemptedAt": 1793498546.467833,
+  "finishedAt": 1793498551.3006048,
+  "requestHash": "55694506eac6689bcd4826cfac14dd47a741297b38f02000e727989fd2639f54",
+  "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+  "frames": [
+    {
+      "timestampMs": 0,
+      "sha256": "3d96f85468a852c00a960d54cda8cbf5496e3bdb8b0fec7ded557a83e861c20b"
+    },
+    {
+      "timestampMs": 720,
+      "sha256": "19f642000041fb388f0c9f017a3aa908a045fbb1c320ba44c4e9f3ee29cd59b0"
+    },
+    {
+      "timestampMs": 1400,
+      "sha256": "709c2f2407394b12c2553bc7e23dc6b465659d883c6a85b91991a9a0c4dea186"
+    },
+    {
+      "timestampMs": 2080,
+      "sha256": "f8fc0f6053dab3ce6e62f3a7e49de06bde5fa1e7dab8987195649b125f575ddf"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1918,
+    "completion_tokens": 921,
+    "total_tokens": 2839
+  },
+  "estimatedModelCostUsd": 0.00631175,
+  "executedActions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    },
+    {
+      "type": "wait",
+      "target": "sync-state",
+      "value": "Synced · 1 added"
+    }
+  ],
+  "outcome": "proposed",
+  "admission": {
+    "textBytes": 2332,
+    "frameCount": 4,
+    "inputTokenReservation": 24000,
+    "outputTokenCeiling": 2048,
+    "limitation": "Input token reservation is a conservative estimate; provider usage is checked after the response."
+  },
+  "elapsedMs": 4833,
+  "responseContentHash": "c20b9f5c525d32ba754b0f04ebbf3a2c0eca7456c90f425041e2a1559a8d655c",
+  "proposalId": "4b35729c729a5c754b7e01efaa46390febfd3001218ecc4786d4a6ddc4379e1f",
+  "proposal": {
+    "actions": [
+      {
+        "type": "click",
+        "target": "sync"
+      },
+      {
+        "type": "click",
+        "target": "add-note"
+      },
+      {
+        "type": "release",
+        "request": "save-1"
+      },
+      {
+        "type": "wait",
+        "target": "sync-state",
+        "value": "Synced · 1 added"
+      }
+    ],
+    "candidateAssertion": {
+      "target": "notes",
+      "operator": "contains",
+      "expected": "Book the demo slot"
+    },
+    "rationale": "Start sync to capture stale snapshot, add note while Syncing to create optimistic update, then release save to let stale setNotes(snapshot) overwrite and lose the note while still reaching Synced completion."
+  },
+  "proposedActions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    },
+    {
+      "type": "wait",
+      "target": "sync-state",
+      "value": "Synced · 1 added"
+    }
+  ],
+  "attemptNumber": 1,
+  "executions": [
+    {
+      "variant": "buggy",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        },
+        {
+          "type": "wait",
+          "target": "sync-state",
+          "value": "Synced · 1 added"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/00-initial-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        },
+        {
+          "type": "wait",
+          "target": "sync-state",
+          "value": "Synced · 1 added"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/01-initial-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "add-note"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/02-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/03-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/04-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/05-minimize-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/06-minimize-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "add-note"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/07-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/08-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/09-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/10-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/11-validation-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/12-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/13-validation-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/14-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/6d18b3f942ea45698c972d6763ce3383/15-validation-fixed"
+    }
+  ]
+}

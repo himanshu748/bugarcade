@@ -1,0 +1,22 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    "atMs": 958,
+    "elapsedMs": 50,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "release",
+      "request": "coupon-1"
+    },
+    "atMs": 1052,
+    "elapsedMs": 18,
+    "status": "executed"
+  }
+]

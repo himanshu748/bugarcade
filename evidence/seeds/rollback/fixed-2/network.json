@@ -1,0 +1,58 @@
+{
+  "schedule": [
+    {
+      "id": "rename-1",
+      "key": "rename",
+      "status": 503,
+      "response": {
+        "error": "Temporary write failure"
+      }
+    },
+    {
+      "id": "rename-2",
+      "key": "rename",
+      "status": 200,
+      "response": {
+        "saved": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "rename-1",
+      "key": "rename",
+      "payload": {
+        "title": "Weekend project"
+      },
+      "atMs": 1360
+    },
+    {
+      "type": "request",
+      "id": "rename-2",
+      "key": "rename",
+      "payload": {
+        "title": "Launch board"
+      },
+      "atMs": 1694
+    },
+    {
+      "type": "release",
+      "id": "rename-2",
+      "status": 200,
+      "response": {
+        "saved": true
+      },
+      "atMs": 1908
+    },
+    {
+      "type": "release",
+      "id": "rename-1",
+      "status": 503,
+      "response": {
+        "error": "Temporary write failure"
+      },
+      "atMs": 2028
+    }
+  ]
+}

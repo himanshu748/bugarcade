@@ -1,0 +1,28 @@
+✖ One click too many — intended invariant (4608.108542ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5774.728792
+
+✖ failing tests:
+
+test at evidence/seeds/duplicate/regression.test.mjs:9:1
+✖ One click too many — intended invariant (4608.108542ms)
+  AssertionError [ERR_ASSERTION]: {"status":"failed","assertion":{"target":"request-count","operator":"equals","expected":"1","actual":"2","pass":false,"hash":"e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e","completion":{"target":"order-state","value":"Order confirmed"}},"error":null}
+  
+  'failed' !== 'passed'
+  
+      at TestContext.<anonymous> (file:///redacted/local-path
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'failed',
+    expected: 'passed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

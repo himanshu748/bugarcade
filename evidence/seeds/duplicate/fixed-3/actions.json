@@ -1,0 +1,32 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "click",
+      "target": "place-order"
+    },
+    "atMs": 3476,
+    "elapsedMs": 192,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "click",
+      "target": "place-order"
+    },
+    "atMs": 3805,
+    "elapsedMs": 43,
+    "status": "executed"
+  },
+  {
+    "index": 2,
+    "action": {
+      "type": "release",
+      "request": "order-1"
+    },
+    "atMs": 3909,
+    "elapsedMs": 5,
+    "status": "executed"
+  }
+]

@@ -1,0 +1,39 @@
+WEBVTT
+
+NOTE Authored chapter summaries; full spoken transcript is demo-transcript.txt.
+
+00:00:00.000 --> 00:00:04.000
+Can you make this app lose a note in three moves?
+
+00:00:04.000 --> 00:00:07.500
+1. Sync notes   2. Add a note
+
+00:00:07.500 --> 00:00:13.000
+3. Release the response → the note disappears
+
+00:00:13.000 --> 00:00:19.000
+BugArcade · Play a real bug. Understand it. Test the fix.
+
+00:00:19.000 --> 00:00:32.000
+Muse proposed the actions. The browser executed them.
+
+00:00:32.000 --> 00:00:39.000
+Four model actions → three reproducible moves
+
+00:00:39.000 --> 00:00:46.000
+The assertion stays locked. The verifier decides.
+
+00:00:46.000 --> 00:00:51.000
+The exact regression fails on the buggy app.
+
+00:00:51.000 --> 00:00:57.000
+Same moves, fixed app: the note survives.
+
+00:00:57.000 --> 00:01:05.500
+Three buggy failures · three fixed passes · same assertion
+
+00:01:05.500 --> 00:01:19.000
+Captured playback · authored gallery · live uploads disabled
+
+00:01:19.000 --> 00:01:27.000
+Start with a bug you can break. Finish with a test that catches it.

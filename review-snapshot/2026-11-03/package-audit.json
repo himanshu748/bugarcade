@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "payloadFiles": 725,
+  "expandedPayloadBytes": 45381563,
+  "knownPatternFindings": [],
+  "intentionalSyntheticFixtureExclusions": {
+    "tests/test_live_preflight.py": 2,
+    "tests/test_modal_planner.py": 3
+  },
+  "nestedZipScan": "all included nested members scanned with 160-member/24MiB ceilings",
+  "pathTypeSizeChecks": "passed",
+  "extractionAndHashCheck": "passed",
+  "limits": {
+    "members": 2000,
+    "regularMemberBytes": 16777216,
+    "aggregateBytes": 367001600
+  },
+  "scanLimitations": "Known patterns only, not Git history or unknown secret formats. Exact documented synthetic proxy literals in two named tests are excluded; any other wk/ws-shaped token fails. Images/media are not OCR-scanned. Visual app-only evidence allowlist excludes account screenshots.",
+  "sourceDerivatives": 47,
+  "demoIncluded": true,
+  "runtimeVerificationIncluded": true,
+  "newProviderCalls": 0
+}

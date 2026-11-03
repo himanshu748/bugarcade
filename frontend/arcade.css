@@ -1,0 +1,84 @@
+/* Personal play milestones, independent of captured verification results. */
+.arcade-label { display: block; font: 8px/1.6 ui-monospace, monospace; letter-spacing: 1.1px; color: #b1bd9f; }
+.arcade-stars { display: inline-flex; align-items: center; gap: 5px; color: #667257; flex-shrink: 0; }
+.arcade-stars .earned { color: var(--lime); fill: var(--lime); }
+.arcade-card-progress { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 19px; padding-top: 13px; border-top: 1px solid #3a4430; font: 7px/1.5 ui-monospace, monospace; letter-spacing: .6px; color: #a8b299; }
+.arcade-card-progress .arcade-stars { gap: 3px; }
+.arcade-card-progress svg { width: 11px; height: 11px; }
+.arcade-card-progress.is-cleared { color: var(--lime); }
+.arcade-passport { display: flex; align-items: center; gap: 28px; padding: 25px 28px; margin-bottom: 24px; border: 1px solid #49553a; border-radius: 6px; background: #1c2317; }
+.passport-identity { display: flex; align-items: center; gap: 17px; flex: 1; }
+.passport-icon { width: 48px; height: 48px; border: 1px solid #52683a; background: #2e3b20; color: var(--lime); display: grid; place-items: center; flex-shrink: 0; border-radius: 5px; transform: rotate(-5deg); }
+.passport-identity h3 { margin: 4px 0 6px; font-size: 17px; font-weight: 500; letter-spacing: -.3px; }
+.passport-identity p { font-size: 10px; color: #afb9a3; margin: 0; }
+.passport-score { min-width: 80px; }
+.passport-score strong { display: flex; align-items: center; gap: 5px; color: var(--lime); font: 27px/1.1 ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.passport-score strong small { font-size: 14px; color: #a4b091; }
+.passport-score > span { display: block; margin-top: 8px; font: 7px/1.6 ui-monospace, monospace; letter-spacing: .7px; color: #b5bfa8; }
+.passport-score progress { display: block; width: 85px; height: 3px; margin-top: 8px; appearance: none; border: 0; background: #46513a; accent-color: var(--lime); }
+.passport-score progress::-webkit-progress-bar { background: #46513a; }
+.passport-score progress::-webkit-progress-value { background: var(--lime); }
+.passport-score progress::-moz-progress-bar { background: var(--lime); }
+.passport-star-score strong > svg { fill: currentColor; }
+.arcade-case-rail { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin: -5px 0 26px; padding: 21px 24px; background: #1b2116; border: 1px solid #414d34; border-radius: 5px; }
+.arcade-case-score { min-width: 109px; padding-right: 24px; border-right: 1px solid #3d4832; }
+.arcade-case-score > .arcade-stars { margin-top: 8px; }
+.arcade-milestones { display: flex; justify-content: space-around; flex: 1; gap: 22px; list-style: none; padding: 0; margin: 0; }
+.arcade-milestones li { display: flex; align-items: center; gap: 9px; color: #a8b398; }
+.milestone-icon { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid #536046; border-radius: 50%; flex-shrink: 0; }
+.arcade-milestones b { font-size: 11px; font-weight: 500; display: block; }
+.arcade-milestones small { display: block; margin-top: 5px; font: 8px/1.4 ui-monospace, monospace; }
+.arcade-milestones [data-earned='true'] { color: var(--lime); }
+.arcade-milestones [data-earned='true'] .milestone-icon { background: #334522; border-color: #9fcb65; }
+.arcade-milestones [data-earned='true'] svg { fill: currentColor; }
+.arcade-best { padding-left: 24px; border-left: 1px solid #3d4832; min-width: 108px; }
+.arcade-best strong { display: block; margin-top: 7px; font: 17px/1.2 ui-monospace, monospace; font-weight: 400; color: var(--cream); }
+.arcade-storage-note { flex-basis: 100%; color: #f0c895; font-size: 11px; margin: 0; }
+.arcade-reward { display: flex; align-items: center; gap: 22px; margin: 24px 0 0; padding: 28px; border: 1px solid #776345; background: #262317; border-radius: 6px; position: relative; overflow: hidden; animation: arcade-panel var(--motion-enter) var(--ease); }
+.arcade-reward.is-cleared { border-color: #6f9845; background: #202c18; }
+.reward-stamp { display: grid; place-items: center; width: 61px; height: 67px; flex-shrink: 0; color: var(--lime); background: #334622; clip-path: polygon(50% 0, 100% 20%, 100% 73%, 50% 100%, 0 73%, 0 20%); animation: arcade-mark 260ms var(--ease); }
+.is-cleared .reward-stamp svg { fill: var(--lime); }
+.reward-copy { flex: 1; }
+.reward-copy h2 { font-size: 25px; line-height: 1.2; font-weight: 500; letter-spacing: -.9px; margin: 6px 0 8px; }
+.reward-copy p { font-size: 12px; color: #c3cbb9; margin: 0; line-height: 1.7; }
+.arcade-personal-note { display: block; font-size: 9px; color: #abb69f; margin-top: 10px; line-height: 1.7; }
+.reward-actions { display: flex; flex-direction: column; align-items: center; gap: 13px; }
+.reward-actions .text-button { font-size: 10px; }
+@media (max-width: 1100px) {
+  .arcade-case-rail { gap: 17px; padding: 18px; }
+  .arcade-milestones { gap: 14px; }
+  .arcade-case-score { padding-right: 15px; min-width: 100px; }
+  .arcade-best { padding-left: 15px; min-width: 98px; }
+  .arcade-passport { flex-wrap: wrap; gap: 22px; }
+  .passport-identity { flex-basis: 100%; }
+  .arcade-passport > .button { margin-left: auto; }
+}
+@media (max-width: 760px) {
+  .arcade-passport { padding: 21px; gap: 19px; }
+  .passport-identity { gap: 12px; }
+  .passport-icon { width: 39px; height: 39px; }
+  .passport-identity h3 { font-size: 16px; line-height: 1.4; }
+  .passport-identity p { font-size: 10px; line-height: 1.6; }
+  .passport-score { flex: 1; }
+  .passport-score strong { font-size: 28px; }
+  .arcade-passport > .button { flex-basis: 100%; justify-content: center; }
+  .arcade-case-rail { gap: 16px; padding: 17px; margin-bottom: 20px; }
+  .arcade-case-score { border: 0; padding: 0; min-width: 0; }
+  .arcade-best { margin-left: auto; border: 0; padding: 0; text-align: right; }
+  .arcade-milestones { order: 3; flex-basis: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; border-top: 1px solid #3d4832; padding-top: 15px; }
+  .arcade-milestones li { align-items: flex-start; flex-direction: column; gap: 9px; }
+  .arcade-milestones b { font-size: 10px; line-height: 1.5; }
+  .arcade-milestones small { font-size: 8px; line-height: 1.7; }
+  .arcade-card-progress { gap: 5px; font-size: 6px; letter-spacing: .2px; flex-wrap: wrap; margin-top: 12px; padding-top: 11px; }
+  .arcade-card-progress svg { width: 10px; height: 10px; }
+  .arcade-reward { flex-wrap: wrap; gap: 16px; padding: 21px; }
+  .reward-stamp { width: 46px; height: 52px; }
+  .reward-copy { min-width: 0; flex-basis: calc(100% - 62px); }
+  .reward-copy h2 { font-size: 21px; line-height: 1.3; letter-spacing: -.5px; }
+  .reward-copy p { font-size: 11px; }
+  .reward-actions { flex-basis: 100%; flex-direction: row; justify-content: space-between; flex-wrap: wrap; border-top: 1px solid #4d5a3f; padding-top: 16px; }
+  .reward-actions > .text-button { flex-basis: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arcade-reward, .reward-stamp { animation: none; }
+}

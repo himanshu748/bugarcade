@@ -1,0 +1,87 @@
+{
+  "verified": true,
+  "mode": "live",
+  "runner": "modal-sandbox",
+  "challengeId": "coupon-total",
+  "sourceHashes": {
+    "manifest.json": "c1cd40598b440c73dd369f3b5cbbf6f3b2d0748e1aee4f5f40919b8192558074",
+    "fixed/App.tsx": "dd991fd8cfcdded808966e8e51135053b3a4796bbf82bef2599415ebc0c80a43",
+    "README.md": "5c71618f5657fc3203a5972a820ae5ccf0d22e5896832be55fcc880ef1a1d0e0",
+    "buggy/App.tsx": "f189ec641c26b2513428c514b642f897e1ecdcf355d5911c5ae972c9f0a7c97d"
+  },
+  "invariantHash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+  "assertion": {
+    "target": "total",
+    "operator": "equals",
+    "expected": "$43.20"
+  },
+  "completion": {
+    "target": "discount-status",
+    "value": "Coupon applied · 10% off"
+  },
+  "seed": 7331,
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    },
+    {
+      "type": "wait",
+      "target": "discount-status",
+      "value": "Coupon applied · 10% off"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    }
+  ],
+  "initialActionCount": 3,
+  "minimizedActionCount": 2,
+  "minimizationProbes": 5,
+  "minimality": "bounded deletion search; not a global optimum",
+  "buggyFailures": 3,
+  "fixedPasses": 3,
+  "validationRuns": 6,
+  "browserRuns": 14,
+  "infrastructureErrors": 4,
+  "elapsedMs": 270751,
+  "modelCalls": 1,
+  "modelUsage": [
+    {
+      "prompt_tokens": 2164,
+      "completion_tokens": 1799,
+      "total_tokens": 3963
+    }
+  ],
+  "modelProvider": "modal",
+  "estimatedModelCostUsd": 0.01035075,
+  "publicDerivative": true,
+  "evaluationScope": "One pipeline-held-out first-party app, frozen before model use; not an independent benchmark or model-training holdout",
+  "modelIdentity": "meta-models/Muse-Spark-Open-816B-A42B",
+  "workspaceEndpoint": "redacted",
+  "frozenAt": "2026-11-03T07:47:00.872Z",
+  "originalSummarySha256": "33e175e6c050e53ee72a3bd7e5262b1f1f1e668b8a40b752088698cca1dbe70a",
+  "originalProvenanceSha256": "c38862be6bc85e0c8d39c9ed21a042c78ae11d14cf5987d3651e097dc10dcfb2"
+}

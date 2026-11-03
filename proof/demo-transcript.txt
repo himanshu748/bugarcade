@@ -1,0 +1,21 @@
+Can you make this app lose your note in three moves?
+
+Sync the notes. Add a new one. Now release the waiting response.
+
+The new note disappears. That's a real stale-state bug in this React app.
+
+BugArcade turns bugs into something you can play, understand, and test.
+
+This challenge came from a genuine Muse Spark Open investigation. The model received source code and four timestamped recording frames. It proposed browser actions, and those actions actually ran in Modal Sandboxes.
+
+The model suggested four steps. The verifier removed an unnecessary wait, leaving the same three-move reproduction.
+
+The verifier decides the outcome. The model cannot rewrite the assertion to make itself right.
+
+Here is the exact regression test failing against the buggy app. Now run the same moves against the fixed app. The note stays, and that identical test passes.
+
+The evidence includes three buggy failures, three fixed passes, source hashes, the response schedule, and downloadable browser traces.
+
+This is playback of a captured live investigation, not a new model call. The five gallery cases use authored plans. General uploaded-app live execution remains disabled while memory-limit verification is incomplete.
+
+Start with a bug you can break. Finish with a test that catches it.

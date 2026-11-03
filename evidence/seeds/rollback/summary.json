@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "rollback",
+  "title": "The undo from the past",
+  "verified": true,
+  "evidenceKind": "captured-local-browser",
+  "mode": "recorded",
+  "provenance": {
+    "planner": "authored-seed-plan",
+    "liveModel": false,
+    "model": null,
+    "modelCalls": 0,
+    "promptTokens": 0,
+    "completionTokens": 0,
+    "estimatedCostUsd": 0,
+    "note": "Authored initial plans, real browser capture. No live Meta call was made."
+  },
+  "seed": 0,
+  "sourceHashes": {
+    "buggy": "c13c1f3c8355cfe40b1cb9001123ffd8f96b91598be0d1e01f79c438baecde93",
+    "fixed": "a02e1e98adff4052174526d3cda301dd6b6ff4d9bdf9a5b7daf7117b8cff99c8"
+  },
+  "manifestHash": "81c8b24336d696e999fecf9e1f61989b5b36d978a2d8c75e5fe875c7313ccf40",
+  "lockfileHash": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b",
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@playwright/test": "1.64.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "eslint": "9.39.1",
+    "typescript-eslint": "8.46.3"
+  },
+  "browserVersion": "156.0.8078.4",
+  "assertion": {
+    "target": "board-title",
+    "operator": "equals",
+    "expected": "Launch board",
+    "hash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac"
+  },
+  "completion": {
+    "target": "rename-state",
+    "value": "2 updates settled"
+  },
+  "schedule": [
+    {
+      "id": "rename-1",
+      "key": "rename",
+      "status": 503,
+      "response": {
+        "error": "Temporary write failure"
+      }
+    },
+    {
+      "id": "rename-2",
+      "key": "rename",
+      "status": 200,
+      "response": {
+        "saved": true
+      }
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "wait",
+      "target": "board-title",
+      "value": "Untitled board"
+    },
+    {
+      "type": "click",
+      "target": "rename-weekend"
+    },
+    {
+      "type": "click",
+      "target": "rename-launch"
+    },
+    {
+      "type": "release",
+      "request": "rename-2"
+    },
+    {
+      "type": "release",
+      "request": "rename-1"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "rename-weekend"
+    },
+    {
+      "type": "click",
+      "target": "rename-launch"
+    },
+    {
+      "type": "release",
+      "request": "rename-2"
+    },
+    {
+      "type": "release",
+      "request": "rename-1"
+    }
+  ],
+  "initialActionCount": 5,
+  "minimizedActionCount": 4,
+  "minimality": "1-minimal for single-action deletion under this schedule",
+  "repetitions": {
+    "buggy": [
+      {
+        "status": "failed",
+        "elapsedMs": 5543,
+        "result": "buggy-1/result.json",
+        "actual": "Untitled board",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 5446,
+        "result": "buggy-2/result.json",
+        "actual": "Untitled board",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 4206,
+        "result": "buggy-3/result.json",
+        "actual": "Untitled board",
+        "error": null
+      }
+    ],
+    "fixed": [
+      {
+        "status": "passed",
+        "elapsedMs": 6704,
+        "result": "fixed-1/result.json",
+        "actual": "Launch board",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 5381,
+        "result": "fixed-2/result.json",
+        "actual": "Launch board",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 6088,
+        "result": "fixed-3/result.json",
+        "actual": "Launch board",
+        "error": null
+      }
+    ]
+  },
+  "reproductionRate": {
+    "failures": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "fixedPassRate": {
+    "passes": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "initialResults": {
+    "buggy": "failed",
+    "fixed": "passed"
+  },
+  "regressionResults": {
+    "buggy": {
+      "exitCode": 1,
+      "log": "regression-buggy.txt",
+      "status": "failed",
+      "assertionHash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac"
+    },
+    "fixed": {
+      "exitCode": 0,
+      "log": "regression-fixed.txt",
+      "status": "passed",
+      "assertionHash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac"
+    }
+  },
+  "elapsedMs": 138813,
+  "artifacts": {
+    "regression": "regression.test.mjs",
+    "recording": "recording.json",
+    "buggyTrace": "buggy-1/trace.zip",
+    "fixedTrace": "fixed-1/trace.zip",
+    "buggyScreenshot": "buggy-1/final.png",
+    "fixedScreenshot": "fixed-1/final.png",
+    "minimization": "minimization.json"
+  },
+  "limits": "Three repetitions under one controlled schedule establish repeatability for this seed only. No held-out/generalization or live-provider evidence."
+}

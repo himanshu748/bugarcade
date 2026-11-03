@@ -1,0 +1,32 @@
+{
+  "kind": "approved-publication-transformations",
+  "preparedAt": "2026-11-03T10:08:21.679196+00:00",
+  "originalReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
+  "originalReviewMembers": 727,
+  "authorization": "New public himanshu748/bugarcade under MIT, including initial commit/push. This tool performs none of the Git/account actions. No deployment or entry submission.",
+  "changedOriginalPayloads": [
+    {
+      "path": "README.md",
+      "originalSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
+      "releaseSha256": "b5766cc72ccb7ccc225db8ec06b88c933ac4e1ab8544a5d38451b7ad6f26597a",
+      "reason": "Publication documentation/status update"
+    },
+    {
+      "path": "docs/JUDGE_GUIDE.md",
+      "originalSha256": "30b705b712e4b2af9cb42417b325d522613bf52c0f30d4d7e3da3f2285c93ae7",
+      "releaseSha256": "2dac122de7dd237e1b672740c762c4f27c94e07dccc1cc43474059b1fb36c27c",
+      "reason": "Publication documentation/status update"
+    },
+    {
+      "path": "docs/SUBMISSION_DRAFT.md",
+      "originalSha256": "b18400b0f0ec4f6a0bd1d0c087818a18f13f1809ad2abf24d085fa35421234dc",
+      "releaseSha256": "a77c50897f9dfb48f44018f5c92f28971f169fe80603b59e7f24fb8b3eb7e631",
+      "reason": "Publication documentation/status update"
+    }
+  ],
+  "newLicense": "LICENSE",
+  "snapshot": "review-snapshot/2026-11-03/",
+  "currentMetadata": "package-manifest.json and package-audit.json replace original review metadata at root; originals preserved in snapshot.",
+  "sourceTestProofMediaBytesUnchanged": true,
+  "thirdPartyNoticesUnchanged": true
+}

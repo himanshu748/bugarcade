@@ -1,0 +1,132 @@
+/* Motion is feedback for real interface state. Nothing here drives app actions. */
+:root {
+  --motion-quick: 100ms;
+  --motion-standard: 180ms;
+  --motion-enter: 260ms;
+  --motion-distance: 6px;
+}
+
+.challenge-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.challenge-stages li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  transition: color var(--motion-standard) var(--ease);
+}
+
+.challenge-stages li::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 1px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-enter) var(--ease);
+}
+
+.challenge-stages [aria-current='step'] { color: var(--lime); }
+.challenge-stages [data-position='previous'] { color: #c3cabb; }
+.challenge-stages [aria-current='step']::before { transform: scaleX(1); }
+.challenge-stages [data-position='previous']::before { transform: scaleX(1); opacity: .35; }
+.stage-number { font: 12px ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.challenge-stages b { display: block; font-size: 12px; font-weight: 550; }
+.challenge-stages small { display: block; margin-top: 4px; font-size: 11px; color: var(--muted); }
+
+.move-count { font-variant-numeric: tabular-nums; }
+.move-count.is-updated { animation: arcade-count var(--motion-standard) var(--ease); }
+.app-window { transition: border-color var(--motion-standard) var(--ease); }
+.app-window[data-variant='fixed'] { border-color: #4d7562; }
+.app-window[data-variant='fixed'] .variant-label { color: var(--mint); }
+
+/* The indicator moves; labels and playable app content stay in place. */
+.segmented[data-variant] { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; padding: 3px; gap: 0; }
+.segmented[data-variant]::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  bottom: 3px;
+  width: calc((100% - 6px) / 2);
+  border-radius: 3px;
+  background: #4a3426;
+  transform: translateX(0);
+  transition: transform var(--motion-standard) var(--ease), background-color var(--motion-standard) var(--ease);
+  z-index: -1;
+}
+.segmented[data-variant='fixed']::before { transform: translateX(100%); background: #284b3c; }
+.segmented[data-variant] button { padding: 9px 13px; position: relative; }
+.segmented[data-variant] button.active { background: transparent; }
+.segmented[data-variant] button.active.fixed { color: #b5efd6; }
+.segmented[data-variant] button.active.buggy { color: #f4bf9b; }
+
+.reveal-section { animation: none; }
+.motion-panel, .hint-copy { animation: arcade-panel var(--motion-enter) var(--ease); }
+.job-progress[data-running='true'] li:last-child { animation: arcade-panel var(--motion-enter) var(--ease); }
+.outcome { position: relative; overflow: hidden; animation: arcade-panel var(--motion-enter) var(--ease); }
+.outcome > svg { flex-shrink: 0; animation: arcade-mark var(--motion-enter) var(--ease); }
+.outcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  animation: arcade-rim 360ms var(--ease);
+}
+
+@media (hover: hover) {
+  .challenge-card { transition-duration: 80ms; }
+  .challenge-card .artwork { transition: transform var(--motion-standard) var(--ease); }
+  .challenge-card:is(:hover, :focus-visible) .artwork { transform: translateY(-3px); }
+}
+.challenge-card:focus-visible { border-color: var(--lime); background: #23291c; }
+.challenge-card .card-arrow svg, .button > svg { transition: transform var(--motion-quick) var(--ease); }
+.challenge-card:is(:hover, :focus-visible) .card-arrow svg { transform: translateX(3px); }
+.button:not(:disabled):is(:hover, :focus-visible) > svg { transform: translateX(2px); }
+
+@keyframes arcade-count {
+  from { transform: translateY(-4px); opacity: .65; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes arcade-panel {
+  from { transform: translateY(var(--motion-distance)); opacity: .6; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes arcade-mark {
+  from { transform: scale(.85); opacity: .5; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes arcade-rim {
+  0%, 100% { opacity: 0; }
+  35% { opacity: .45; }
+}
+
+@media (max-width: 760px) {
+  :root { --motion-distance: 3px; --motion-enter: 200ms; }
+  .challenge-stages { gap: 14px; margin-bottom: 20px; }
+  .challenge-stages li { padding: 11px 0; gap: 8px; }
+  .challenge-stages small { display: none; }
+  .challenge-stages b, .stage-number { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .challenge-card:is(:hover, :focus-visible),
+  .challenge-card:is(:hover, :focus-visible) .artwork,
+  .challenge-card:is(:hover, :focus-visible) .card-arrow svg,
+  .button:not(:disabled):is(:hover, :focus-visible) > svg { transform: none; }
+}

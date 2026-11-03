@@ -1,0 +1,14 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import { ArcadeProgressProvider } from './ArcadeProgress';
+import { FrameFocus } from './FrameFocus';
+import './styles.css';
+import './motion.css';
+import './landing.css';
+import './header.css';
+import './arcade.css';
+import './investigation.css';
+import './hallmark.css';
+import './arena-hallmark.css';
+createRoot(document.getElementById('root')!).render(<React.StrictMode><ArcadeProgressProvider><App /><FrameFocus /></ArcadeProgressProvider></React.StrictMode>);

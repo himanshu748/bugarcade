@@ -1,0 +1,12 @@
+{
+  "id": "coupon-total",
+  "title": "The coupon that did not add up",
+  "goal": "Apply the welcome coupon and make the order total disagree with its accepted discount.",
+  "allowedTargets": ["coupon", "apply-coupon", "increase-quantity", "quantity", "total", "discount-status"],
+  "assertion": {"target": "total", "operator": "equals", "expected": "$43.20"},
+  "completion": {"target": "discount-status", "value": "Coupon applied · 10% off"},
+  "schedule": [{"id": "coupon-1", "key": "validate-coupon", "status": 200, "response": {"code": "WELCOME10", "percent": 10}}],
+  "actions": [],
+  "initialActions": [],
+  "seed": 7331
+}

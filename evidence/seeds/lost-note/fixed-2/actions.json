@@ -1,0 +1,32 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "click",
+      "target": "sync"
+    },
+    "atMs": 6594,
+    "elapsedMs": 460,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "click",
+      "target": "add-note"
+    },
+    "atMs": 7213,
+    "elapsedMs": 283,
+    "status": "executed"
+  },
+  {
+    "index": 2,
+    "action": {
+      "type": "release",
+      "request": "save-1"
+    },
+    "atMs": 7680,
+    "elapsedMs": 23,
+    "status": "executed"
+  }
+]

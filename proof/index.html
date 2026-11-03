@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'"><title>BugArcade · captured proof</title><style>body{margin:0;background:#11150f;color:#edf1e6;font:17px/1.6 system-ui,sans-serif}main{max-width:1080px;margin:auto;padding:40px 24px}h1{font-size:clamp(36px,5vw,64px);line-height:1.08;letter-spacing:-2px}h2{font-size:30px;line-height:1.2;margin-top:48px}h3{font-size:20px}a{color:#c7f78d}a:focus-visible,summary:focus-visible{outline:2px solid #c7f78d;outline-offset:4px}p{max-width:74ch}pre{overflow:auto;padding:20px;background:#1a2117;border:1px solid #45513d;white-space:pre-wrap;overflow-wrap:anywhere}code{overflow-wrap:anywhere}.runs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}article{border-top:1px solid #45513d}img,video{width:100%;height:auto}.actions{display:flex;gap:24px;flex-wrap:wrap;padding:16px 0}summary{cursor:pointer;padding:12px 0}footer{margin-top:48px;border-top:1px solid #45513d;padding-top:24px}.test-outputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.test-outputs pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:1.5}@media(max-width:750px){.test-outputs{grid-template-columns:1fr}}</style></head><body><main>
+<p>A debugging game for React developers · local review package</p><h1>Break a real bug.<br>Replay it. Check the fix.</h1><p>Can you make Papertrail lose a note in three moves? Start sync, add the new note, then release the waiting save response. The buggy app overwrites your note with an old snapshot.</p>
+<nav class="actions" aria-label="Playable versions"><a href="live/player-buggy.html" target="_blank" rel="noopener">Play buggy app ↗</a><a href="live/player-fixed.html" target="_blank" rel="noopener">Play fixed app ↗</a><a href="../docs/JUDGE_GUIDE.md">Judge guide</a></nav>
+<p>These standalone apps use an in-memory response schedule and no network calls. Playback is for exploration. Independent captured worker assertions below are the verification evidence.</p><section><h2>Watch the 87-second demo</h2><p><strong>Historical capture · November 3, 2026.</strong> Recorded before final guarded-runtime verification. The narration states the gate status at capture time; current runtime status is documented below. <a href="demo-README.md">Capture context</a></p><video controls preload="metadata" src="demo.mp4"></video><p>Deepgram narration over edited actual-browser captures, with authored pointer and chapter captions. This is captured playback, with no fresh model call.</p><p><a href="demo-transcript.txt">Full spoken transcript</a> · <a href="demo-chapters.srt">Chapter captions (summary)</a> · <a href="demo-chapters.vtt">WebVTT chapters</a> · <a href="demo-inspection.public.json">Media inspection</a></p></section><section id="runtime"><h2>The guarded runtime is verified</h2><p>Six real boundary controls passed. The five unchanged known challenges each produced three buggy failures and three fixed passes in 30 guarded browser runs. The identical exported regression then failed buggy and passed fixed in two additional VMs. All 38 VMs in the verified cohort have terminal evidence.</p><p>A root-owned 1 GiB workload cgroup inside a 2 GiB Modal VM produced exact kernel memcg/leaf/victim attribution and local OOM counters. Manual-kill and timeout controls stayed distinct. The earlier outer-memory exit137 remains inconclusive; the failed cleanup/metadata attempts remain recorded.</p><p>General live API execution stays off. This verifies the reviewed runtime and narrow schedules, not arbitrary repositories, broad reliability or production security. These runtime checks made no model calls; genuine Muse decisions are documented separately below.</p><p><a href="runtime-summary.json">Public runtime evidence and source hashes</a></p></section>
+<section><h2>Meta proposed. The browser decided.</h2><p>This is a public derivative of one genuinely captured Meta Muse Spark Open investigation through Modal. It is a known seed, not held-out generalization. Opening this page makes no model or cloud call.</p><p>One model call · 2,839 tokens · 4 → 3 actions · 3 buggy failures / 3 fixed passes · 276.552 seconds. Six invalid minimization outcomes were rejected. Estimated inference cost: $0.00631175; total provider billing is separate.</p><details open><summary>Accepted model proposal</summary><pre>{
+  &quot;actions&quot;: [
+    {
+      &quot;type&quot;: &quot;click&quot;,
+      &quot;target&quot;: &quot;sync&quot;
+    },
+    {
+      &quot;type&quot;: &quot;click&quot;,
+      &quot;target&quot;: &quot;add-note&quot;
+    },
+    {
+      &quot;type&quot;: &quot;release&quot;,
+      &quot;request&quot;: &quot;save-1&quot;
+    },
+    {
+      &quot;type&quot;: &quot;wait&quot;,
+      &quot;target&quot;: &quot;sync-state&quot;,
+      &quot;value&quot;: &quot;Synced · 1 added&quot;
+    }
+  ],
+  &quot;candidateAssertion&quot;: {
+    &quot;target&quot;: &quot;notes&quot;,
+    &quot;operator&quot;: &quot;contains&quot;,
+    &quot;expected&quot;: &quot;Book the demo slot&quot;
+  },
+  &quot;rationale&quot;: &quot;Start sync to capture stale snapshot, add note while Syncing to create optimistic update, then release save to let stale setNotes(snapshot) overwrite and lose the note while still reaching Synced completion.&quot;
+}</pre></details><details><summary>Minimized replay and immutable assertion</summary><pre>{
+  &quot;actions&quot;: [
+    {
+      &quot;type&quot;: &quot;click&quot;,
+      &quot;target&quot;: &quot;sync&quot;
+    },
+    {
+      &quot;type&quot;: &quot;click&quot;,
+      &quot;target&quot;: &quot;add-note&quot;
+    },
+    {
+      &quot;type&quot;: &quot;release&quot;,
+      &quot;request&quot;: &quot;save-1&quot;
+    }
+  ],
+  &quot;assertion&quot;: {
+    &quot;target&quot;: &quot;notes&quot;,
+    &quot;operator&quot;: &quot;contains&quot;,
+    &quot;expected&quot;: &quot;Book the demo slot&quot;
+  },
+  &quot;completion&quot;: {
+    &quot;target&quot;: &quot;sync-state&quot;,
+    &quot;value&quot;: &quot;Synced · 1 added&quot;
+  },
+  &quot;seed&quot;: 0,
+  &quot;schedule&quot;: [
+    {
+      &quot;id&quot;: &quot;save-1&quot;,
+      &quot;key&quot;: &quot;save&quot;,
+      &quot;response&quot;: {
+        &quot;saved&quot;: true
+      },
+      &quot;status&quot;: 200,
+      &quot;optional&quot;: false
+    }
+  ],
+  &quot;invariantHash&quot;: &quot;072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951&quot;
+}</pre></details><p><a href="live/summary.public.json">Public summary</a> · <a href="live/provenance.public.json">Public provenance and initial execution trace</a></p></section>
+<section><h2>The recording evidence the model received</h2><p>Four actual timestamped input frames, each checked against the captured proposal’s input hash. These are recording samples, distinct from the later worker screenshots. Samples can miss fast interactions; browser action/network traces retain execution order.</p><div class="runs input-frames"><article><h3>Input frame · 0 ms</h3><img loading="lazy" src="live/input-frames/frame-00.png" alt="Actual model input recording sample at 0 milliseconds"/><p><code>3d96f85468a852c00a960d54cda8cbf5496e3bdb8b0fec7ded557a83e861c20b</code></p></article><article><h3>Input frame · 720 ms</h3><img loading="lazy" src="live/input-frames/frame-01.png" alt="Actual model input recording sample at 720 milliseconds"/><p><code>19f642000041fb388f0c9f017a3aa908a045fbb1c320ba44c4e9f3ee29cd59b0</code></p></article><article><h3>Input frame · 1400 ms</h3><img loading="lazy" src="live/input-frames/frame-02.png" alt="Actual model input recording sample at 1400 milliseconds"/><p><code>709c2f2407394b12c2553bc7e23dc6b465659d883c6a85b91991a9a0c4dea186</code></p></article><article><h3>Input frame · 2080 ms</h3><img loading="lazy" src="live/input-frames/frame-03.png" alt="Actual model input recording sample at 2080 milliseconds"/><p><code>f8fc0f6053dab3ce6e62f3a7e49de06bde5fa1e7dab8987195649b125f575ddf</code></p></article></div><p><a href="live/input-frames/frames.json">Frame timestamps and hashes</a></p></section>
+<section><h2>The same test fails buggy and passes fixed.</h2><p><a href="live/regression.test.mjs" download>Exact exported regression test</a> · <a href="live/regression-buggy.tap">Captured buggy test output</a> · <a href="live/regression-fixed.tap">Captured fixed test output</a></p><p>Test SHA-256: <code>ea47155bf32626691e0324645cc4934debf68f9af28d2b1dd6fc4b98ad616e48</code>. This submitted-app test requires an authorized sandbox and explicit project directory. Do not bypass its guard to run uploaded source on the host.</p><details id="test-output"><summary>Inspect captured test output</summary><p>Actual Node test output from the two isolated regression runs. This page starts no test or provider call.</p><div class="test-outputs"><article><h3>Buggy · exit 1</h3><pre>✖ The vanishing note invariant (2971.515275ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3038.054059
+
+✖ failing tests:
+
+test at ../../tmp/regression.test.mjs:8:1
+✖ The vanishing note invariant (2971.515275ms)
+  AssertionError [ERR_ASSERTION]: {&quot;target&quot;:&quot;notes&quot;,&quot;operator&quot;:&quot;contains&quot;,&quot;expected&quot;:&quot;Book the demo slot&quot;,&quot;actual&quot;:&quot;Ship the rough cut&quot;,&quot;pass&quot;:false,&quot;hash&quot;:&quot;072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951&quot;,&quot;completion&quot;:{&quot;target&quot;:&quot;sync-state&quot;,&quot;value&quot;:&quot;Synced · 1 added&quot;}}
+  
+  &#x27;failed&#x27; !== &#x27;passed&#x27;
+  
+      at TestContext.&lt;anonymous&gt; (file:///tmp/regression.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: &#x27;ERR_ASSERTION&#x27;,
+    actual: &#x27;failed&#x27;,
+    expected: &#x27;passed&#x27;,
+    operator: &#x27;strictEqual&#x27;,
+    diff: &#x27;simple&#x27;
+  }
+</pre></article><article><h3>Fixed · exit 0</h3><pre>✔ The vanishing note invariant (3545.355904ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3630.421858
+</pre></article></div></details><div class="runs"><article><h3>10-validation-buggy · failed</h3><p>Observed: <code>Ship the rough cut</code></p><img loading="lazy" src="live/10-validation-buggy/final.png" alt="Actual captured buggy result"/><p><a href="live/10-validation-buggy/result.json">Result</a> · <a href="live/10-validation-buggy/actions.json">Executed actions</a> · <a href="live/10-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>11-validation-fixed · passed</h3><p>Observed: <code>Ship the rough cutBook the demo slot</code></p><img loading="lazy" src="live/11-validation-fixed/final.png" alt="Actual captured fixed result"/><p><a href="live/11-validation-fixed/result.json">Result</a> · <a href="live/11-validation-fixed/actions.json">Executed actions</a> · <a href="live/11-validation-fixed/trace.zip">Browser trace</a></p></article><article><h3>12-validation-buggy · failed</h3><p>Observed: <code>Ship the rough cut</code></p><img loading="lazy" src="live/12-validation-buggy/final.png" alt="Actual captured buggy result"/><p><a href="live/12-validation-buggy/result.json">Result</a> · <a href="live/12-validation-buggy/actions.json">Executed actions</a> · <a href="live/12-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>13-validation-fixed · passed</h3><p>Observed: <code>Ship the rough cutBook the demo slot</code></p><img loading="lazy" src="live/13-validation-fixed/final.png" alt="Actual captured fixed result"/><p><a href="live/13-validation-fixed/result.json">Result</a> · <a href="live/13-validation-fixed/actions.json">Executed actions</a> · <a href="live/13-validation-fixed/trace.zip">Browser trace</a></p></article><article><h3>14-validation-buggy · failed</h3><p>Observed: <code>Ship the rough cut</code></p><img loading="lazy" src="live/14-validation-buggy/final.png" alt="Actual captured buggy result"/><p><a href="live/14-validation-buggy/result.json">Result</a> · <a href="live/14-validation-buggy/actions.json">Executed actions</a> · <a href="live/14-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>15-validation-fixed · passed</h3><p>Observed: <code>Ship the rough cutBook the demo slot</code></p><img loading="lazy" src="live/15-validation-fixed/final.png" alt="Actual captured fixed result"/><p><a href="live/15-validation-fixed/result.json">Result</a> · <a href="live/15-validation-fixed/actions.json">Executed actions</a> · <a href="live/15-validation-fixed/trace.zip">Browser trace</a></p></article></div></section>
+<section><h2>Genuine captured recordings</h2><h3>Buggy</h3><video controls preload="none" src="live/buggy-recording.webm"></video><h3>Fixed</h3><video controls preload="none" src="live/fixed-recording.webm"></video><p>Text alternative: Sync → Add note → Release save-1. The buggy app loses “Book the demo slot”; the fixed app retains it. Recordings are worker captures, separate from your current playback session.</p></section>
+<section><h2>A second app, held out from this pipeline</h2><p>Camp Supply accepted a 10% coupon but kept the old total. A separate Muse investigation proposed three actions, minimized to two, and verified three buggy failures plus three fixed passes. The exact exported test also failed buggy and passed fixed.</p><p><a href="heldout/index.html">Inspect the first-party held-out coupon case →</a></p><p>The app and assertion were frozen before model use; no witness action plan or hints were supplied. This is one first-party evaluation case, not a broad benchmark or a claim about model training data.</p></section>
+<section><h2>Deliberately narrow claims</h2><p>The five gallery cases use authored plans with captured browser results. The note demo is one known seed; the coupon record is a separate first-party pipeline-held-out example. Three repeats under one schedule are repeatability evidence, not broad reliability. General uploaded-app live execution remains disabled. Current runtime verification is documented separately above.</p><p>The workspace endpoint and personal filesystem paths are redacted in public derivatives. Fixture source, proposal/action/assertion payloads and six result files are preserved. See <a href="../transformation-receipt.json">transformation receipt</a>, <a href="../package-manifest.json">file hashes</a> and <a href="../package-audit.json">package audit</a>.</p></section><footer><p>No deployment, publication or hackathon submission has been performed. Participant acceptance was verified from an October20 organizer approval. A November3 organizer update requires an open-source GitHub repository and emphasizes a three-minute demo. Repository publication, project-license selection and submission remain pending authorization; the public page still supplies no numeric project-judging weights.</p></footer></main></body></html>

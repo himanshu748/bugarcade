@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "id": "duplicate",
+  "title": "One click too many",
+  "verified": true,
+  "evidenceKind": "captured-local-browser",
+  "mode": "recorded",
+  "provenance": {
+    "planner": "authored-seed-plan",
+    "liveModel": false,
+    "model": null,
+    "modelCalls": 0,
+    "promptTokens": 0,
+    "completionTokens": 0,
+    "estimatedCostUsd": 0,
+    "note": "Authored initial plans, real browser capture. No live Meta call was made."
+  },
+  "seed": 0,
+  "sourceHashes": {
+    "buggy": "d512fe29cac25e188b83c48c3fbf2ad2cc4461452574baeeda5d5723b5afcad0",
+    "fixed": "f4adb87886bf8ac1308f6e1d65a27de0cb2afd9fd459b369f66a0e9cf9c72cb8"
+  },
+  "manifestHash": "7ffaea44b1078ceeeaabf67613e7c84e32508908b231cfaa34f83a1ba7709f15",
+  "lockfileHash": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b",
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@playwright/test": "1.64.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "eslint": "9.39.1",
+    "typescript-eslint": "8.46.3"
+  },
+  "browserVersion": "156.0.8078.4",
+  "assertion": {
+    "target": "request-count",
+    "operator": "equals",
+    "expected": "1",
+    "hash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e"
+  },
+  "completion": {
+    "target": "order-state",
+    "value": "Order confirmed"
+  },
+  "schedule": [
+    {
+      "id": "order-1",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-001"
+      }
+    },
+    {
+      "id": "order-2",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-002"
+      }
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "wait",
+      "target": "request-count",
+      "value": "0"
+    },
+    {
+      "type": "click",
+      "target": "place-order"
+    },
+    {
+      "type": "click",
+      "target": "place-order"
+    },
+    {
+      "type": "release",
+      "request": "order-1"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "place-order"
+    },
+    {
+      "type": "click",
+      "target": "place-order"
+    },
+    {
+      "type": "release",
+      "request": "order-1"
+    }
+  ],
+  "initialActionCount": 4,
+  "minimizedActionCount": 3,
+  "minimality": "1-minimal for single-action deletion under this schedule",
+  "repetitions": {
+    "buggy": [
+      {
+        "status": "failed",
+        "elapsedMs": 4082,
+        "result": "buggy-1/result.json",
+        "actual": "2",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 4077,
+        "result": "buggy-2/result.json",
+        "actual": "2",
+        "error": null
+      },
+      {
+        "status": "failed",
+        "elapsedMs": 4413,
+        "result": "buggy-3/result.json",
+        "actual": "2",
+        "error": null
+      }
+    ],
+    "fixed": [
+      {
+        "status": "passed",
+        "elapsedMs": 3860,
+        "result": "fixed-1/result.json",
+        "actual": "1",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 3921,
+        "result": "fixed-2/result.json",
+        "actual": "1",
+        "error": null
+      },
+      {
+        "status": "passed",
+        "elapsedMs": 4642,
+        "result": "fixed-3/result.json",
+        "actual": "1",
+        "error": null
+      }
+    ]
+  },
+  "reproductionRate": {
+    "failures": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "fixedPassRate": {
+    "passes": 3,
+    "attempts": 3,
+    "rate": 1
+  },
+  "initialResults": {
+    "buggy": "failed",
+    "fixed": "passed"
+  },
+  "regressionResults": {
+    "buggy": {
+      "exitCode": 1,
+      "log": "regression-buggy.txt",
+      "status": "failed",
+      "assertionHash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e"
+    },
+    "fixed": {
+      "exitCode": 0,
+      "log": "regression-fixed.txt",
+      "status": "passed",
+      "assertionHash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e"
+    }
+  },
+  "elapsedMs": 75206,
+  "artifacts": {
+    "regression": "regression.test.mjs",
+    "recording": "recording.json",
+    "buggyTrace": "buggy-1/trace.zip",
+    "fixedTrace": "fixed-1/trace.zip",
+    "buggyScreenshot": "buggy-1/final.png",
+    "fixedScreenshot": "fixed-1/final.png",
+    "minimization": "minimization.json"
+  },
+  "limits": "Three repetitions under one controlled schedule establish repeatability for this seed only. No held-out/generalization or live-provider evidence."
+}

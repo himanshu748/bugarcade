@@ -1,0 +1,94 @@
+{
+  "verified": true,
+  "mode": "live",
+  "runner": "modal-sandbox",
+  "challengeId": "lost-note",
+  "sourceHashes": {
+    "fixed/App.tsx": "734bd14d0e4b44db1d2356164ee1b813863c0a12152709a7412776fcafc0652b",
+    "README.md": "af1d7e8b9406d0bec775fb133f298464f9716e495709297c9fe12019c3ca924c",
+    "manifest.json": "21148a21ea319d9811c85f75175d4abbd38cf38c6505abfff717abfb86a19019",
+    "buggy/App.tsx": "3e3691816b35c455c4b6110de9dd8bd113ffe42abcdaf7714eea6818a099a882"
+  },
+  "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+  "assertion": {
+    "target": "notes",
+    "operator": "contains",
+    "expected": "Book the demo slot"
+  },
+  "completion": {
+    "target": "sync-state",
+    "value": "Synced \u00b7 1 added"
+  },
+  "seed": 0,
+  "schedule": [
+    {
+      "id": "save-1",
+      "key": "save",
+      "response": {
+        "saved": true
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    },
+    {
+      "type": "wait",
+      "target": "sync-state",
+      "value": "Synced \u00b7 1 added"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    }
+  ],
+  "initialActionCount": 4,
+  "minimizedActionCount": 3,
+  "minimizationProbes": 7,
+  "minimality": "bounded deletion search; not a global optimum",
+  "buggyFailures": 3,
+  "fixedPasses": 3,
+  "validationRuns": 6,
+  "browserRuns": 16,
+  "infrastructureErrors": 6,
+  "elapsedMs": 276552,
+  "modelCalls": 1,
+  "modelUsage": [
+    {
+      "prompt_tokens": 1918,
+      "completion_tokens": 921,
+      "total_tokens": 2839
+    }
+  ],
+  "modelProvider": "modal",
+  "estimatedModelCostUsd": 0.00631175,
+  "limits": "Repeatability under one controlled schedule is not broad reliability or held-out generalization evidence.",
+  "publicDerivative": true,
+  "evaluationScope": "One known seed; not held-out generalization",
+  "modelIdentity": "meta-models/Muse-Spark-Open-816B-A42B",
+  "workspaceEndpoint": "redacted",
+  "originalSummarySha256": "b105e6e399ae2737f5e54a7d325f7d7882589ff7bafc66abf248d0bb208a607f",
+  "originalProvenanceSha256": "c61b7b1752608ad5627f284b4720bb350740c6cf34316b496c9970ca310f0ca6"
+}

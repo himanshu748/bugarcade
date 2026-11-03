@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'"><title>BugArcade · held-out coupon proof</title><style>body{background:#11150f;color:#edf1e6;font:17px/1.6 system-ui;margin:0}main{max-width:1080px;margin:auto;padding:40px 24px}h1{font-size:clamp(34px,5vw,60px);line-height:1.1}h2{margin-top:48px}a{color:#c7f78d}a:focus-visible,summary:focus-visible{outline:2px solid #c7f78d;outline-offset:4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#1a2117;padding:20px}code{overflow-wrap:anywhere}.runs,.outputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}img{width:100%;height:auto}article{border-top:1px solid #45513d}nav{display:flex;gap:24px;flex-wrap:wrap}summary{cursor:pointer;padding:16px 0}</style></head><body><main><p><a href="../index.html">← Main demo and known-seed proof</a></p><h1>The coupon worked.<br>The total stayed wrong.</h1><p>Camp Supply displays a successful 10% coupon, but a missing React memo dependency keeps the total at $48.00. The fix correctly recomputes $43.20.</p><nav><a href="player-buggy.html" target="_blank" rel="noopener">Play coupon bug ↗</a><a href="player-fixed.html" target="_blank" rel="noopener">Play coupon fix ↗</a></nav><p>Apply coupon → Release coupon-1. These standalone apps replay a controlled local schedule; they make no model or cloud call.</p><h2>A separate, first-party held-out example</h2><p>The candidate was authored and frozen before this model investigation, outside the five gallery cases and supplied planner examples. Submitted actions, initial actions, hints and explanation were empty. An authored witness created the input recording and was excluded from the planner payload.</p><p>This is one pipeline-held-out first-party evaluation—not an independently sourced production bug, an external benchmark, or a claim about model training data. Three repeats under one schedule do not establish broad generalization.</p><p>One real Muse call · 3,963 tokens · 3 → 2 actions · 3 buggy failures / 3 fixed passes · 270.751 seconds. Four invalid minimization outcomes were excluded. Estimated inference: $0.01035075; provider billing remains separate. All sixteen investigation/regression sandboxes have terminal evidence.</p><details><summary>Accepted model proposal and frozen assertion</summary><pre>{
+  &quot;proposal&quot;: {
+    &quot;actions&quot;: [
+      {
+        &quot;type&quot;: &quot;click&quot;,
+        &quot;target&quot;: &quot;apply-coupon&quot;
+      },
+      {
+        &quot;type&quot;: &quot;release&quot;,
+        &quot;request&quot;: &quot;coupon-1&quot;
+      },
+      {
+        &quot;type&quot;: &quot;wait&quot;,
+        &quot;target&quot;: &quot;discount-status&quot;,
+        &quot;value&quot;: &quot;Coupon applied · 10% off&quot;
+      }
+    ],
+    &quot;candidateAssertion&quot;: {
+      &quot;target&quot;: &quot;total&quot;,
+      &quot;operator&quot;: &quot;equals&quot;,
+      &quot;expected&quot;: &quot;$43.20&quot;
+    },
+    &quot;rationale&quot;: &quot;Default coupon WELCOME10 gives 10% off 2x$24=$48 =&gt; $43.20 expected. App memoizes total on [quantity] only, so discount state change does not recompute total. Applying coupon and releasing validate-coupon leaves status &#x27;Coupon applied · 10% off&#x27; while total stays $48.00, violating the $43.20 assertion.&quot;
+  },
+  &quot;actions&quot;: [
+    {
+      &quot;type&quot;: &quot;click&quot;,
+      &quot;target&quot;: &quot;apply-coupon&quot;
+    },
+    {
+      &quot;type&quot;: &quot;release&quot;,
+      &quot;request&quot;: &quot;coupon-1&quot;
+    }
+  ],
+  &quot;assertion&quot;: {
+    &quot;target&quot;: &quot;total&quot;,
+    &quot;operator&quot;: &quot;equals&quot;,
+    &quot;expected&quot;: &quot;$43.20&quot;
+  },
+  &quot;completion&quot;: {
+    &quot;target&quot;: &quot;discount-status&quot;,
+    &quot;value&quot;: &quot;Coupon applied · 10% off&quot;
+  },
+  &quot;seed&quot;: 7331,
+  &quot;schedule&quot;: [
+    {
+      &quot;id&quot;: &quot;coupon-1&quot;,
+      &quot;key&quot;: &quot;validate-coupon&quot;,
+      &quot;response&quot;: {
+        &quot;code&quot;: &quot;WELCOME10&quot;,
+        &quot;percent&quot;: 10
+      },
+      &quot;status&quot;: 200,
+      &quot;optional&quot;: false
+    }
+  ],
+  &quot;invariantHash&quot;: &quot;3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c&quot;
+}</pre></details><p><a href="evaluation.public.json">Scoped evaluation record</a> · <a href="provenance.public.json">Public model provenance</a> · <a href="freeze.json">Original candidate freeze</a> · <a href="input-frames/frames.json">Recording input frame hashes</a> · <a href="source.zip">Packaged source</a></p><h2>Six genuine browser outcomes</h2><div class="runs"><article><h3>buggy · failed</h3><p>Observed total: $48.00</p><img loading="lazy" src="08-validation-buggy/final.png" alt="Actual captured buggy coupon validation result"><p><a href="08-validation-buggy/result.json">Original result</a> · <a href="08-validation-buggy/actions.json">Executed actions</a> · <a href="08-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>fixed · passed</h3><p>Observed total: $43.20</p><img loading="lazy" src="09-validation-fixed/final.png" alt="Actual captured fixed coupon validation result"><p><a href="09-validation-fixed/result.json">Original result</a> · <a href="09-validation-fixed/actions.json">Executed actions</a> · <a href="09-validation-fixed/trace.zip">Browser trace</a></p></article><article><h3>buggy · failed</h3><p>Observed total: $48.00</p><img loading="lazy" src="10-validation-buggy/final.png" alt="Actual captured buggy coupon validation result"><p><a href="10-validation-buggy/result.json">Original result</a> · <a href="10-validation-buggy/actions.json">Executed actions</a> · <a href="10-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>fixed · passed</h3><p>Observed total: $43.20</p><img loading="lazy" src="11-validation-fixed/final.png" alt="Actual captured fixed coupon validation result"><p><a href="11-validation-fixed/result.json">Original result</a> · <a href="11-validation-fixed/actions.json">Executed actions</a> · <a href="11-validation-fixed/trace.zip">Browser trace</a></p></article><article><h3>buggy · failed</h3><p>Observed total: $48.00</p><img loading="lazy" src="12-validation-buggy/final.png" alt="Actual captured buggy coupon validation result"><p><a href="12-validation-buggy/result.json">Original result</a> · <a href="12-validation-buggy/actions.json">Executed actions</a> · <a href="12-validation-buggy/trace.zip">Browser trace</a></p></article><article><h3>fixed · passed</h3><p>Observed total: $43.20</p><img loading="lazy" src="13-validation-fixed/final.png" alt="Actual captured fixed coupon validation result"><p><a href="13-validation-fixed/result.json">Original result</a> · <a href="13-validation-fixed/actions.json">Executed actions</a> · <a href="13-validation-fixed/trace.zip">Browser trace</a></p></article></div><h2>The identical exported test fails and passes</h2><p>Test SHA-256: <code>128e318ef56cdc02999181c57f9a47a4839c3c2e2ba76e118f1ab648010a4c66</code>.</p><p><a href="regression.test.mjs" download>Exact regression test</a> · <a href="regression-buggy.tap">Captured buggy test output</a> · <a href="regression-fixed.tap">Captured fixed test output</a></p><div class="outputs"><article><h3>buggy · exit 1</h3><pre>✖ The coupon that did not add up invariant (3219.116783ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3321.513907
+
+✖ failing tests:
+
+test at ../../tmp/regression.test.mjs:8:1
+✖ The coupon that did not add up invariant (3219.116783ms)
+  AssertionError [ERR_ASSERTION]: {&quot;target&quot;:&quot;total&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;expected&quot;:&quot;$43.20&quot;,&quot;actual&quot;:&quot;$48.00&quot;,&quot;pass&quot;:false,&quot;hash&quot;:&quot;3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c&quot;,&quot;completion&quot;:{&quot;target&quot;:&quot;discount-status&quot;,&quot;value&quot;:&quot;Coupon applied · 10% off&quot;}}
+  
+  &#x27;failed&#x27; !== &#x27;passed&#x27;
+  
+      at TestContext.&lt;anonymous&gt; (file:///tmp/regression.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: &#x27;ERR_ASSERTION&#x27;,
+    actual: &#x27;failed&#x27;,
+    expected: &#x27;passed&#x27;,
+    operator: &#x27;strictEqual&#x27;,
+    diff: &#x27;simple&#x27;
+  }
+</pre></article><article><h3>fixed · exit 0</h3><pre>✔ The coupon that did not add up invariant (3259.196026ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3347.447577
+</pre></article></div><h2>Scope remains explicit</h2><p>This historical model trial used the previously reviewed runtime; its own success does not validate the new cgroup-guarded VM runtime. The current guarded VM runtime has a separate verified six-control, five-case 3+3 cohort and exact-test record. <a href="../runtime-summary.json">Inspect that runtime proof</a>. General live API execution stays disabled.</p><p>The workspace endpoint and personal paths are redacted from public derivatives. Canonical result, source and test hashes are preserved in the package manifest. No private account screenshots, raw billing, credentials or organizer messages are included.</p></main></body></html>
