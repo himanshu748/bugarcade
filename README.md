@@ -8,7 +8,7 @@ Can you make a React app lose your note in three moves? BugArcade turns real UI 
 
 ![BugArcade: a playable React note app alongside the three-move debugging challenge](docs/assets/bugarcade.png)
 
-[Get started](docs/GETTING_STARTED.md) · [Watch the demo](https://youtu.be/RnbcI01d7oE) · [Explore captured Meta proof](proof/index.html) · [How it works](docs/ARCHITECTURE.md)
+[Get started](docs/GETTING_STARTED.md) · [Watch the demo](https://youtu.be/RnbcI01d7oE) · [Explore captured Meta proof](proof/view.html) · [How it works](docs/ARCHITECTURE.md)
 
 ## Play the bug, then make the fix earn it
 
@@ -43,7 +43,7 @@ npm start
 
 Open **[localhost:5173](http://127.0.0.1:5173)** and choose **The disappearing note**. Ctrl+C stops the frontend, fixture server and API. [Alternate ports, checks and troubleshooting](docs/GETTING_STARTED.md).
 
-After cloning, open the repository’s [proof/index.html](proof/index.html) or [proof/heldout/index.html](proof/heldout/index.html) locally in a browser for a dependency-free tour. The portable pages include playable cartridges, actual model proposals and test output. Playback makes no new model call.
+After cloning, open the repository’s [proof/view.html](proof/view.html) or [proof/heldout/view.html](proof/heldout/view.html) locally in a browser for a dependency-free tour. The portable pages include playable cartridges, actual model proposals and test output. Playback makes no new model call.
 
 ## Meta plans. The browser verifies.
 

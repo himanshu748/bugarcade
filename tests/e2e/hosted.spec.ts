@@ -76,7 +76,7 @@ test('landing preview, reset, captured proof and evidence downloads work under a
   await expect(page.locator('.lp-preview-status')).toContainText('The note disappeared');
   await page.getByRole('button', { name: 'Reset inline preview', exact: true }).click();
   await expect(preview.getByTestId('sync-state')).toHaveText('All changes local · 0 added');
-  await expect(page.getByRole('link', { name: 'Inspect the Meta case', exact: true })).toHaveAttribute('href', /\/bugarcade\/proof\/index.html$/);
+  await expect(page.getByRole('link', { name: 'Inspect the Meta case', exact: true })).toHaveAttribute('href', /\/bugarcade\/proof\/view.html$/);
   await page.goto('#play/lost-note');
   await page.getByRole('button', { name: 'Reveal the replay', exact: true }).click();
   await page.getByRole('tab', { name: 'The evidence', exact: true }).click();
@@ -100,6 +100,24 @@ test('landing preview, reset, captured proof and evidence downloads work under a
   const original = fs.readFileSync('evidence/seeds/lost-note/regression.test.mjs');
   expect(createHash('sha256').update(received).digest('hex')).toBe(createHash('sha256').update(original).digest('hex'));
   expect(errors).toEqual([]);
+});
+
+test('proof presentation keeps file fingerprints optional and original records reachable', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const width of [1440, 390]) for (const file of ['proof/view.html', 'proof/heldout/view.html']) {
+    await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
+    await page.goto(file);
+    await expect(page.getByRole('link', { name: 'Back to the arcade →', exact: true })).toBeVisible();
+    expect(await page.locator('body').innerText()).not.toMatch(/[a-f0-9]{64}/);
+    await page.screenshot({ path: `${out}/presentation-${file.includes('heldout') ? 'coupon' : 'note'}-${width}.png`, animations: 'disabled' });
+    const technical = page.locator('details.fingerprint').first();
+    await technical.locator('summary').focus();
+    await technical.locator('summary').press('Enter');
+    await expect(technical).toContainText('SHA-256');
+    expect(await technical.innerText()).toMatch(/[a-f0-9]{64}/);
+    await expect(page.getByRole('link', { name: 'Open the original evidence page', exact: true })).toHaveAttribute('href', 'index.html');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
 });
 
 test('creator and job routes stay read-only and mobile keyboard play remains usable', async ({ page }) => {

@@ -6,7 +6,7 @@ BugArcade turns a frustrating bug report into something you can play, understand
 
 ## Start with the disappearing note
 
-Run the app using the [setup guide](GETTING_STARTED.md), or download the repository and open [the portable note investigation](../proof/index.html) locally in your browser.
+Run the app using the [setup guide](GETTING_STARTED.md), or download the repository and open [the portable note investigation](../proof/view.html) locally in your browser.
 
 1. Play Papertrail and try to lose the newly added note in three moves.
 2. Reveal the cause and minimal action timeline.
@@ -17,9 +17,9 @@ The five-case gallery also covers optimistic rollback, stale search, duplicate s
 
 ## See where Meta made a decision
 
-The [note investigation](../proof/index.html) connects Muse's actual proposal to executed actions. Four actions became three after browser-verified minimization. Three buggy failures and three fixed passes followed; the exact exported test also failed buggy and passed fixed.
+The [note investigation](../proof/view.html) connects Muse's actual proposal to executed actions. Four actions became three after browser-verified minimization. Three buggy failures and three fixed passes followed; the exact exported test also failed buggy and passed fixed.
 
-The [separate coupon investigation](../proof/heldout/index.html) shows the planner working without an authored action sequence or hints in its input. Muse chose three actions; minimization retained two. A successful coupon response left the buggy total at $48.00, while the fixed app showed $43.20. Its regression test captures that difference.
+The [separate coupon investigation](../proof/heldout/view.html) shows the planner working without an authored action sequence or hints in its input. Muse chose three actions; minimization retained two. A successful coupon response left the buggy total at $48.00, while the fixed app showed $43.20. Its regression test captures that difference.
 
 The gallery uses authored plans. These two investigations show accepted model proposals driving the executor. The assertion remains fixed, and a deterministic verifier decides the outcome. [Technical evidence and evaluation scope](EVIDENCE.md).
 
