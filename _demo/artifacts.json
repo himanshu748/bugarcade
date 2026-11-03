@@ -38,8 +38,8 @@
       "sha256": "e0c1370f36bd07c5b1a107e2e696174409a747bf9fcfda76e088e5ec0f93f3ba"
     },
     "docs/SUBMISSION_DRAFT.md": {
-      "bytes": 4850,
-      "sha256": "74200263cb078d34cf7e8a868235ca224a802e6f496253e2c782b46b2421a634"
+      "bytes": 1173,
+      "sha256": "bc8d6edb197f13124ae2c6df6e194bdcfa4eb01b80f5bccb58c5543ef471c371"
     },
     "docs/assets/bugarcade.png": {
       "bytes": 103755,
@@ -2554,8 +2554,8 @@
       "sha256": "1774c4043bde52fac0b24ea548fcfa5392db080ee15d768f2e318a21d5b11ef4"
     },
     "release-transformations.json": {
-      "bytes": 5928,
-      "sha256": "e2d01fed372fd912748a27e9a8fc134c6730bd680cabc6933fb43a72dbed82c8"
+      "bytes": 5929,
+      "sha256": "8bf0fcaa2d4cb67bb30117df803ed3f9aa71e3ac9c893179af79e5d428d518e2"
     },
     "third-party/react-MIT-LICENSE.txt": {
       "bytes": 1088,
@@ -2575,11 +2575,11 @@
     },
     "package-manifest.json": {
       "bytes": 123805,
-      "sha256": "36f436b4fb899d82b6679456a5573289296e5a6a2bc1d4a6866406d2a4295352"
+      "sha256": "06919cbd4aa64da2339c54a85b3473925e541174baa290dc6831a7e763ff91c9"
     },
     "package-audit.json": {
       "bytes": 869,
-      "sha256": "36cc58f17d7b077d22f4c4ef7f680dc6190e0b5fd53082c3b831dfc4f660cfb0"
+      "sha256": "7aae914505ab8b525a9fabb88129ad19fe8506d59b6d93f925bc00c386ac4288"
     },
     "_demo/fixtures/lost-note/buggy.html": {
       "bytes": 242369,
@@ -2620,6 +2620,26 @@
     "_demo/fixtures/cleanup/fixed.html": {
       "bytes": 242406,
       "sha256": "e2b9485968fe9433fa696565999b54ab193054f1e9c476cf97ae06335bacb6ae"
+    },
+    "evidence/seeds/lost-note/summary.json": {
+      "bytes": 4539,
+      "sha256": "ebaed920d8ed6f18ccf06e62ae5c145d51c131196626354a2bc69a82baa9b305"
+    },
+    "evidence/seeds/rollback/summary.json": {
+      "bytes": 4781,
+      "sha256": "3e43e80ca30453069fa5668788d0ca8859b99daed15706b4622fc7a617077fe0"
+    },
+    "evidence/seeds/search/summary.json": {
+      "bytes": 5172,
+      "sha256": "cb34aa892486dc48120a10d90fc87bebb58431d5f11ceebee8efe22e3d07944b"
+    },
+    "evidence/seeds/duplicate/summary.json": {
+      "bytes": 4527,
+      "sha256": "299f8a994646107fddd99802a66d01dd81591404b7eaf8c2b0d404551f52a91c"
+    },
+    "evidence/seeds/cleanup/summary.json": {
+      "bytes": 4785,
+      "sha256": "062345d79318e33c2989f9f96c5ec6c36430336cea7f42b3eebda6d5ba4de280"
     }
   }
 }

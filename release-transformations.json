@@ -1,9 +1,9 @@
 {
   "kind": "public-release-transformations",
-  "preparedAt": "2026-11-03T18:21:22.362907+00:00",
+  "preparedAt": "2026-11-03T18:46:24.500408+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "originalReviewMembers": 727,
-  "revisionPurpose": "Submitted product documentation and locally prepared static arcade; public deployment awaits authorization.",
+  "revisionPurpose": "Judge-facing live arcade links and concise submission copy; gameplay and captured proof bytes remain frozen.",
   "changedReviewPayloads": [
     {
       "path": ".gitignore",
@@ -13,7 +13,7 @@
     {
       "path": "README.md",
       "reviewSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
-      "releaseSha256": "3e140ada7e458453e10c0a3185f53eed7eef75c7f93a9c83f7e6ecae60982a2b"
+      "releaseSha256": "78a7c16af91b77b4e2f3595e64d039c2a16cd025cd40823cd173d13c7fa304ec"
     },
     {
       "path": "docs/JUDGE_GUIDE.md",
@@ -23,7 +23,7 @@
     {
       "path": "docs/SUBMISSION_DRAFT.md",
       "reviewSha256": "b18400b0f0ec4f6a0bd1d0c087818a18f13f1809ad2abf24d085fa35421234dc",
-      "releaseSha256": "74200263cb078d34cf7e8a868235ca224a802e6f496253e2c782b46b2421a634"
+      "releaseSha256": "bc8d6edb197f13124ae2c6df6e194bdcfa4eb01b80f5bccb58c5543ef471c371"
     },
     {
       "path": "fixtures/harness.tsx",
@@ -53,12 +53,12 @@
     {
       "path": "package-audit.json",
       "reviewSha256": "d9851a35cc4a98042e20bfb054bc3bd96a2765d10c69410ec142cb06b7eff78a",
-      "releaseSha256": "c7dd608025c699f5ffeb6243bb353140a99109802143ecb59015ce025b97a9fd"
+      "releaseSha256": "36cc58f17d7b077d22f4c4ef7f680dc6190e0b5fd53082c3b831dfc4f660cfb0"
     },
     {
       "path": "package-manifest.json",
       "reviewSha256": "5126b00c172dc06790b012c038cce46b202e8f0f128f403a5bbdea5fcd557cfd",
-      "releaseSha256": "f81d0d84bf597317c7e53bf8405e71b2626ba20c62264fccb0d296e158698faa"
+      "releaseSha256": "36f436b4fb899d82b6679456a5573289296e5a6a2bc1d4a6866406d2a4295352"
     },
     {
       "path": "proof/demo-README.md",

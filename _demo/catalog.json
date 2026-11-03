@@ -63,7 +63,7 @@
       },
       "completion": {
         "target": "sync-state",
-        "value": "Synced \u00b7 1 added"
+        "value": "Synced · 1 added"
       },
       "schedule": [
         {
@@ -359,7 +359,7 @@
         {
           "type": "wait",
           "target": "project-title",
-          "value": "Loading project\u2026"
+          "value": "Loading project…"
         },
         {
           "type": "click",
@@ -391,7 +391,7 @@
       "assertion": {
         "target": "project-title",
         "operator": "equals",
-        "expected": "Project B \u00b7 Launch calendar"
+        "expected": "Project B · Launch calendar"
       },
       "completion": {
         "target": "load-state",
@@ -403,7 +403,7 @@
           "key": "project-a",
           "status": 200,
           "response": {
-            "title": "Project A \u00b7 Studio refresh"
+            "title": "Project A · Studio refresh"
           }
         },
         {
@@ -411,7 +411,7 @@
           "key": "project-b",
           "status": 200,
           "response": {
-            "title": "Project B \u00b7 Launch calendar"
+            "title": "Project B · Launch calendar"
           }
         }
       ],
@@ -500,9 +500,9 @@
       }
     }
   },
-  "publicEvidenceManifestSha256": "36f436b4fb899d82b6679456a5573289296e5a6a2bc1d4a6866406d2a4295352",
+  "publicEvidenceManifestSha256": "06919cbd4aa64da2339c54a85b3473925e541174baa290dc6831a7e763ff91c9",
   "artifactIndex": {
     "url": "_demo/artifacts.json",
-    "sha256": "ea3d0ef55407ec62917162cb596133a583f7c5e2679a5316ad5f9a6f85e4335a"
+    "sha256": "03f679eb97246fedd840fa55b944af5ba71873e72738685d099867922bc1e0b6"
   }
 }

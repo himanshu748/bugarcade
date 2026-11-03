@@ -1,7 +1,7 @@
 {
   "kind": "current-publication-release-manifest",
   "version": 2,
-  "preparedAt": "2026-11-03T18:21:27.961512+00:00",
+  "preparedAt": "2026-11-03T18:46:44.920628+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "license": "MIT",
   "copyright": "2026 Himanshu Kumar (himanshu748)",
@@ -18,8 +18,8 @@
       "sha256": "b639538706c443997d3b796382998cac0fec7c59245c9651174ff3358f03fef5"
     },
     "README.md": {
-      "bytes": 7053,
-      "sha256": "3e140ada7e458453e10c0a3185f53eed7eef75c7f93a9c83f7e6ecae60982a2b"
+      "bytes": 7207,
+      "sha256": "78a7c16af91b77b4e2f3595e64d039c2a16cd025cd40823cd173d13c7fa304ec"
     },
     "backend/Dockerfile.modal": {
       "bytes": 1375,
@@ -126,8 +126,8 @@
       "sha256": "e0c1370f36bd07c5b1a107e2e696174409a747bf9fcfda76e088e5ec0f93f3ba"
     },
     "docs/SUBMISSION_DRAFT.md": {
-      "bytes": 4850,
-      "sha256": "74200263cb078d34cf7e8a868235ca224a802e6f496253e2c782b46b2421a634"
+      "bytes": 1173,
+      "sha256": "bc8d6edb197f13124ae2c6df6e194bdcfa4eb01b80f5bccb58c5543ef471c371"
     },
     "docs/assets/bugarcade.png": {
       "bytes": 103755,
@@ -2850,8 +2850,8 @@
       "sha256": "327515a7f0b562973219bcd6466889993f228fed4b233811010603574c1e510a"
     },
     "release-transformations.json": {
-      "bytes": 5928,
-      "sha256": "e2d01fed372fd912748a27e9a8fc134c6730bd680cabc6933fb43a72dbed82c8"
+      "bytes": 5929,
+      "sha256": "8bf0fcaa2d4cb67bb30117df803ed3f9aa71e3ac9c893179af79e5d428d518e2"
     },
     "review-snapshot/2026-11-03/README.md": {
       "bytes": 825,
