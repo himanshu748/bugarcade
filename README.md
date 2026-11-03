@@ -1,14 +1,61 @@
 # BugArcade
 
-A debugging game for React developers. Trigger a real bug, reveal the replay, then check the fix and keep its regression test.
+**Can you make this app lose your note in three moves?**
 
-This source release is licensed under [MIT](LICENSE), copyright 2026 Himanshu Kumar (himanshu748). Publication to `himanshu748/bugarcade` was explicitly authorized on November 3, 2026. This preparation does not deploy the app or submit the hackathon entry. Original proof pages and the 87-second narrated cut retain their dated prepublication review context; their evidence bytes are unchanged.
+BugArcade turns real React bugs into playable debugging challenges. Trigger the bug yourself, reveal the replay that explains it, then watch the same actions pass against the fix and keep the regression test that catches it if it ever returns.
 
-Open `proof/index.html` for the offline playable cartridges, real captured Meta decisions and separate known-note/first-party-held-out coupon outcomes. No credentials or dependency install is needed for that review. Read `docs/JUDGE_GUIDE.md` and `docs/SUBMISSION_DRAFT.md` for the walkthrough, exact scope and draft narrative.
+Built for the Meta Global AI Developer Hackathon. Meta's Muse Spark Open model plans the reproduction; a deterministic verifier decides whether it actually worked.
 
-## Run the complete local app
+Watch the [87-second demo](proof/demo.mp4).
 
-Use Node 22.14+ and Python 3.12/3.13 with uv. Dependency versions are pinned. In this extracted directory:
+## Try it in 30 seconds (no install, no keys)
+
+Open [`proof/index.html`](proof/index.html) in a browser. It includes:
+
+- the 87-second narrated demo, with transcript and captions
+- playable buggy and fixed versions of each app
+- the real Muse proposals, browser traces, recordings and exported regression tests
+
+## The five bugs
+
+| Case | Bug class | What goes wrong |
+| --- | --- | --- |
+| The vanishing note | Stale state | A delayed save acknowledgement restores an old snapshot and deletes notes added meanwhile |
+| The undo from the past | Optimistic rollback | An older failed rename rolls back a newer successful one |
+| Results from another time | Response ordering | A slower search response overwrites the newer results |
+| One click too many | Pending submission | Every click sends a new request while one is already in flight |
+| The ghost of a screen | Effect cleanup | An unmounted component's request still writes to the shared panel |
+
+Each case has a buggy and a fixed version, a controlled API schedule you play with, a hidden cause to reveal, and stars for finding the shortest path to the bug.
+
+## How it works
+
+1. **Recording in, plan out.** Muse Spark Open reads the buggy source and timestamped recording frames, then proposes browser actions and a candidate failure assertion.
+2. **Actions really run.** Playwright executes the proposed actions against the app, with API response order under BugArcade's control.
+3. **Minimise.** BugArcade removes actions one at a time while the assertion still fails, so you get the smallest reproduction.
+4. **Verify, don't trust.** The bug must fail three times on the buggy build and pass three times on the fixed build under the same schedule. The model never grades its own result.
+5. **Keep the test.** The exact regression test is exported and re-run in isolated Modal sandboxes: it fails on buggy and passes on fixed.
+
+## Results
+
+| Job | Meta model's part | Verified outcome |
+| --- | --- | --- |
+| The vanishing note | 4 proposed actions, minimised to 3 | 3 buggy failures, 3 fixed passes; exported test fails buggy and passes fixed |
+| Coupon app (held out, never shown to the planner) | 3 proposed actions, minimised to 2 | 3 buggy failures, 3 fixed passes; exported test re-verified in two more sandboxes |
+
+All five seed cases also reproduce 3/3 buggy and pass 3/3 fixed inside the guarded VM runtime ([runtime summary](proof/runtime-summary.json)). Local checks: 360 Python tests, 106 evaluation tests, 16 worker tests and 45 browser scenarios, plus lint, types and build.
+
+## Architecture
+
+- **Frontend:** React 19 and TypeScript (Vite)
+- **Backend:** Python and FastAPI, with SQLite job storage and strict action schemas
+- **Execution:** bounded Playwright runs, a controllable API scheduler, and assertion-preserving minimisation
+- **Model:** Muse Spark Open, called from the trusted backend only, never from inside the app sandbox
+- **Sandboxes:** Modal VMs with memory, time and network limits for untrusted app runs
+
+## Run the full app locally
+
+Requires Node 22.14+ and Python 3.12 or 3.13 with [uv](https://docs.astral.sh/uv/).
 
 ```sh
 npm ci --ignore-scripts
@@ -17,18 +64,22 @@ npx playwright install chromium
 npm start
 ```
 
-Open http://127.0.0.1:5173. If occupied, preserve that service and run the UI with `npm run dev -- --port 4173`, plus `npm run dev:fixtures` and `.venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 8000` in separate terminals. All services bind loopback. Dependency/browser installation needs network once; execution never installs submitted dependencies. No cloud access is enabled by these commands.
+Open http://127.0.0.1:5173. The five cases and their evidence work without model credentials. Live model planning needs your own provider key; see `.env` settings in `backend/config.py`.
 
-The five shipped seeds and their evidence work without model credentials. The private completed-job database is deliberately absent, so the app's historical Meta link shows an explicit unavailable state. Use the independent `proof/index.html` public record instead; this is not a fabricated live API response. No personal browser progress is included.
-
-Checks: `npm run lint`, `npm run typecheck`, `npm run build`, `.venv/bin/pytest`, `.venv/bin/ruff check backend tests scripts`, `npm run test:worker`, `node --experimental-strip-types --test tests/arcade-progress.test.mjs tests/job-evidence.test.mjs`. Browser tests need the three local services and can create genuine local recorded jobs; set `BUGARCADE_BASE_URL` and `BUGARCADE_EXISTING_SERVERS=1` when using an alternate UI port. The historical 45-test result belongs to the maintainer’s original workspace. `investigation-proof.spec.ts` depends on private completed-job state deliberately excluded here; those private-route cases cannot pass in this clean public install. Use the independent offline proof for that captured Meta record. The portable browser suite is:
+Checks:
 
 ```sh
-npx playwright test tests/e2e/arcade.spec.ts tests/e2e/focus.spec.ts tests/e2e/gamification.spec.ts tests/e2e/hallmark.spec.ts tests/e2e/job-status.spec.ts tests/e2e/landing.spec.ts tests/e2e/motion.spec.ts
+npm run lint && npm run typecheck && npm run build
+.venv/bin/pytest
+npx playwright test tests/e2e/arcade.spec.ts tests/e2e/landing.spec.ts tests/e2e/gamification.spec.ts
 ```
 
-This command is supplied for reproduction; the package receipt records actual offline proof checks, not a claim that the entire portable suite has been freshly run from a new install.
+## Scope
 
-The guarded-runtime evidence verifies six boundary controls, all five 3+3 seed pairs and the identical failing/passing regression, with all 38 cohort VMs terminal; see proof/runtime-summary.json. General live API execution remains off by policy. The coupon case is a separately labeled first-party pipeline-held-out example, not broad generalization evidence. The local runner is a development convenience for trusted seeds, not security isolation. No production-readiness, arbitrary-repository support, broad generalization or entry-submission claim is made. The organizer requires an open-source GitHub repository; the owner has authorized this public source release under MIT. Deployment and hackathon submission remain separate actions.
+BugArcade supports small React and TypeScript apps that follow the [Starter v1 format](docs/STARTER.md): a buggy and fixed `App.tsx`, stable test IDs, a declared invariant and a controlled API schedule. Arbitrary repositories and live uploads are off for now. The two model jobs are real examples, not a success-rate claim.
 
-Verify the current `package-manifest.json` against this release tree. `package-audit.json` records release preparation checks; `release-transformations.json` lists the approved documentation/license changes from the original review ZIP. The root manifest excludes itself and the audit to avoid circular hashes. Original review manifests/audits are preserved under `review-snapshot/2026-11-03/` and explicitly refer to the original ZIP, whose SHA-256 is recorded there. The unchanged `transformation-receipt.json` documents the earlier evidence privacy derivatives, not the later license/publication edits. Installed dependencies and credentials are excluded; React, React DOM and Scheduler retain their notices under `third-party/`.
+More detail: [judge walkthrough](docs/JUDGE_GUIDE.md) · [release and provenance notes](docs/RELEASE_NOTES.md)
+
+## License
+
+[MIT](LICENSE)
