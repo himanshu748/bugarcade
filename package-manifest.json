@@ -20,8 +20,8 @@
       "sha256": "b639538706c443997d3b796382998cac0fec7c59245c9651174ff3358f03fef5"
     },
     "README.md": {
-      "bytes": 4532,
-      "sha256": "b5766cc72ccb7ccc225db8ec06b88c933ac4e1ab8544a5d38451b7ad6f26597a"
+      "bytes": 4601,
+      "sha256": "f9872cbe86c1328285466690c0249f9488855858d4940bcc089655d71d71644d"
     },
     "backend/Dockerfile.modal": {
       "bytes": 1375,
@@ -98,6 +98,10 @@
     "docs/JUDGE_GUIDE.md": {
       "bytes": 11418,
       "sha256": "2dac122de7dd237e1b672740c762c4f27c94e07dccc1cc43474059b1fb36c27c"
+    },
+    "docs/RELEASE_NOTES.md": {
+      "bytes": 4673,
+      "sha256": "01f4177447bb119438947eb39ea2851b770f96111f59d68aa63a276a4dd591f7"
     },
     "docs/STARTER.md": {
       "bytes": 3633,
@@ -2307,6 +2311,10 @@
       "bytes": 723,
       "sha256": "9be2f9d081b67a0aa74a77a350ee5b36ab6ffa60ac9554a60abf95336a5f78c0"
     },
+    "proof/heldout/source.zip": {
+      "bytes": 2954,
+      "sha256": "c08f526a06ce73fe172cc47d257427d7df95d4b6158f4ccb64da7995a26912e4"
+    },
     "proof/heldout/source/buggy/App.tsx": {
       "bytes": 2508,
       "sha256": "f189ec641c26b2513428c514b642f897e1ecdcf355d5911c5ae972c9f0a7c97d"
@@ -2318,10 +2326,6 @@
     "proof/heldout/source/frozen-manifest.json": {
       "bytes": 630,
       "sha256": "c1a95bc268689705d86e39c42aa7852f81888359298829a207fe2120181a1faf"
-    },
-    "proof/heldout/source.zip": {
-      "bytes": 2954,
-      "sha256": "c08f526a06ce73fe172cc47d257427d7df95d4b6158f4ccb64da7995a26912e4"
     },
     "proof/heldout/summary.public.json": {
       "bytes": 2410,
