@@ -4,6 +4,8 @@
 
 Can you make a React app lose your note in three moves? BugArcade turns real UI bugs into playable debugging challenges, then gives you the exact replay and regression test that prove the fix works.
 
+**[Play it live](https://himanshu748.github.io/bugarcade/)** · [Watch the demo](https://youtu.be/RnbcI01d7oE) · [Get started](docs/GETTING_STARTED.md)
+
 ![BugArcade: a playable React note app alongside the three-move debugging challenge](docs/assets/bugarcade.png)
 
 [Get started](docs/GETTING_STARTED.md) · [Watch the demo](https://youtu.be/RnbcI01d7oE) · [Explore captured Meta proof](proof/index.html) · [How it works](docs/ARCHITECTURE.md)
