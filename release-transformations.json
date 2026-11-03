@@ -1,32 +1,83 @@
 {
-  "kind": "approved-publication-transformations",
-  "preparedAt": "2026-11-03T10:08:21.679196+00:00",
-  "originalReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
+  "kind": "public-release-transformations",
+  "preparedAt": "2026-11-03T16:25:00.255429+00:00",
+  "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "originalReviewMembers": 727,
-  "authorization": "New public himanshu748/bugarcade under MIT, including initial commit/push. This tool performs none of the Git/account actions. No deployment or entry submission.",
-  "changedOriginalPayloads": [
+  "revisionPurpose": "Product-first documentation, three-minute demo and portable public tests.",
+  "changedReviewPayloads": [
+    {
+      "path": ".gitignore",
+      "reviewSha256": "a96d1be675f3d06722f1116da556e49c12775448cd313adaf618f4bb8a3f6ec2",
+      "releaseSha256": "a95f67df839cc4780fcc05646a7240fe9b82506447007d3a4b965141286531f6"
+    },
     {
       "path": "README.md",
-      "originalSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
-      "releaseSha256": "b5766cc72ccb7ccc225db8ec06b88c933ac4e1ab8544a5d38451b7ad6f26597a",
-      "reason": "Publication documentation/status update"
+      "reviewSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
+      "releaseSha256": "fc6c9a97e60402852012156fc05946213024de19bc7eaa0ecf3b630a06266161"
     },
     {
       "path": "docs/JUDGE_GUIDE.md",
-      "originalSha256": "30b705b712e4b2af9cb42417b325d522613bf52c0f30d4d7e3da3f2285c93ae7",
-      "releaseSha256": "2dac122de7dd237e1b672740c762c4f27c94e07dccc1cc43474059b1fb36c27c",
-      "reason": "Publication documentation/status update"
+      "reviewSha256": "30b705b712e4b2af9cb42417b325d522613bf52c0f30d4d7e3da3f2285c93ae7",
+      "releaseSha256": "e71010249e3441d24f6af01c4b5799d37431007078564de91549eec8d3095ed0"
     },
     {
       "path": "docs/SUBMISSION_DRAFT.md",
-      "originalSha256": "b18400b0f0ec4f6a0bd1d0c087818a18f13f1809ad2abf24d085fa35421234dc",
-      "releaseSha256": "a77c50897f9dfb48f44018f5c92f28971f169fe80603b59e7f24fb8b3eb7e631",
-      "reason": "Publication documentation/status update"
+      "reviewSha256": "b18400b0f0ec4f6a0bd1d0c087818a18f13f1809ad2abf24d085fa35421234dc",
+      "releaseSha256": "963c0c77ea43057d011aea7156c1f1927bf3fb4703511b642f653f2030c7c680"
+    },
+    {
+      "path": "package-audit.json",
+      "reviewSha256": "d9851a35cc4a98042e20bfb054bc3bd96a2765d10c69410ec142cb06b7eff78a",
+      "releaseSha256": "c465e06c090981fadbbce6b49804bfb187ae27d8babe7a9d99b39da8c4b54fcf"
+    },
+    {
+      "path": "package-manifest.json",
+      "reviewSha256": "5126b00c172dc06790b012c038cce46b202e8f0f128f403a5bbdea5fcd557cfd",
+      "releaseSha256": "0d05a5a23b6ff36ca4b288afc4b1f3ca6a07cb612b99f3c1f2da4729df4ed7f8"
+    },
+    {
+      "path": "proof/demo-README.md",
+      "reviewSha256": "d5f94e0c1704f16fac9d3f9eeec1e6648ab20fa551b3ef02e7e1fd85f1483e72",
+      "releaseSha256": "9081fc2caece8ececbc927aa05353581664671b7becc7dd197aad08d02145544"
+    },
+    {
+      "path": "proof/demo-chapters.srt",
+      "reviewSha256": "416b17d2e33b1398d7e22be4dec8ae28a48e618a456f6578db0c36c828211ca8",
+      "releaseSha256": "044c1880493adbbdb4b887b56f739a8a1a286b46b5374dc10c66c1cbb7518da2"
+    },
+    {
+      "path": "proof/demo-chapters.vtt",
+      "reviewSha256": "29c5702360373cb5f639377f8df62e50c3652eae18dbc198aa2181d79c6e0908",
+      "releaseSha256": "fd51fbc65e91e97b50b373aa230d8484e384dbbfafef66f5604080a62c0735ac"
+    },
+    {
+      "path": "proof/demo.mp4",
+      "reviewSha256": "1f44d4f58924b8d1b2b0c5d7982d80bada2f426f9cf451f9f9a3e6b8a12aac79",
+      "releaseSha256": "854d3eb18f7ca29c1e18f835c5fc5cf424b42e868775485b9b7b333547180a9c"
+    },
+    {
+      "path": "proof/index.html",
+      "reviewSha256": "e75b90496ffd8fbe24b8fc86c6b3d3d3fe6635a116ee10ff1f96e5e593655bf0",
+      "releaseSha256": "6b00cbf60098e8e00ca6c813aa6b1a95c6873d3fa70cbd748f54aee6c6f19f5e"
+    },
+    {
+      "path": "tests/job-evidence.test.mjs",
+      "reviewSha256": "9dbbc2d0c7dc2a1e3cab477fca7209a76e83a06487e1c125bf0c4a3ee6095c05",
+      "releaseSha256": "3eebb97e415e14c9e54e1059f2aec7319d7fbf07eed9c49c304fd7319196c148"
+    },
+    {
+      "path": "tests/worker.test.mjs",
+      "reviewSha256": "ff90c965123ed465bf36be7cacdc5dd10c8011c124870b293d12a6aa023a06f8",
+      "releaseSha256": "1d1325d9aea91e38188123edd86f7ec8206b7edd56a33fa38b8716aa58722a2c"
     }
   ],
-  "newLicense": "LICENSE",
-  "snapshot": "review-snapshot/2026-11-03/",
-  "currentMetadata": "package-manifest.json and package-audit.json replace original review metadata at root; originals preserved in snapshot.",
-  "sourceTestProofMediaBytesUnchanged": true,
-  "thirdPartyNoticesUnchanged": true
+  "sourceRuntimeAndCanonicalInvestigationBytesUnchanged": true,
+  "testHarnessChanges": [
+    "Creates the worker artifact output directory.",
+    "Uses sanitized offline evidence fixtures instead of private job storage."
+  ],
+  "mediaChanges": "180-second edited demo; original narration preserved, historical status corrected visibly; caption-led evidence tour added.",
+  "originalReviewSnapshot": "review-snapshot/2026-11-03/",
+  "thirdPartyNoticesUnchanged": true,
+  "publicationOrSubmissionPerformedByThisScript": false
 }

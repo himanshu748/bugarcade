@@ -142,7 +142,7 @@ test('offline cartridge manual play and reset work; connect CSP and source check
 
 test('cartridge binds only its loopback parent once and supports both UI ports', {timeout:40_000},async()=>{
  const {buildCartridge}=await import('../worker/cartridge.mjs');const {chromium}=await import('playwright');const {expect}=await import('@playwright/test');
- const {writeFile}=await import('node:fs/promises');const browser=await chromium.launch({headless:true,channel:'chromium'});const results=[];
+ const {mkdir,writeFile}=await import('node:fs/promises');const browser=await chromium.launch({headless:true,channel:'chromium'});const results=[];
  try{for(const origin of ['http://127.0.0.1:5173','http://127.0.0.1:4173','https://foreign.invalid']){
   const context=await browser.newContext(),page=await context.newPage();
   await page.route(`${origin}/binding-test`,route=>route.fulfill({contentType:'text/html',body:'<!doctype html><html><body></body></html>'}));await page.goto(`${origin}/binding-test`);
@@ -168,5 +168,6 @@ test('cartridge binds only its loopback parent once and supports both UI ports',
   }
   await context.close();
  }}finally{await browser.close();}
+ await mkdir(path.join(ROOT,'evidence/regression-preflight'),{recursive:true});
  await writeFile(path.join(ROOT,'evidence/regression-preflight/origin-handshake.json'),JSON.stringify({mode:'real-local-browser',results},null,2));
 });

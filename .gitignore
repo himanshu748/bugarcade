@@ -16,3 +16,9 @@ playwright-report/
 
 .cache/
 .design-tools/
+
+# Generated browser runs; curated seed and proof artifacts remain tracked.
+evidence/cartridges/
+evidence/jobs/
+evidence/regression-preflight/
+evidence/worker-tests/

@@ -45,3 +45,35 @@ Captured playback · authored gallery · live uploads disabled
 12
 00:01:19,000 --> 00:01:27,000
 Start with a bug you can break. Finish with a test that catches it.
+
+13
+00:01:27,000 --> 00:01:39,000
+Muse proposes. The browser executes. The verifier decides.
+
+14
+00:01:39,000 --> 00:01:51,000
+The exact response schedule is recorded with the replay.
+
+15
+00:01:51,000 --> 00:02:04,000
+The unchanged regression fails buggy and passes fixed.
+
+16
+00:02:04,000 --> 00:02:16,000
+Three buggy failures and three fixed passes under the same schedule.
+
+17
+00:02:16,000 --> 00:02:29,000
+Current runtime verification: six controls; all 38 cohort VMs terminated.
+
+18
+00:02:29,000 --> 00:02:42,000
+Five authored gallery cases; personal scores are separate from evidence.
+
+19
+00:02:42,000 --> 00:02:54,000
+Separate first-party coupon case: three model actions minimized to two.
+
+20
+00:02:54,000 --> 00:03:00,000
+Play the bug. Keep the test. Source and proof on GitHub.

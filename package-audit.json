@@ -1,35 +1,19 @@
 {
   "kind": "current-publication-release-audit",
   "status": "passed",
-  "preparedAt": "2026-11-03T10:08:34.037851+00:00",
+  "preparedAt": "2026-11-03T16:25:10.387734+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
-  "baseZipCrcPathsTypesSizesHashesChecked": true,
-  "payloadFiles": 731,
-  "expandedPayloadBytes": 45667738,
+  "payloadFiles": 746,
+  "expandedPayloadBytes": 47574530,
   "knownPatternFindings": [],
   "intentionalSyntheticFixtureExclusions": {
     "tests/test_live_preflight.py": 2,
     "tests/test_modal_planner.py": 3
   },
-  "sourceTestProofMediaBytesUnchanged": true,
-  "thirdPartyNoticesUnchanged": true,
-  "changedOriginalPaths": [
-    "README.md",
-    "docs/JUDGE_GUIDE.md",
-    "docs/SUBMISSION_DRAFT.md",
-    "package-manifest.json",
-    "package-audit.json"
-  ],
-  "newPayloads": [
-    "LICENSE",
-    "release-transformations.json",
-    "review-snapshot/2026-11-03/README.md",
-    "review-snapshot/2026-11-03/package-manifest.json",
-    "review-snapshot/2026-11-03/package-audit.json",
-    "review-snapshot/2026-11-03/transformation-receipt.json"
-  ],
-  "manifestSha256": "387c6d7665d71012822282a7055f0cd3d46dacd6d8520d8d8644e66a1b92bc4e",
+  "manifestSha256": "2edd46b6617dfc5c2977155bbb388701db14be70a875dfba55045254e180a075",
+  "sourceRuntimeAndCanonicalInvestigationBytesUnchanged": true,
   "originalApprovedZipUnchanged": true,
-  "noGitOrAccountActions": true,
-  "scanLimitations": "Known credential/private identifier patterns only, including bounded nested ZIP checks. Exact named synthetic test fixtures excluded. No guarantee for unknown secret formats, OCR, or Git history."
+  "freshPublicChecks": "proof/local-checks.json",
+  "noGitAccountOrSubmissionActions": true,
+  "scanLimitations": "Bounded known-pattern and nested-ZIP scan. No guarantee for unknown secret formats or OCR."
 }

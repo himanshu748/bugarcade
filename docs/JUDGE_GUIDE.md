@@ -1,73 +1,44 @@
-# BugArcade: judge walkthrough
+# Experience BugArcade
 
-A bug recording tells a developer that something broke, but rarely gives them a replay or a test they can trust. BugArcade turns that investigation into a game: trigger a real bug in a small React app, reveal why it happened, then replay the same actions against the fix and keep a regression test.
+**Can you make this app lose your note in three moves?**
 
-Start with `proof/index.html` in the extracted review package. Watch the **87-second demo**, or open the standalone apps and play. The demo uses Deepgram narration over edited captures of actual browser states, with an authored pointer and chapter summaries. It is not a continuous screen recording or a new model run. The full spoken transcript and caption files are included.
+BugArcade turns a frustrating bug report into something you can play, understand and prevent. A developer brings a small React app and a short recording. Meta Muse Spark Open proposes an experiment; the browser executes it; BugArcade packages the reproducible failure as a challenge, replay and regression test.
 
-The video was captured November 3, 2026, before final guarded-runtime verification. Its narration preserves the gate status at capture time. The current runtime result belongs to the proof page and supported-boundary section below; the historical narration is not a new gate verdict. `proof/demo-README.md` repeats that context beside the preserved spoken transcript.
+## Start with the disappearing note
 
-## Experience the hook
+Run the app using the [setup guide](GETTING_STARTED.md), or download the repository and open [the portable note investigation](../proof/index.html) locally in your browser.
 
-1. Open the buggy Papertrail cartridge. Click **Sync notes**, **Add note**, then **Release save-1**. The new note disappears in three moves.
-2. Reveal the cause: the delayed save acknowledgement restores an old notes array and overwrites the newer note.
-3. Inspect the accepted Muse proposal and initial browser action trace. The model proposed four actions; bounded minimization removed the unnecessary wait.
-4. Compare the exact exported test's captured failure and pass. Open the fixed cartridge and repeat the same three moves: the note survives.
-5. Open the separate **held-out coupon case**. Apply the coupon and release its response. The buggy total stays at $48.00 despite a successful 10% saving; the fixed total becomes $43.20. Its own model proposal, six browser outcomes and exact-test output are packaged separately.
+1. Play Papertrail and try to lose the newly added note in three moves.
+2. Reveal the cause and minimal action timeline.
+3. Run the same moves against the fixed app. The note survives.
+4. Inspect the exported regression test and its buggy/fixed output.
 
-Standalone cartridges work offline immediately, with a bounded in-memory API schedule. Their UI feedback is exploration playback. The independent captured worker assertions are the verification evidence. The complete five-case arcade also runs locally after the pinned setup in the package README; those five gallery plans are authored, not five autonomous model discoveries.
+The five-case gallery also covers optimistic rollback, stale search, duplicate submission and cleanup races. Hints and reset make the cases approachable; stars reward the catch, move target and fix check.
 
-## What makes it different
+## See where Meta made a decision
 
-Meta's model makes decisions that actually drive the reproduction loop. Muse Spark Open receives buggy source and timestamped recording frames, then proposes browser actions and a candidate assertion. Those actions enter the executor. A deterministic verifier decides whether the bug occurred, whether deleting an action preserves it and whether the fixed version passes the unchanged assertion. Recording evidence guides investigation; it does not certify success, and the model cannot grade its own result.
+The [note investigation](../proof/index.html) connects Muse's actual proposal to executed actions. Four actions became three after browser-verified minimization. Three buggy failures and three fixed passes followed; the exact exported test also failed buggy and passed fixed.
 
-| Captured successful job | Model contribution | Independent outcome |
-| --- | --- | --- |
-| Known-note example | One Muse call; 2,839 tokens; 4 actions minimized to 3; 276.552 seconds | 3 buggy failures / 3 fixed passes; identical exported test fails buggy and passes fixed |
-| Pipeline-held-out coupon example | One Muse call; 3,963 tokens; 3 actions minimized to 2; 270.751 seconds | Its own 3 buggy failures / 3 fixed passes; identical exported test fails buggy and passes fixed |
+The [separate coupon investigation](../proof/heldout/index.html) shows the planner working without an authored action sequence or hints in its input. Muse chose three actions; minimization retained two. A successful coupon response left the buggy total at $48.00, while the fixed app showed $43.20. Its regression test captures that difference.
 
-The coupon app, source hashes, assertion and schedule were frozen before model use, outside the supplied planner examples and five-case gallery. Its submitted action lists, hints and explanation were empty. The authored witness was used only for baseline capture and was excluded from the model payload. It is a **first-party pipeline-held-out example**, not an independently sourced production bug, an external benchmark or a claim about model training data.
+The gallery uses authored plans. These two investigations show accepted model proposals driving the executor. The assertion remains fixed, and a deterministic verifier decides the outcome. [Technical evidence and evaluation scope](EVIDENCE.md).
 
-These successful records are examples, not an aggregate agent success-rate estimate. Six invalid minimization outcomes in the known-note job and four in the coupon job were rejected. Three repetitions under one controlled schedule demonstrate narrow repeatability, not broad reliability. Input frames can miss fast interactions; action/network/browser traces retain ordering.
+## Watch the demo
 
-## Evidence appendix
+[Watch the three-minute walkthrough](../proof/demo.mp4). It leads with the player catching the note bug, then follows the replay, Meta proposal, failing test, fix and passing test. A caption-led evidence tour shows the separate coupon case and the guarded runtime. The original Deepgram narration and actual browser captures are identified in the [video notes](../proof/demo-README.md).
 
-The proof pages include accepted proposals, executed actions, immutable assertions, source hashes, seeds, schedules, timestamped recording samples, six per-case browser observations, traces, screenshots and downloadable exact regression tests. Actual failing/passing Node test outputs are shown alongside each test hash. The tests ran in isolated Modal sandboxes; opening the proof pages does not rerun them.
+## What was built during the hackathon
 
-The original known-note inference estimate is $0.00631175, and the coupon estimate is $0.01035075. These are inference estimates for the named successful jobs, not total provider bills or spending caps. Earlier failed attempts are retained privately and are not relabeled as successes.
+Between October 28 and November 3, 2026, the project added the React arcade and five buggy/fixed fixtures, recording extraction, Muse planner, Playwright executor, controllable API, immutable assertion engine, minimizer, persistent job orchestration, challenge packaging and guarded Modal runtime. These are the original contributions presented in the demo. React, Playwright, FastAPI and other dependencies retain their licenses and attribution.
 
-Current local verification passed 360 Python tests, 106 evaluation tests, 16 worker tests and 33 progress/evidence-contract tests, plus lint, types and build. All 45 distinct browser scenarios have passing results across a 44-pass full run and one corrected focused check. The full run preserved a stale fixed-mode readiness-text expectation failure; only that assertion changed, with scoring checks and timeouts intact. This is not a fresh 45/45 full-suite pass. A clean public package intentionally excludes private completed-job state, so the private-capture UI tests are not portable. The README supplies the portable suite command; the independent packaged proof is separately browser-checked with networking disabled.
+## Why this workflow matters
 
-The staged public Python source separately passed **360 tests in 11.34 seconds**, with one dependency deprecation warning. It imported its own staged backend and required no private database or provider receipts. This used the maintainer's existing pinned environment, without a fresh dependency install or cloud call. `proof/staged-core-tests.public.json` binds the tested Python/configuration hashes; the builder rejects stale source, and the sanitized full output is included.
+A recording is a clue. A reproducible test is something a developer can act on. BugArcade connects the two while making the investigation useful to both the developer fixing the bug and the player learning how it happened.
 
-## Supported boundary and current limits
+- **For developers:** an exact action sequence, controlled response order and executable regression test.
+- **For learners:** a small app they can break, inspect and compare with the fix.
+- **For reviewers:** model decisions linked to browser actions, observations and source hashes.
 
-Starter v1 supports explicitly authorized small React/TypeScript apps with buggy/fixed `App.tsx`, stable test IDs, a declared invariant and a controlled API schedule. Arbitrary repositories and dependency installation are outside the interface. Model calls run in the trusted backend; submitted app/browser execution belongs in Modal. The local runner is a development convenience for trusted seeds, not security isolation.
+## Scope
 
-**The guarded VM runtime is now verified.** Six boundary controls passed, all five unchanged seed cases each produced three buggy failures and three fixed passes in 30 guarded browser runs, and the identical exported test failed buggy and passed fixed in two additional VMs. All 38 VMs in this verified cohort have terminal evidence. The [public runtime summary](../proof/runtime-summary.json) binds source/invariant/result hashes and exact outcomes.
-
-The memory proof is specific: an unprivileged workload reached its root-owned 1 GiB cgroup limit inside a 2 GiB Modal VM. The kernel identified the exact memcg, leaf and victim PID; local OOM counters agreed; the supervisor survived outside the leaf and cleaned it up. Manual-kill and timeout controls remained distinct. The old outer-memory exit137 remains inconclusive. A failed host TTL-cleanup attempt and a provider-metadata timeout are preserved. Recovery revalidated 27 completed browser runs and ran only the three remaining trials; it did not reclassify an infrastructure timeout as a bug.
-
-General uploaded-app live execution remains **off by policy**. The two captured model jobs predate the guarded-runtime change; their model decisions and the new runtime cohort are separate evidence. Three repeats under one schedule are narrow repeatability, not broad reliability or a security certification. Personal stars are browser-local play progress, not verification attestations. Baseten support is implemented but has not been verified live; these captured Muse investigations used the selected Modal Shared Endpoint.
-
-## Package privacy and verification
-
-The builder copies explicit source roots/extensions and selected app-only evidence. Credentials, `.data`, environment files, private model/account screenshots, raw billing, Deepgram receipts, organizer messages, caches and installed dependencies are excluded. Only the three MIT license texts needed for the runtime embedded in the cartridges are copied from dependencies. Those third-party notices retain their original terms; the approved root MIT LICENSE now covers original BugArcade source.
-
-Public derivatives redact workspace endpoint identifiers and personal paths. Fixture source, model proposal/action/assertion payloads, canonical result files and exact exported tests retain their hashes. `transformation-receipt.json` records source/staged hashes and reasons. The current root `package-manifest.json` binds release payload bytes; `package-audit.json` records safe paths/types/sizes and bounded known-pattern scanning. The original ZIP CRC/extraction/nested checks and original manifest are retained as dated records under `review-snapshot/2026-11-03/`. `release-transformations.json` distinguishes publication documentation/license changes from unchanged source/test/proof bytes. Exact explicitly synthetic token literals in two named test files are documented exceptions; other wk/ws-shaped tokens fail the scan. This is not a Git-history scan, unknown-secret-format guarantee or signed provider attestation. Media is visually reviewed, not OCR-scanned.
-
-From the original maintainer workspace, rebuild with:
-
-```sh
-python3 scripts/package-submission.py \
-  --demo evidence/submission-demo/bugarcade-demo.mp4
-```
-
-Rebuilding requires retained private original proof; the extracted public derivative alone is not that original evidence store. The proof pages and standalone apps work offline. The full app needs a one-time network dependency/browser install, with versions pinned.
-
-## Submission status and organizer guidance
-
-Participant acceptance was verified from an organizer approval dated October 20. A November 3 organizer update **requires an open-source GitHub repository** and emphasizes a **three-minute demo**. This package contains an 87-second cut; final field/format requirements should be confirmed in the participant's submission context. These organizer facts are paraphrased here; private messages, identifiers and personal details are not bundled.
-
-The [public event page](https://dev.meta.ai/events/global-hackathon) lists Indie creativity, technical ambition and whether it works, and the published deadline November 4, 2026 at 9 PM Eastern / November 5 at 7:30 AM IST. No numeric project-judging weights or bonus criteria were found there. Application-selection weights are separate.
-
-The original review ZIP predates publication authorization. On November 3, 2026, the owner explicitly approved a new public `himanshu748/bugarcade` repository under MIT, including the initial commit/push. The root LICENSE and current release manifest reflect that authorization; original proof/source/test bytes are preserved. This local preparation performs no Git/account action. Public deployment and actual entry submission remain unauthorized and have not been performed as part of this release preparation.
+The creator supports explicitly authorized Starter v1 React/TypeScript apps, with a supplied fixed counterpart and controlled API schedule. Live execution needs trusted backend credentials and a finite configured budget; the included arcade and portable proof work without them. [Starter interface](STARTER.md) · [Architecture](ARCHITECTURE.md) · [Security](SECURITY.md).

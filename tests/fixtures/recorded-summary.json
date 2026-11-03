@@ -1,0 +1,1788 @@
+{
+  "verified": true,
+  "mode": "recorded",
+  "runner": "local-trusted-seeds",
+  "challengeId": "lost-note",
+  "cohort": "known-seed",
+  "sourceHashes": {
+    "buggy": "3e3691816b35c455c4b6110de9dd8bd113ffe42abcdaf7714eea6818a099a882",
+    "fixed": "734bd14d0e4b44db1d2356164ee1b813863c0a12152709a7412776fcafc0652b"
+  },
+  "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+  "assertion": {
+    "target": "notes",
+    "operator": "contains",
+    "expected": "Book the demo slot"
+  },
+  "completion": {
+    "target": "sync-state",
+    "value": "Synced \u00b7 1 added"
+  },
+  "seed": 0,
+  "schedule": [
+    {
+      "id": "save-1",
+      "key": "save",
+      "response": {
+        "saved": true
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "fill",
+      "target": "draft",
+      "value": "Book the demo slot"
+    },
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "sync"
+    },
+    {
+      "type": "click",
+      "target": "add-note"
+    },
+    {
+      "type": "release",
+      "request": "save-1"
+    }
+  ],
+  "initialActionCount": 4,
+  "minimizedActionCount": 3,
+  "minimizationProbes": 4,
+  "minimality": "bounded deletion search; not a global optimum",
+  "buggyFailures": 3,
+  "fixedPasses": 3,
+  "validationRuns": 6,
+  "browserRuns": 13,
+  "infrastructureErrors": 3,
+  "elapsedMs": 37561,
+  "modelCalls": 0,
+  "modelUsage": null,
+  "model": null,
+  "modelProvider": null,
+  "estimatedModelCostUsd": 0,
+  "provenance": [
+    {
+      "origin": "authored-seed-plan",
+      "model": null,
+      "modelCalls": 0,
+      "usage": null,
+      "estimatedModelCostUsd": 0,
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "proposedActions": [
+        {
+          "type": "fill",
+          "target": "draft",
+          "value": "Book the demo slot"
+        },
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "executedActions": [
+        {
+          "type": "fill",
+          "target": "draft",
+          "value": "Book the demo slot"
+        },
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "executions": [
+        {
+          "variant": "buggy",
+          "phase": "initial",
+          "actions": [
+            {
+              "type": "fill",
+              "target": "draft",
+              "value": "Book the demo slot"
+            },
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "failed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/00-initial-buggy"
+        },
+        {
+          "variant": "fixed",
+          "phase": "initial",
+          "actions": [
+            {
+              "type": "fill",
+              "target": "draft",
+              "value": "Book the demo slot"
+            },
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "passed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/01-initial-fixed"
+        },
+        {
+          "variant": "buggy",
+          "phase": "minimize",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "failed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/02-minimize-buggy"
+        },
+        {
+          "variant": "fixed",
+          "phase": "minimize",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "passed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/03-minimize-fixed"
+        },
+        {
+          "variant": "buggy",
+          "phase": "minimize",
+          "actions": [
+            {
+              "type": "click",
+              "target": "add-note"
+            }
+          ],
+          "status": "error",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/04-minimize-buggy"
+        },
+        {
+          "variant": "buggy",
+          "phase": "minimize",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "error",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/05-minimize-buggy"
+        },
+        {
+          "variant": "buggy",
+          "phase": "minimize",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            }
+          ],
+          "status": "error",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/06-minimize-buggy"
+        },
+        {
+          "variant": "buggy",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "failed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/07-validation-buggy"
+        },
+        {
+          "variant": "fixed",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "passed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/08-validation-fixed"
+        },
+        {
+          "variant": "buggy",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "failed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/09-validation-buggy"
+        },
+        {
+          "variant": "fixed",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "passed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/10-validation-fixed"
+        },
+        {
+          "variant": "buggy",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "failed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/11-validation-buggy"
+        },
+        {
+          "variant": "fixed",
+          "phase": "validation",
+          "actions": [
+            {
+              "type": "click",
+              "target": "sync"
+            },
+            {
+              "type": "click",
+              "target": "add-note"
+            },
+            {
+              "type": "release",
+              "request": "save-1"
+            }
+          ],
+          "status": "passed",
+          "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/12-validation-fixed"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "variant": "buggy",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "fill",
+          "target": "draft",
+          "value": "Book the demo slot"
+        },
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/00-initial-buggy",
+      "result": {
+        "status": "failed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "fill",
+              "target": "draft",
+              "value": "Book the demo slot"
+            },
+            "atMs": 1031,
+            "elapsedMs": 32,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1115,
+            "elapsedMs": 42,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1243,
+            "elapsedMs": 40,
+            "status": "executed"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1326,
+            "elapsedMs": 26,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1810,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cut",
+          "pass": false,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 451
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 641
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "buggy",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "fixed",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "fill",
+          "target": "draft",
+          "value": "Book the demo slot"
+        },
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/01-initial-fixed",
+      "result": {
+        "status": "passed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "fill",
+              "target": "draft",
+              "value": "Book the demo slot"
+            },
+            "atMs": 1156,
+            "elapsedMs": 57,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1291,
+            "elapsedMs": 113,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1456,
+            "elapsedMs": 37,
+            "status": "executed"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1537,
+            "elapsedMs": 20,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1992,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cutBook the demo slot",
+          "pass": true,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 635
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 845
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "fixed",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/02-minimize-buggy",
+      "result": {
+        "status": "failed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1048,
+            "elapsedMs": 100,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1197,
+            "elapsedMs": 37,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1277,
+            "elapsedMs": 22,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1941,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cut",
+          "pass": false,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 490
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 693
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "buggy",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "fixed",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/03-minimize-fixed",
+      "result": {
+        "status": "passed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1037,
+            "elapsedMs": 117,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1214,
+            "elapsedMs": 37,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1296,
+            "elapsedMs": 21,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1824,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cutBook the demo slot",
+          "pass": true,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 457
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 670
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "fixed",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/04-minimize-buggy",
+      "result": {
+        "status": "error",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1030,
+            "elapsedMs": 42,
+            "status": "executed"
+          }
+        ],
+        "schedule": [],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 4266,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "error.png",
+          "frames": "frames.json",
+          "recording": "recording.webm"
+        },
+        "error": {
+          "code": "EXECUTION_ERROR",
+          "message": "Scheduled request did not arrive: save-1"
+        }
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/05-minimize-buggy",
+      "result": {
+        "status": "error",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 854,
+            "elapsedMs": 46,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 966,
+            "elapsedMs": 18,
+            "status": "executed"
+          }
+        ],
+        "schedule": [],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 4130,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "error.png",
+          "frames": "frames.json",
+          "recording": "recording.webm"
+        },
+        "error": {
+          "code": "EXECUTION_ERROR",
+          "message": "expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('sync-state')\nExpected: \"Synced \u00b7 1 added\"\nReceived: \"Synced \u00b7 0 added\"\nTimeout:  2500ms\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('sync-state') with timeout 2500ms\n  - waiting for getByTestId('sync-state')\n    9 \u00d7 locator resolved to <span data-testid=\"sync-state\">Synced \u00b7 0 added</span>\n      - unexpected value \"Synced \u00b7 0 added\"\n"
+        }
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/06-minimize-buggy",
+      "result": {
+        "status": "error",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1500,
+            "elapsedMs": 105,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1661,
+            "elapsedMs": 39,
+            "status": "executed"
+          }
+        ],
+        "schedule": [],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 4868,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "error.png",
+          "frames": "frames.json",
+          "recording": "recording.webm"
+        },
+        "error": {
+          "code": "EXECUTION_ERROR",
+          "message": "expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('sync-state')\nExpected: \"Synced \u00b7 1 added\"\nReceived: \"Syncing\u2026 \u00b7 1 added\"\nTimeout:  2500ms\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('sync-state') with timeout 2500ms\n  - waiting for getByTestId('sync-state')\n    9 \u00d7 locator resolved to <span data-testid=\"sync-state\">Syncing\u2026 \u00b7 1 added</span>\n      - unexpected value \"Syncing\u2026 \u00b7 1 added\"\n"
+        }
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/07-validation-buggy",
+      "result": {
+        "status": "failed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 823,
+            "elapsedMs": 89,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 959,
+            "elapsedMs": 38,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1048,
+            "elapsedMs": 18,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1479,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cut",
+          "pass": false,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 302
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 488
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "buggy",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/08-validation-fixed",
+      "result": {
+        "status": "passed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1113,
+            "elapsedMs": 50,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1266,
+            "elapsedMs": 37,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1348,
+            "elapsedMs": 21,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1802,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cutBook the demo slot",
+          "pass": true,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 402
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 603
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "fixed",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/09-validation-buggy",
+      "result": {
+        "status": "failed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1082,
+            "elapsedMs": 111,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1254,
+            "elapsedMs": 55,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1349,
+            "elapsedMs": 20,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1842,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cut",
+          "pass": false,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 432
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 658
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "buggy",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/10-validation-fixed",
+      "result": {
+        "status": "passed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 1183,
+            "elapsedMs": 39,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1307,
+            "elapsedMs": 41,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1392,
+            "elapsedMs": 17,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1876,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cutBook the demo slot",
+          "pass": true,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 460
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 644
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "fixed",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/11-validation-buggy",
+      "result": {
+        "status": "failed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 989,
+            "elapsedMs": 44,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1117,
+            "elapsedMs": 41,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1201,
+            "elapsedMs": 19,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1651,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cut",
+          "pass": false,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 450
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 632
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "buggy",
+        "challengeId": "lost-note"
+      }
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "sync"
+        },
+        {
+          "type": "click",
+          "target": "add-note"
+        },
+        {
+          "type": "release",
+          "request": "save-1"
+        }
+      ],
+      "proposalId": "e79d990e0d4f6884e45d773a02d6ba1c981085bd47e4ebb068309630d295f1e8",
+      "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+      "artifactDirectory": "jobs/8201bb48771d4760ad8aee993b7c9107/12-validation-fixed",
+      "result": {
+        "status": "passed",
+        "actions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "click",
+              "target": "sync"
+            },
+            "atMs": 996,
+            "elapsedMs": 48,
+            "status": "executed"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "click",
+              "target": "add-note"
+            },
+            "atMs": 1145,
+            "elapsedMs": 40,
+            "status": "executed"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "release",
+              "request": "save-1"
+            },
+            "atMs": 1228,
+            "elapsedMs": 17,
+            "status": "executed"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "status": 200,
+            "response": {
+              "saved": true
+            }
+          }
+        ],
+        "browserVersion": "156.0.8078.4",
+        "elapsedMs": 1716,
+        "artifacts": {
+          "result": "result.json",
+          "actions": "actions.json",
+          "console": "console.json",
+          "schedule": "network.json",
+          "trace": "trace.zip",
+          "screenshot": "final.png",
+          "frames": "frames.json",
+          "recording": "recording.webm",
+          "player": "player.html"
+        },
+        "error": null,
+        "assertion": {
+          "target": "notes",
+          "operator": "contains",
+          "expected": "Book the demo slot",
+          "actual": "Ship the rough cutBook the demo slot",
+          "pass": true,
+          "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+          "completion": {
+            "target": "sync-state",
+            "value": "Synced \u00b7 1 added"
+          }
+        },
+        "network": [
+          {
+            "type": "request",
+            "id": "save-1",
+            "key": "save",
+            "payload": {
+              "notes": [
+                "Ship the rough cut"
+              ]
+            },
+            "atMs": 415
+          },
+          {
+            "type": "release",
+            "id": "save-1",
+            "status": 200,
+            "response": {
+              "saved": true
+            },
+            "atMs": 612
+          }
+        ],
+        "seed": 0,
+        "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+        "variant": "fixed",
+        "challengeId": "lost-note"
+      }
+    }
+  ],
+  "artifacts": {
+    "summary": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/summary.json",
+    "regression": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/regression.test.mjs",
+    "provenance": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/provenance.json",
+    "challenge": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/challenge.json",
+    "replay": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/replay.json",
+    "source": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/source.zip",
+    "buggyPlayer": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/player-buggy.html",
+    "buggyTrace": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/buggy-trace.zip",
+    "buggyRecording": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/buggy-recording.webm",
+    "fixedPlayer": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/player-fixed.html",
+    "fixedTrace": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/fixed-trace.zip",
+    "fixedRecording": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/fixed-recording.webm"
+  },
+  "limits": "Repeatability under one controlled schedule is not broad reliability or held-out generalization evidence.",
+  "player": {
+    "kind": "offline-browser-cartridge",
+    "buggyUrl": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/player-buggy.html",
+    "fixedUrl": "/api/job-artifacts/8201bb48771d4760ad8aee993b7c9107/player-fixed.html",
+    "securityNote": "Render only in a scripts-only sandbox iframe. Player feedback is not verifier evidence; recorded browser assertions remain authoritative."
+  }
+}

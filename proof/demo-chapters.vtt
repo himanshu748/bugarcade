@@ -1,6 +1,6 @@
 WEBVTT
 
-NOTE Authored chapter summaries; full spoken transcript is demo-transcript.txt.
+NOTE Authored chapter summaries, not a verbatim transcript. Original narration preserved; dated status overlay and caption-led evidence tour added.
 
 00:00:00.000 --> 00:00:04.000
 Can you make this app lose a note in three moves?
@@ -27,7 +27,7 @@ The assertion stays locked. The verifier decides.
 The exact regression fails on the buggy app.
 
 00:00:51.000 --> 00:00:57.000
-Same moves, fixed app: the note survives.
+Same moves. fixed app: the note survives.
 
 00:00:57.000 --> 00:01:05.500
 Three buggy failures · three fixed passes · same assertion
@@ -37,3 +37,27 @@ Captured playback · authored gallery · live uploads disabled
 
 00:01:19.000 --> 00:01:27.000
 Start with a bug you can break. Finish with a test that catches it.
+
+00:01:27.000 --> 00:01:39.000
+Muse proposes. The browser executes. The verifier decides.
+
+00:01:39.000 --> 00:01:51.000
+The exact response schedule is recorded with the replay.
+
+00:01:51.000 --> 00:02:04.000
+The unchanged regression fails buggy and passes fixed.
+
+00:02:04.000 --> 00:02:16.000
+Three buggy failures and three fixed passes under the same schedule.
+
+00:02:16.000 --> 00:02:29.000
+Current runtime verification: six controls; all 38 cohort VMs terminated.
+
+00:02:29.000 --> 00:02:42.000
+Five authored gallery cases; personal scores are separate from evidence.
+
+00:02:42.000 --> 00:02:54.000
+Separate first-party coupon case: three model actions minimized to two.
+
+00:02:54.000 --> 00:03:00.000
+Play the bug. Keep the test. Source and proof on GitHub.

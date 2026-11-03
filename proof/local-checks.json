@@ -1,0 +1,46 @@
+{
+  "kind": "isolated-public-checkout-validation",
+  "verifiedOn": "2026-11-03",
+  "installation": {
+    "node": "npm ci --ignore-scripts",
+    "python": "uv sync --frozen --extra dev --extra cloud",
+    "browser": "npx playwright install chromium",
+    "freshDependencyDirectories": true
+  },
+  "checks": {
+    "python": {
+      "passed": 360,
+      "warnings": 1
+    },
+    "worker": {
+      "passed": 16
+    },
+    "logic": {
+      "passed": 33
+    },
+    "browser": {
+      "passed": 39,
+      "failed": 0,
+      "scope": "All seven documented portable browser files; private-capture investigation-proof suite excluded."
+    },
+    "lint": "passed",
+    "types": "passed",
+    "build": "passed"
+  },
+  "modelOrCloudCalls": 0,
+  "dependencyAdvisory": "11 moderate reports from the development-only minimatch/ESLint chain; see docs/SECURITY.md.",
+  "portabilityRepairs": [
+    "Worker origin-handshake test creates its artifact output directory.",
+    "Evidence contract tests read sanitized offline fixtures rather than private job storage."
+  ],
+  "sourceHashes": {
+    "tests/worker.test.mjs": "1d1325d9aea91e38188123edd86f7ec8206b7edd56a33fa38b8716aa58722a2c",
+    "tests/job-evidence.test.mjs": "3eebb97e415e14c9e54e1059f2aec7319d7fbf07eed9c49c304fd7319196c148",
+    "tests/fixtures/live-summary.json": "607a5cca7e31bc12fc012f275ee3e2b16e7ed46995629a91d6f9b40ce9b02a02",
+    "tests/fixtures/recorded-summary.json": "8976e8ab3ec0733af539e14ad9e1c87c579249b1aaebfb4cd21e39c0acab0471",
+    "package.json": "27f98fde810137d23521af4c455fcb7328e7c04e25a03493d6e1f97abd1e6b0d",
+    "package-lock.json": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b",
+    "pyproject.toml": "327515a7f0b562973219bcd6466889993f228fed4b233811010603574c1e510a",
+    "uv.lock": "f17e686d518f068d976543ff323d0001ecaae25fb38db16700790a12dcbeb0c6"
+  }
+}

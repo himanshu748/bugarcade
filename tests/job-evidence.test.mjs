@@ -5,7 +5,8 @@ import { validateJobEvidence } from '../frontend/job-evidence.ts';
 
 const liveId = '6d18b3f942ea45698c972d6763ce3383';
 const recordedId = '8201bb48771d4760ad8aee993b7c9107';
-const read = id => JSON.parse(fs.readFileSync(new URL(`../evidence/jobs/${id}/summary.json`, import.meta.url)));
+// Sanitized captured data keeps these offline contract tests independent of private job storage.
+const read = id => JSON.parse(fs.readFileSync(new URL(`./fixtures/${id === liveId ? 'live' : 'recorded'}-summary.json`, import.meta.url)));
 const live = read(liveId), recorded = read(recordedId);
 const seed = JSON.parse(fs.readFileSync(new URL('../shared/challenges.json', import.meta.url)))[0];
 const expected = (mode = 'live') => ({ jobId: mode === 'live' ? liveId : recordedId, mode,
