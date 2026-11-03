@@ -1,19 +1,19 @@
 {
   "kind": "public-release-transformations",
-  "preparedAt": "2026-11-03T16:41:46.233441+00:00",
+  "preparedAt": "2026-11-03T18:21:22.362907+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "originalReviewMembers": 727,
-  "revisionPurpose": "Product-first documentation, three-minute demo and portable public tests.",
+  "revisionPurpose": "Submitted product documentation and locally prepared static arcade; public deployment awaits authorization.",
   "changedReviewPayloads": [
     {
       "path": ".gitignore",
       "reviewSha256": "a96d1be675f3d06722f1116da556e49c12775448cd313adaf618f4bb8a3f6ec2",
-      "releaseSha256": "a95f67df839cc4780fcc05646a7240fe9b82506447007d3a4b965141286531f6"
+      "releaseSha256": "17ad562907584db553f74e59bb067e28498381a29dec0711e13c39e8b3f56f85"
     },
     {
       "path": "README.md",
       "reviewSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
-      "releaseSha256": "026ad096e902e9b55da54841c1e3ac6aecc343db83d2b6174594d3d00da554f1"
+      "releaseSha256": "3e140ada7e458453e10c0a3185f53eed7eef75c7f93a9c83f7e6ecae60982a2b"
     },
     {
       "path": "docs/JUDGE_GUIDE.md",
@@ -23,17 +23,42 @@
     {
       "path": "docs/SUBMISSION_DRAFT.md",
       "reviewSha256": "b18400b0f0ec4f6a0bd1d0c087818a18f13f1809ad2abf24d085fa35421234dc",
-      "releaseSha256": "3a5f446d6c9fcf559ca58a66bec03ba1fe03561fd48063e5816ee71dc8a67bb8"
+      "releaseSha256": "74200263cb078d34cf7e8a868235ca224a802e6f496253e2c782b46b2421a634"
+    },
+    {
+      "path": "fixtures/harness.tsx",
+      "reviewSha256": "4afbf24502d2df47394a05f4f9242936c85142e1fbe0fe349dc0999b04220812",
+      "releaseSha256": "a66d98d93ab02f83dced01144869f689734dbd35bcd5891498f1b2ab358173d3"
+    },
+    {
+      "path": "frontend/App.tsx",
+      "reviewSha256": "a3b190f52b317c09a05259717a3a5bf36f3fed3c2053866fbf2371f14f16cdb6",
+      "releaseSha256": "caa4f5589246efac305a05c3865ee9835cb25a6dbea5af257e29dc8e2547023e"
+    },
+    {
+      "path": "frontend/InvestigationProof.tsx",
+      "reviewSha256": "730b3c2064783eac09859f90c3763473aabddf7b9e9db87982bf8357ec3bafbb",
+      "releaseSha256": "a4ccb47333d3862f4dafe4a9ac3091d4ca6062de5175c1c700d2e1f84cafaa12"
+    },
+    {
+      "path": "frontend/LandingPage.tsx",
+      "reviewSha256": "020a8c515abf4801fb6e8cee7d1cd181afbdd5d76746c838140e7caadf2a52b5",
+      "releaseSha256": "f1bdbe7f1f5b9d6f96ace44282441496aa8e63ba9f047ec0ea36903a8d240c93"
+    },
+    {
+      "path": "frontend/types.ts",
+      "reviewSha256": "229b2e085da5941565bd50d0746091bbe639b02365b90f681c6e4de0d6bd2309",
+      "releaseSha256": "1f74a839e45dc514c5bdef714720e083ead706a23d97f40bc7bbacb8a45faf84"
     },
     {
       "path": "package-audit.json",
       "reviewSha256": "d9851a35cc4a98042e20bfb054bc3bd96a2765d10c69410ec142cb06b7eff78a",
-      "releaseSha256": "66ea27488f612dae4044b65dd734ae1166d8e7115b1f5a73024623ecedca14e4"
+      "releaseSha256": "c7dd608025c699f5ffeb6243bb353140a99109802143ecb59015ce025b97a9fd"
     },
     {
       "path": "package-manifest.json",
       "reviewSha256": "5126b00c172dc06790b012c038cce46b202e8f0f128f403a5bbdea5fcd557cfd",
-      "releaseSha256": "1b94762380442a423aaaeb65cae1d1a66025a3ed0fc72ebbd694fea0517a0c68"
+      "releaseSha256": "f81d0d84bf597317c7e53bf8405e71b2626ba20c62264fccb0d296e158698faa"
     },
     {
       "path": "proof/demo-README.md",
@@ -61,6 +86,11 @@
       "releaseSha256": "6b00cbf60098e8e00ca6c813aa6b1a95c6873d3fa70cbd748f54aee6c6f19f5e"
     },
     {
+      "path": "scripts/package-submission.py",
+      "reviewSha256": "838d22bacfcb0e96a0c0d7ab760965dc7f8fd604fdf17a100a093bf6e05e3920",
+      "releaseSha256": "da12156cfb4a311c402c9ba2667350f81c6a6662f802b1ca328ddfd974eb3b32"
+    },
+    {
       "path": "tests/job-evidence.test.mjs",
       "reviewSha256": "9dbbc2d0c7dc2a1e3cab477fca7209a76e83a06487e1c125bf0c4a3ee6095c05",
       "releaseSha256": "3eebb97e415e14c9e54e1059f2aec7319d7fbf07eed9c49c304fd7319196c148"
@@ -69,12 +99,24 @@
       "path": "tests/worker.test.mjs",
       "reviewSha256": "ff90c965123ed465bf36be7cacdc5dd10c8011c124870b293d12a6aa023a06f8",
       "releaseSha256": "1d1325d9aea91e38188123edd86f7ec8206b7edd56a33fa38b8716aa58722a2c"
+    },
+    {
+      "path": "vite.config.ts",
+      "reviewSha256": "52242002ab29c6e7438beeeafb68e6b4c2dc3b120879cd95fb0ec4d984d26cb9",
+      "releaseSha256": "98a3498c4399de5f971a3600af08cebe55f157a0a58b7382cfe6afb835ca9cc2"
+    },
+    {
+      "path": "worker/cartridge.mjs",
+      "reviewSha256": "8ed7b703b5c27f7f3b49996895c5b8ef1f8914f2368655e6fb8686ce2215b074",
+      "releaseSha256": "6dd8ac1e65b741f09679e1da67e6bfd8ff77bf0d283542a74c24474c896da10e"
     }
   ],
-  "sourceRuntimeAndCanonicalInvestigationBytesUnchanged": true,
+  "canonicalInvestigationAndSeedSourceBytesUnchanged": true,
+  "runtimeSourceBytesUnchanged": false,
   "testHarnessChanges": [
     "Creates the worker artifact output directory.",
-    "Uses sanitized offline evidence fixtures instead of private job storage."
+    "Uses sanitized offline evidence fixtures instead of private job storage.",
+    "Waits for simulator request acknowledgement between replay actions so delayed HTTP admission cannot reorder the schedule."
   ],
   "mediaChanges": "180-second edited demo; original narration preserved, historical status corrected visibly; caption-led evidence tour added.",
   "originalReviewSnapshot": "review-snapshot/2026-11-03/",

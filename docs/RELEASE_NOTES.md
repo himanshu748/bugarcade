@@ -8,7 +8,7 @@ The previous README, preserved verbatim so the main README can focus on the proj
 
 A debugging game for React developers. Trigger a real bug, reveal the replay, then check the fix and keep its regression test.
 
-This source release is licensed under [MIT](LICENSE), copyright 2026 Himanshu Kumar (himanshu748). Publication to `himanshu748/bugarcade` was explicitly authorized on November 3, 2026. This preparation does not deploy the app or submit the hackathon entry. Original proof pages and the 87-second narrated cut retain their dated prepublication review context; their evidence bytes are unchanged.
+This source release is licensed under [MIT](../LICENSE), copyright 2026 Himanshu Kumar (himanshu748). Publication to `himanshu748/bugarcade` was explicitly authorized on November 3, 2026. This preparation does not deploy the app or submit the hackathon entry. Original proof pages and the 87-second narrated cut retain their dated prepublication review context; their evidence bytes are unchanged.
 
 Open `proof/index.html` for the offline playable cartridges, real captured Meta decisions and separate known-note/first-party-held-out coupon outcomes. No credentials or dependency install is needed for that review. Read `docs/JUDGE_GUIDE.md` and `docs/SUBMISSION_DRAFT.md` for the walkthrough, exact scope and draft narrative.
 

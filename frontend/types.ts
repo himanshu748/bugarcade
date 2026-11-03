@@ -1,3 +1,5 @@
+import { PUBLIC_DEMO, apiUrl } from './public-demo';
+
 export type Action = { type: 'click'; target: string } | { type: 'fill'; target: string; value: string } | { type: 'release'; request: string } | { type: 'wait'; target: string; value: string };
 export interface Challenge {
   id: string; title: string; subtitle: string; category: string; difficulty: string; goal: string; hint: string; explanation: string; accent: string; targetMoves: number;
@@ -7,7 +9,8 @@ export interface Health { status: string; liveEnabled: boolean; liveDisabledReas
 export interface Job { id: string; state: string; mode: 'live' | 'recorded'; events: { state: string; at: string; message: string }[]; error: string | { message: string } | null; result: Record<string, unknown> | null; challengeId?: string }
 export const terminalStates = new Set(['completed', 'failed', 'not-reproduced', 'cancelled']);
 export async function request<T>(url: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(url, options);
+  if (PUBLIC_DEMO && (options?.method || 'GET').toUpperCase() !== 'GET') throw new Error('Investigations run in the local creator. This hosted arcade is read-only.');
+  const response = await fetch(apiUrl(url), options);
   if (!response.ok) {
     let message = `Request failed (${response.status}).`;
     try { const body = await response.json(); message = typeof body.detail === 'string' ? body.detail : typeof body.detail?.message === 'string' ? body.detail.message : typeof body.error === 'string' ? body.error : message; } catch { /* Plain HTTP errors stay readable. */ }

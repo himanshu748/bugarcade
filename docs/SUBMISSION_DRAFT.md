@@ -2,7 +2,7 @@
 
 **Can you make this app lose your note in three moves?**
 
-Prepared for the Indie Developer track, Build for Your World.
+Submitted to the **Meta Global AI Developer Hackathon** on **November 3, 2026**. Indie Developer track · Build for Your World.
 
 Public source: [himanshu748/bugarcade](https://github.com/himanshu748/bugarcade) · [Demo video](https://youtu.be/RnbcI01d7oE)
 
@@ -37,6 +37,5 @@ Modal let us use the same provider for Muse Spark Open inference and isolated Pl
 ## Entry details
 
 - Team: BugArcade; solo entrant Himanshu Kumar (himanshu748).
-- Required product-opinion answers: Somewhat likely / Somewhat favorable, selected by the entrant.
-- Optional personal surveys and X promotion link are left blank.
-- Submission status: prepared; final portal confirmation is pending.
+- Submission status: submitted and confirmed in the saved portal entry on November 3, 2026.
+- Demo: three-minute walkthrough, available through the unlisted YouTube link above.

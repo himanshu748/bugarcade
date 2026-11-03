@@ -13,7 +13,7 @@ export function mountHarness(App: ComponentType<{api:{request:(key:string,payloa
   const config = window.__BUGARCADE_CONFIG__, manifest = config.manifest;
   const appRoot = document.getElementById('app-root')!, harnessRoot = document.getElementById('harness-root')!;
   const apiUrl = `${config.origin}/mock/${config.session}`;
-  let moves = 0, network: Network = {pending:[],events:[],completed:[]}, replaying = false, stopped = false, error = '', ready = false;
+  let moves = 0, network: Network = {pending:[],events:[],completed:[]}, replaying = false, stopped = false, error = '', ready = false, issuedRequests = 0;
   const actions: Action[] = [];
   const observedReleases=new Set<string>();
   function ingestNetwork(next:Network){
@@ -85,6 +85,7 @@ export function mountHarness(App: ComponentType<{api:{request:(key:string,payloa
     await settle();await refresh();emit();
   }
   const api=Object.freeze({request:async(key:string,payload?:unknown)=>{
+    issuedRequests++;
     const response=await transport(`${apiUrl}/request`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key,payload})});
     const data:unknown=await response.json();
     if(!response.ok)throw new Error(`Mock API ${response.status}`);
@@ -118,7 +119,10 @@ export function mountHarness(App: ComponentType<{api:{request:(key:string,payloa
   }
   async function replay(plan:Action[]){
     if(replaying)return;replaying=true;error='';renderRack();
-    try{for(const action of plan){
+    // Bind each next action to acknowledged simulator state. Two render frames alone
+    // do not establish HTTP request admission order (notably for successive searches).
+    const admitted = () => network.events.filter(event=>event.type==='request').length >= issuedRequests;
+    try{await waitUntil(admitted,'The app request did not reach the simulator');for(const action of plan){
       if(action.type==='release'){await release(action.request);continue;}
       const el=target(action.target);if(!el)throw new Error(`Target ${action.target} is unavailable`);
       if(action.type==='click')el.click();
@@ -129,6 +133,7 @@ export function mountHarness(App: ComponentType<{api:{request:(key:string,payloa
       }
       if(action.type==='wait')await waitUntil(()=>read(action.target)===action.value,'Expected app state did not arrive');
       await settle();
+      await waitUntil(admitted,'The app request did not reach the simulator');
     }}catch(cause){showError(cause);}finally{replaying=false;renderRack();emit();}
   }
   window.addEventListener('message',event=>{

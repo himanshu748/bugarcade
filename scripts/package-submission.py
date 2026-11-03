@@ -34,6 +34,7 @@ SOURCE_FILES = (
     ".gitignore", "package.json", "package-lock.json", "pyproject.toml", "uv.lock", "index.html",
     "tsconfig.json", "vite.config.ts", "playwright.config.ts", "eslint.config.js",
     "backend/Dockerfile.modal", "docs/STARTER.md", "docs/JUDGE_GUIDE.md", "docs/SUBMISSION_DRAFT.md",
+    "tests/fixtures/live-summary.json", "tests/fixtures/recorded-summary.json", "tests/fixtures/README.md",
 )
 RUNTIME_LICENSES = ("react", "react-dom", "scheduler")
 SEED_TOP = ("summary.json", "recording.json", "regression.test.mjs", "regression-buggy.txt", "regression-fixed.txt")

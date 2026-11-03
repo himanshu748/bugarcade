@@ -1,0 +1,16 @@
+
+Running 9 tests using 1 worker
+
+(node:65805) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/hosted.spec.ts:31:3 › lost-note: three buggy failures and three fixed passes through hosted controls (3.8s)
+  ✓  2 tests/e2e/hosted.spec.ts:31:3 › rollback: three buggy failures and three fixed passes through hosted controls (2.9s)
+  ✓  3 tests/e2e/hosted.spec.ts:31:3 › search: three buggy failures and three fixed passes through hosted controls (2.9s)
+  ✓  4 tests/e2e/hosted.spec.ts:31:3 › duplicate: three buggy failures and three fixed passes through hosted controls (2.5s)
+  ✓  5 tests/e2e/hosted.spec.ts:31:3 › cleanup: three buggy failures and three fixed passes through hosted controls (2.3s)
+  ✓  6 tests/e2e/hosted.spec.ts:61:1 › landing preview, reset, captured proof and evidence downloads work under a project prefix (2.0s)
+  ✓  7 tests/e2e/hosted.spec.ts:92:1 › creator and job routes stay read-only and mobile keyboard play remains usable (960ms)
+  ✓  8 tests/e2e/hosted.spec.ts:109:1 › corrupt cartridge bytes fail closed and reset recovers (396ms)
+  ✓  9 tests/e2e/hosted.spec.ts:118:1 › captured Meta investigation and standalone buggy and fixed apps remain accessible (804ms)
+
+  9 passed (20.3s)

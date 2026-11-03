@@ -76,6 +76,12 @@ The browser suite covers the player journey, real local recorded jobs, duplicate
 
 These checks made no model or cloud requests. The original staged Python receipt remains available as [a dated source-bound record](../proof/staged-core-tests.public.json). [Run the checks yourself](GETTING_STARTED.md#run-checks).
 
+## Static arcade verification
+
+The hosted build passed nine browser checks at a local project prefix and nine with its intended HTTPS origin simulated from local files. All five cases produced three buggy failures and three fixed passes in each environment. The local run also verified an actual downloaded regression file. The HTTPS simulation checked those bytes with browser fetch; the public download is checked after deployment.
+
+Local workflow and motion coverage passed 40 checks, worker and cartridge coverage passed 21, and logic coverage passed 36. No model or cloud calls were made. [Source-bound results and logs](../proof/hosted/verification.json) · [Hosted setup and boundaries](HOSTED_DEMO.md). These are preparation checks; they do not establish a deployed URL.
+
 ## How to interpret the demo and package
 
 The [three-minute demo](../proof/demo.mp4) edits actual browser captures with Deepgram narration and authored chapter captions. It is neither a continuous recording nor a new live model run. The first 87 seconds preserve the original narration, with a visible correction to the historical spoken status. The remaining caption-led tour shows model actions, regression results and the current guarded runtime. [Video notes](../proof/demo-README.md) describe the edit.

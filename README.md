@@ -108,4 +108,4 @@ node --experimental-strip-types --test tests/arcade-progress.test.mjs tests/job-
 | [Judge walkthrough](docs/JUDGE_GUIDE.md) | A guided route through the product and proof |
 | [Original release notes](docs/RELEASE_NOTES.md) | The preserved source-release snapshot |
 
-Built for the solo Indie track of the Meta AI Developer Challenge. Licensed under [MIT](LICENSE); bundled dependency notices are in [third-party](third-party/).
+Built for the solo Indie track of the Meta Global AI Developer Hackathon. Licensed under [MIT](LICENSE); bundled dependency notices are in [third-party](third-party/).

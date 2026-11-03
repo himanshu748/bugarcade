@@ -1,0 +1,29 @@
+✔ hosted parent is an exact canonical HTTPS origin, never a URL pattern or app input (1.30925ms)
+✔ hosted cartridge binds its configured real HTTPS parent once and refuses foreign or loopback parents (4339.396084ms)
+✔ the existing standalone cartridge still mounts on HTTPS without a parent handshake (621.221458ms)
+✔ public builder emits ten hash-bound cartridges and copies only reviewed public assets (259.507666ms)
+✔ public builder fails closed on missing authorization, unsafe metadata, changed bytes and symlinks (2.83125ms)
+✔ all five seed contracts have valid bounded actions and immutable completion checkpoints (0.813542ms)
+✔ rejects arbitrary action code, unknown targets, overlong input and excessive actions (0.144333ms)
+✔ rejects unsupported variants, external artifact paths and changed assertions as errors (1.858ms)
+✔ uploaded projects cannot be executed by local development worker (0.192958ms)
+✔ minimizer rejects vacuous failure if fixed also fails and holds assertion constant (1.590166ms)
+✔ minimizer does not treat infra failure as reproduced (0.295875ms)
+✔ real simulator holds requests until explicit release and records ordering (74.29075ms)
+✔ real buggy and fixed lost-note app differ under identical schedule (1964.671833ms)
+✔ missing completion is execution error, never reproduced (3106.705667ms)
+✔ deadline before browser readiness cannot produce a positive reproduction (228.023875ms)
+✔ capture without video never advertises a nonexistent recording (848.947ms)
+✔ main-world prototype and harness tampering cannot forge driver reads or simulator releases (593.267917ms)
+✔ offline cartridge refuses submitted compilation outside Modal (0.3945ms)
+✔ all ten offline seed cartridges replay in opaque scripts-only iframe with expected outcomes (3973.569958ms)
+✔ offline cartridge manual play and reset work; connect CSP and source checks block foreign requests (1068.157667ms)
+✔ cartridge binds only its loopback parent once and supports both UI ports (1185.696958ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18878.973

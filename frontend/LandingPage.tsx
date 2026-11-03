@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Challenge } from './types';
 import { actionLabel, request } from './types';
+import { PUBLIC_DEMO, apiUrl, assetUrl, loadHostedCartridge } from './public-demo';
 import { Icon } from './icons';
 import { ArcadePassport, CaseBadge } from './ArcadeProgress';
 import { MetaCaptureLink } from './InvestigationProof';
@@ -38,7 +39,18 @@ function EvidenceStatus({ evidence, retry }: { evidence: EvidenceState; retry: (
 function LocalPreview({ active, variant, onActivate }: { active: boolean; variant: 'buggy' | 'fixed'; onActivate: () => void }) {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [session, setSession] = useState(0);
+  const [cartridge, setCartridge] = useState<{ key: string; html: string } | null>(null);
+  const cartridgeKey = `${variant}-${session}`;
   const [state, setState] = useState({ moves: 0, ready: false, complete: false, passed: null as boolean | null, error: '' });
+  useEffect(() => {
+    if (!PUBLIC_DEMO || !active) return;
+    const controller = new AbortController();
+    setCartridge(null);
+    loadHostedCartridge('lost-note', variant, controller.signal)
+      .then(html => { if (!controller.signal.aborted) setCartridge({ key: cartridgeKey, html }); })
+      .catch(error => { if (!controller.signal.aborted) setState(previous => ({ ...previous, error: error.message })); });
+    return () => controller.abort();
+  }, [active, variant, session, cartridgeKey]);
   useEffect(() => {
     if (!active) return;
     let ready = false;
@@ -46,6 +58,7 @@ function LocalPreview({ active, variant, onActivate }: { active: boolean; varian
       if (event.source !== iframe.current?.contentWindow || !event.data || typeof event.data !== 'object') return;
       const data = event.data;
       if (data.type !== 'bugarcade:state' || data.challengeId !== 'lost-note' || data.variant !== variant) return;
+      if (PUBLIC_DEMO && cartridge?.key !== cartridgeKey) return;
       ready = data.ready === true;
       setState(previous => ({ moves: typeof data.moves === 'number' && data.moves >= 0 && data.moves <= 1000 ? data.moves : previous.moves,
         ready, complete: data.completed === true, passed: typeof data.assertionPassed === 'boolean' ? data.assertionPassed : null,
@@ -54,14 +67,16 @@ function LocalPreview({ active, variant, onActivate }: { active: boolean; varian
     window.addEventListener('message', listen);
     const timeout = setTimeout(() => { if (!ready) setState(previous => ({ ...previous, error: 'The preview did not start. Reset it to try again.' })); }, 12000);
     return () => { window.removeEventListener('message', listen); clearTimeout(timeout); };
-  }, [active, variant, session]);
+  }, [active, variant, session, cartridge?.key, cartridgeKey]);
   const reset = () => { setState({ moves: 0, ready: false, complete: false, passed: null, error: '' }); setSession(value => value + 1); };
-  return <div className="lp-preview" aria-label="Local playable preview">
+  return <div className="lp-preview" aria-label={PUBLIC_DEMO ? "Playable preview" : "Local playable preview"}>
     <div className="lp-preview-bar"><span>papertrail.app</span><span className={`lp-build-label ${variant}`}>{variant === 'buggy' ? 'BUGGY BUILD' : 'FIXED BUILD'}</span>{active && <button className="icon-button" aria-label="Reset inline preview" onClick={reset}><Icon name="reset" size={16}/></button>}</div>
     {active ? <iframe ref={iframe} key={`${variant}-${session}`} title={`Papertrail playable preview — ${variant}`}
-      src={`http://127.0.0.1:4174/fixture/lost-note/${variant}?reset=${session}&parentOrigin=${encodeURIComponent(location.origin)}`}
-      sandbox="allow-scripts" referrerPolicy="no-referrer"/> : <div className="lp-preview-cover"><img src="/product/lost-note.png" width="1280" height="1120" alt="Papertrail in its initial state, ready for your first move" loading="lazy"/><button className="button primary large" onClick={onActivate}><Icon name="play" size={16}/> Play here</button><p>A real app. No sign-in. No model calls.</p></div>}
-    <div className="lp-preview-status" role="status"><span>{!active ? 'Your move, whenever you’re ready.' : state.error || (state.complete ? state.passed ? 'The note survived. Same moves, fixed build.' : 'There it is. The note disappeared.' : state.ready ? 'You control the app and when its response arrives.' : 'Starting the local app…')}</span>{active && <b>{String(state.moves).padStart(2, '0')} <span>MOVES</span></b>}</div>
+      onLoad={() => { if (PUBLIC_DEMO) iframe.current?.contentWindow?.postMessage({ type: 'bugarcade:bind-parent' }, '*'); }}
+      srcDoc={PUBLIC_DEMO && cartridge?.key === cartridgeKey ? cartridge.html : undefined}
+      src={PUBLIC_DEMO ? undefined : `http://127.0.0.1:4174/fixture/lost-note/${variant}?reset=${session}&parentOrigin=${encodeURIComponent(location.origin)}`}
+      sandbox="allow-scripts" referrerPolicy="no-referrer"/> : <div className="lp-preview-cover"><img src={assetUrl('product/lost-note.png')} width="1280" height="1120" alt="Papertrail in its initial state, ready for your first move" loading="lazy"/><button className="button primary large" onClick={onActivate}><Icon name="play" size={16}/> Play here</button><p>A real app. No sign-in. No model calls.</p></div>}
+    <div className="lp-preview-status" role="status"><span>{!active ? 'Your move, whenever you’re ready.' : state.error || (state.complete ? state.passed ? 'The note survived. Same moves, fixed build.' : 'There it is. The note disappeared.' : state.ready ? 'You control the app and when its response arrives.' : PUBLIC_DEMO ? 'Starting the app…' : 'Starting the local app…')}</span>{active && <b>{String(state.moves).padStart(2, '0')} <span>MOVES</span></b>}</div>
   </div>;
 }
 
@@ -91,8 +106,8 @@ function ProductTour({ challenge, evidence, retry, onPlay }: { challenge: Challe
       </div>
       <div className="lp-tour-surface">
         {step === 'play' && <LocalPreview key={variant} active={active} variant={variant} onActivate={() => setActive(true)}/>}
-        {step === 'reveal' && <div className="lp-recording"><div className="lp-recording-label">Captured reproduction <span>Local buggy build</span></div>{videoError ? <p className="lp-proof-error" role="status">This browser could not play the recording. <a href="/api/artifacts/lost-note/buggy-1/recording.webm" download>Download the captured video</a> or read the action sequence beside it.</p> : <video controls preload="none" poster="/api/artifacts/lost-note/buggy-1/final.png" onError={() => setVideoError(true)} aria-label="Captured lost-note bug reproduction"><source src="/api/artifacts/lost-note/buggy-1/recording.webm" type="video/webm"/></video>}<div className="lp-recording-explanation"><Icon name="code"/><p>{challenge.explanation}</p></div></div>}
-        {step === 'verify' && <><EvidenceStatus evidence={evidence} retry={retry}/><div className="lp-tour-downloads"><a className="text-link" href="/api/artifacts/lost-note/regression.test.mjs" download>Get the regression test <Icon name="download" size={16}/></a><a className="text-link" href="/api/artifacts/lost-note/buggy-1/trace.zip" download>Inspect the browser trace <Icon name="external" size={16}/></a></div></>}
+        {step === 'reveal' && <div className="lp-recording"><div className="lp-recording-label">Captured reproduction <span>Local buggy build</span></div>{videoError ? <p className="lp-proof-error" role="status">This browser could not play the recording. <a href={apiUrl('/api/artifacts/lost-note/buggy-1/recording.webm')} download>Download the captured video</a> or read the action sequence beside it.</p> : <video controls preload="none" poster={apiUrl('/api/artifacts/lost-note/buggy-1/final.png')} onError={() => setVideoError(true)} aria-label="Captured lost-note bug reproduction"><source src={apiUrl('/api/artifacts/lost-note/buggy-1/recording.webm')} type="video/webm"/></video>}<div className="lp-recording-explanation"><Icon name="code"/><p>{challenge.explanation}</p></div></div>}
+        {step === 'verify' && <><EvidenceStatus evidence={evidence} retry={retry}/><div className="lp-tour-downloads"><a className="text-link" href={apiUrl('/api/artifacts/lost-note/regression.test.mjs')} download>Get the regression test <Icon name="download" size={16}/></a><a className="text-link" href={apiUrl('/api/artifacts/lost-note/buggy-1/trace.zip')} download>Inspect the browser trace <Icon name="external" size={16}/></a></div></>}
       </div>
     </div>
   </section>;
@@ -101,7 +116,7 @@ function ProductTour({ challenge, evidence, retry, onPlay }: { challenge: Challe
 const questions = [
   { question: 'Is this a real bug, or a scripted animation?', answer: 'A real bug. The playable React app has a stale-state defect. Your clicks and controlled API responses change its actual state. The reveal includes a genuinely captured browser recording; it is labelled separately from your current play session.' },
   { question: 'What can I bring to the challenge lab?', answer: 'A small, explicitly authorized React/TypeScript app using Starter v1: buggy and fixed App.tsx files, stable test IDs, a declared assertion and a controlled API schedule. Bring a short MP4 or WebM recording too. Arbitrary repositories and dependency installation are outside the supported interface.' },
-  { question: 'Where does the Meta model make decisions?', answer: 'Muse Spark Open inspects source and timestamped recording frames, then proposes browser actions. A real proposal through Modal drove the lost-note experiment: four actions reduced to three, three buggy failures and three fixed passes, then an exported test that failed buggy and passed fixed. The browser verifier decides the outcome. The five gallery cases use authored plans. General uploaded-app live execution remains disabled while memory-limit verification is incomplete; replaying captured evidence makes no new model calls.' },
+  { question: 'Where does the Meta model make decisions?', answer: 'Muse Spark Open inspects source and timestamped recording frames, then proposes browser actions. A real proposal through Modal drove the lost-note experiment: four actions reduced to three, three buggy failures and three fixed passes, then an exported test that failed buggy and passed fixed. The browser verifier decides the outcome. The five gallery cases use authored plans. Live investigations require separately configured provider access, a prebuilt sandbox and an approved budget. Playing the gallery makes no model call.' },
   { question: 'Do I need credentials to play?', answer: 'No. The local seed arcade and recorded evidence need no model credentials. Submitted-app investigations require existing provider access, an immutable Modal image and an explicitly approved budget. No paid cloud execution is enabled here.' },
   { question: 'What exactly does “verified” mean?', answer: 'For each seed, the intended assertion failed three consecutive times on the buggy build and passed three times on the fixed build under the same controlled schedule. Exported regression tests were also checked. This is evidence for five known cases, not a claim that the agent generalizes to arbitrary bugs.' },
 ];
@@ -137,25 +152,25 @@ export function LandingPage({ challenges, summaries, categories, onPlay, onCreat
         <ol className="lp-play-overview" aria-label="How you play"><li><b>Play</b><span>Trigger the bug.</span></li><li><b>Reveal</b><span>See why it broke.</span></li><li><b>Check the fix</b><span>Replay the same moves.</span></li></ol>
         <div className="lp-hero-assurance"><span><Icon name="check" size={16}/> No sign-up</span><span><Icon name="check" size={16}/> No code to write</span></div>
       </div>
-      <figure className="hero-product-shot"><button className="hero-visual lp-hero-cartridge" onClick={() => onPlay('lost-note')} aria-label="Open the lost-note challenge"><img src="/product/lost-note.png" width="1280" height="1120" alt="The actual Papertrail app, before the lost-note bug is triggered" fetchPriority="high"/></button><figcaption><strong>The lost note</strong><span>Play the app in your browser</span><Icon name="play" size={16}/></figcaption></figure>
+      <figure className="hero-product-shot"><button className="hero-visual lp-hero-cartridge" onClick={() => onPlay('lost-note')} aria-label="Open the lost-note challenge"><img src={assetUrl('product/lost-note.png')} width="1280" height="1120" alt="The actual Papertrail app, before the lost-note bug is triggered" fetchPriority="high"/></button><figcaption><strong>The lost note</strong><span>Play the app in your browser</span><Icon name="play" size={16}/></figcaption></figure>
     </section>
     <section id="challenges" tabIndex={-1} className="gallery lp-section" aria-labelledby="gallery-title">
       <div className="lp-section-heading"><div><h2 id="gallery-title">Choose a bug to play.</h2></div><p>Five small React apps, each with a real bug.<br/>Every challenge includes a replay, a fix and a test.</p></div>
       <ArcadePassport challenges={challenges} onPlay={onPlay}/>
       <div className="challenge-grid">{challenges.map((challenge, index) => <button className={`challenge-card card-${index}`} key={challenge.id} onClick={() => onPlay(challenge.id)}>
         <div className="card-top"><span className="case-word">Case</span><span>{String(index + 1).padStart(2, '0')}</span></div>
-        <div className="artwork" aria-hidden="true"><img src={`/product/${challenge.id}.png`} width="1280" height="1120" alt="" loading="lazy"/></div>
+        <div className="artwork" aria-hidden="true"><img src={assetUrl(`product/${challenge.id}.png`)} width="1280" height="1120" alt="" loading="lazy"/></div>
         <div className="card-copy"><h3>{summaries[challenge.id] || challenge.title}</h3><span className="category">{categories[challenge.id]}</span><div className="card-bottom"><span>{challenge.targetMoves} moves</span></div><CaseBadge id={challenge.id}/></div><span className="card-arrow"><Icon name="arrow" size={20}/></span>
       </button>)}</div>
     </section>
     <ProductTour challenge={lostNote} evidence={evidence} retry={retry} onPlay={() => onPlay('lost-note')}/>
     <section id="proof" tabIndex={-1} className="lp-proof-section lp-section" aria-labelledby="proof-title">
       <div className="lp-proof-copy"><h2 id="proof-title">Take the replay.<br/>Keep the test.</h2><p>Download the browser replay and a regression test: an automated check that catches this bug if it comes back. The same check runs against both app versions.</p><details className="lp-proof-details"><summary>What was actually verified? <Icon name="plus" size={16}/></summary>{evidence.data ? <div><p>Three buggy failures and three fixed passes for the known lost-note seed, under one schedule. No live model call.</p><dl><dt>Invariant hash</dt><dd><code>{evidence.data.assertion.hash}</code></dd><dt>Buggy source</dt><dd><code>{evidence.data.sourceHashes.buggy}</code></dd><dt>Fixed source</dt><dd><code>{evidence.data.sourceHashes.fixed}</code></dd></dl></div> : <EvidenceStatus evidence={evidence} retry={retry}/>}</details></div>
-      <div className="lp-artifacts"><a href="/api/artifacts/lost-note/regression.test.mjs" download><span className="lp-artifact-icon"><Icon name="code" size={24}/></span><span><b>The regression test</b><small>Executable check · requires the pinned worker</small></span><Icon name="download" size={20}/></a><a href="/api/artifacts/lost-note/buggy-1/trace.zip" download><span className="lp-artifact-icon"><Icon name="external" size={24}/></span><span><b>The browser trace</b><small>The actions, requests and observed state</small></span><Icon name="download" size={20}/></a><a href="/api/artifacts/lost-note/summary.json" download><span className="lp-artifact-icon"><Icon name="file" size={24}/></span><span><b>The evidence record</b><small>Source hashes, schedule and assertion results</small></span><Icon name="download" size={20}/></a></div>
+      <div className="lp-artifacts"><a href={apiUrl('/api/artifacts/lost-note/regression.test.mjs')} download><span className="lp-artifact-icon"><Icon name="code" size={24}/></span><span><b>The regression test</b><small>Executable check · requires the pinned worker</small></span><Icon name="download" size={20}/></a><a href={apiUrl('/api/artifacts/lost-note/buggy-1/trace.zip')} download><span className="lp-artifact-icon"><Icon name="external" size={24}/></span><span><b>The browser trace</b><small>The actions, requests and observed state</small></span><Icon name="download" size={20}/></a><a href={apiUrl('/api/artifacts/lost-note/summary.json')} download><span className="lp-artifact-icon"><Icon name="file" size={24}/></span><span><b>The evidence record</b><small>Source hashes, schedule and assertion results</small></span><Icon name="download" size={20}/></a></div>
       <MetaCaptureLink challenge={lostNote}/>
     </section>
-    <section className="lp-create-section lp-section" aria-labelledby="create-title"><div className="lp-create-copy"><h2 id="create-title">Your bug deserves<br/>a better story.</h2><p>Bring a supported React app and a short recording. Turn the investigation into something someone else can play, inspect and run again.</p><button className="button primary" onClick={onCreate}>Create a challenge <Icon name="plus" size={16}/></button><p className="lp-small-print">Live-agent setup and budget approval required.<br/>The seed arcade is ready to play locally.</p></div><div className="lp-starter"><div className="lp-starter-header"><Icon name="code" size={20}/><span>Starter v1</span></div><pre>{`your-app.zip\n├─ manifest.json\n├─ buggy/App.tsx\n└─ fixed/App.tsx`}</pre><div className="lp-starter-notes"><span>React + TypeScript</span><span>Controlled API</span><span>Fixed counterpart</span></div><p>Small authorized apps. No arbitrary repositories,<br/>package installs or production accounts.</p><a href="/api/starter" className="text-link" download>Download Starter v1 <Icon name="download" size={16}/></a></div></section>
+    <section className="lp-create-section lp-section" aria-labelledby="create-title"><div className="lp-create-copy"><h2 id="create-title">Your bug deserves<br/>a better story.</h2><p>Bring a supported React app and a short recording. Turn the investigation into something someone else can play, inspect and run again.</p><button className="button primary" onClick={onCreate}>Create a challenge <Icon name="plus" size={16}/></button><p className="lp-small-print">Live-agent setup and budget approval required.<br/>The seed arcade is ready to play{PUBLIC_DEMO ? ' here.' : ' locally.'}</p></div><div className="lp-starter"><div className="lp-starter-header"><Icon name="code" size={20}/><span>Starter v1</span></div><pre>{`your-app.zip\n├─ manifest.json\n├─ buggy/App.tsx\n└─ fixed/App.tsx`}</pre><div className="lp-starter-notes"><span>React + TypeScript</span><span>Controlled API</span><span>Fixed counterpart</span></div><p>Small authorized apps. No arbitrary repositories,<br/>package installs or production accounts.</p><a href={PUBLIC_DEMO ? 'https://github.com/himanshu748/bugarcade/blob/main/docs/GETTING_STARTED.md' : '/api/starter'} className="text-link" download={!PUBLIC_DEMO}>{PUBLIC_DEMO ? 'Get the starter locally' : 'Download Starter v1'} <Icon name={PUBLIC_DEMO ? 'external' : 'download'} size={16}/></a></div></section>
     <section id="faq" tabIndex={-1} className="lp-faq lp-section" aria-labelledby="faq-title"><div><h2 id="faq-title">Good questions.</h2><p>Clear boundaries. Better experiments.</p></div><div className="lp-faq-items">{questions.map(item => <details key={item.question}><summary>{item.question}<Icon name="plus" size={20}/></summary><p>{item.answer}</p></details>)}</div></section>
-    <section className="lp-final-cta" aria-labelledby="last-call"><h2 id="last-call">Go on. Break something small.</h2><p>The first bug is three moves away.</p><a className="text-link" href="#challenges">Explore the cases <Icon name="arrow" size={16}/></a><button className="button primary large" onClick={() => onPlay('lost-note')}>Start with the lost note <Icon name="play" size={16}/></button><span className="lp-small-print lp-local-scope"><span>Local arcade</span><span>Real captured seed evidence</span><span>No model calls</span></span></section>
+    <section className="lp-final-cta" aria-labelledby="last-call"><h2 id="last-call">Go on. Break something small.</h2><p>The first bug is three moves away.</p><a className="text-link" href="#challenges">Explore the cases <Icon name="arrow" size={16}/></a><button className="button primary large" onClick={() => onPlay('lost-note')}>Start with the lost note <Icon name="play" size={16}/></button><span className="lp-small-print lp-local-scope"><span>{PUBLIC_DEMO ? 'Playable arcade' : 'Local arcade'}</span><span>Real captured seed evidence</span><span>No model calls</span></span></section>
   </div>;
 }

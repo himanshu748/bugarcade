@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import type { Action, Challenge, Job } from './types';
 import { actionLabel, request } from './types';
+import { PUBLIC_DEMO, assetUrl } from './public-demo';
 import { Icon } from './icons';
 import { validateJobEvidence } from './job-evidence';
 import type { JobEvidence } from './job-evidence';
@@ -24,6 +25,13 @@ function removedSteps(initial: Action[], minimized: Action[]) {
 }
 
 export function MetaCaptureLink({ challenge }: { challenge: Challenge }) {
+  if (PUBLIC_DEMO) return <aside className="meta-capture-link" aria-label="Captured Meta investigation">
+    <div className="capture-mark"><Icon name="code" size={24}/></div><div><span className="proof-kicker">MUSE SPARK OPEN · CAPTURED INVESTIGATION</span><h3>Follow the model's plan into the browser.</h3><p>Inspect the accepted actions, recorded observations and failing/passing regression test.</p><small>Recorded investigation · no new model call.</small></div><a className="button secondary" href={assetUrl('proof/index.html')}>Inspect the Meta case <Icon name="arrow" size={15}/></a>
+  </aside>;
+  return <LocalMetaCaptureLink challenge={challenge}/>;
+}
+
+function LocalMetaCaptureLink({ challenge }: { challenge: Challenge }) {
   const [state, setState] = useState<{ data: JobEvidence | null; loading: boolean; error: string }>({ data: null, loading: true, error: '' });
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {

@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import seeds from '../shared/challenges.json';
+import seeds from '../shared/challenges.json' with { type: 'json' };
 import type { Action, Challenge, Health, Job } from './types';
 import { actionLabel, request, terminalStates } from './types';
+import { PUBLIC_DEMO, apiUrl, loadHostedCartridge } from './public-demo';
+import { HostedWorkflow } from './HostedWorkflow';
 import { Icon } from './icons';
 import { ChallengeStages } from './ChallengeStages';
 import { LandingPage } from './LandingPage';
@@ -39,28 +41,32 @@ function Arena({ challenge, onBack, jobId, jobMode = 'recorded' }: { challenge: 
   const [loadError, setLoadError] = useState(false);
   const [pendingReplay, setPendingReplay] = useState(false);
   const [cartridge, setCartridge] = useState<{ key: string; html: string } | null>(null);
-  const cartridgeKey = `${jobId || 'seed'}-${variant}-${session}`;
+  const cartridgeKey = `${jobId || challenge.id}-${variant}-${session}`;
+  const usesCartridge = Boolean(jobId) || PUBLIC_DEMO;
   const replayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const revealRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    if (!jobId) return;
+    if (!usesCartridge) return;
     const controller = new AbortController();
     setCartridge(null);
-    fetch(`/api/job-artifacts/${encodeURIComponent(jobId)}/player-${variant}.html`, { signal: controller.signal }).then(async response => {
-      if (!response.ok) throw new Error('This job has no playable cartridge. Run a fresh verification to package one.');
-      const html = await response.text();
-      if (html.length > 8 * 1024 * 1024) throw new Error('Cartridge exceeded its size limit.');
-      if (!controller.signal.aborted) setCartridge({ key: cartridgeKey, html });
-    }).catch(error => { if (!controller.signal.aborted) setFrame(previous => ({ ...previous, error: error.message })); });
+    const load = PUBLIC_DEMO && !jobId ? loadHostedCartridge(challenge.id, variant, controller.signal)
+      : fetch(`/api/job-artifacts/${encodeURIComponent(jobId!)}/player-${variant}.html`, { signal: controller.signal }).then(async response => {
+        if (!response.ok) throw new Error('This job has no playable cartridge. Run a fresh verification to package one.');
+        const html = await response.text();
+        if (html.length > 8 * 1024 * 1024) throw new Error('Cartridge exceeded its size limit.');
+        return html;
+      });
+    load.then(html => { if (!controller.signal.aborted) setCartridge({ key: cartridgeKey, html }); })
+      .catch(error => { if (!controller.signal.aborted) setFrame(previous => ({ ...previous, error: error.message })); });
     return () => controller.abort();
-  }, [jobId, variant, session, cartridgeKey]);
+  }, [jobId, challenge.id, variant, session, cartridgeKey, usesCartridge]);
   useEffect(() => {
     let becameReady = false;
     const onMessage = (event: MessageEvent) => {
       if (event.source !== iframe.current?.contentWindow || !event.data || typeof event.data !== 'object') return;
       const d = event.data;
       if (d.type !== 'bugarcade:state' || d.challengeId !== challenge.id || d.variant !== variant) return;
-      if (jobId && cartridge?.key !== cartridgeKey) return;
+      if (usesCartridge && cartridge?.key !== cartridgeKey) return;
       if (attempt.current.invalid) return;
       if (d.error) {
         attempt.current.invalid = true;
@@ -100,7 +106,7 @@ function Arena({ challenge, onBack, jobId, jobMode = 'recorded' }: { challenge: 
     window.addEventListener('message', onMessage);
     const timeout = setTimeout(() => { if (!becameReady) { attempt.current.invalid = true; setLoadError(true); } }, 12000);
     return () => { window.removeEventListener('message', onMessage); clearTimeout(timeout); };
-  }, [challenge.id, challenge.targetMoves, challenge.actions, session, variant, jobId, cartridge?.key, cartridgeKey, progressKey, record]);
+  }, [challenge.id, challenge.targetMoves, challenge.actions, session, variant, jobId, cartridge?.key, cartridgeKey, usesCartridge, progressKey, record]);
   useEffect(() => { if (frame.ready) setLoadError(false); }, [frame.ready]);
   useEffect(() => {
     if (!pendingReplay) return;
@@ -135,8 +141,8 @@ function Arena({ challenge, onBack, jobId, jobMode = 'recorded' }: { challenge: 
     <div className="arena-grid arena-player-workspace">
       <section className="app-window" data-variant={variant} aria-label="Playable challenge">
         <div className="window-toolbar"><span className="mono">{challenge.id}.app</span><span className={`variant-label ${variant}`}>{variant === 'buggy' ? 'Buggy build' : 'Fixed build'}</span><button aria-label="Reset challenge" className="icon-button arena-reset" onClick={() => reset()}><Icon name="reset" size={16}/><span>Reset</span></button></div>
-        <iframe ref={iframe} key={`${variant}-${session}`} onLoad={() => { if (jobId) iframe.current?.contentWindow?.postMessage({ type: 'bugarcade:bind-parent' }, '*'); }} title={`${challenge.title} playable app`} srcDoc={jobId && cartridge?.key === cartridgeKey ? cartridge.html : undefined} src={jobId ? undefined : `http://127.0.0.1:4174/fixture/${encodeURIComponent(challenge.id)}/${variant}?reset=${session}&parentOrigin=${encodeURIComponent(location.origin)}`} sandbox="allow-scripts" referrerPolicy="no-referrer"/>
-        <div className="app-status" role="status">{frame.error || (loadError ? (jobId ? 'Cartridge did not start. Reset or inspect the run evidence.' : 'App unavailable. Start the fixture server, then reset.') : frame.replaying ? 'Replaying the recorded actions…' : frame.ready ? frame.complete && frame.assertionPassed !== null ? frame.assertionPassed ? 'This play session passed the check. Captured verification is available below.' : 'Bug triggered. Reveal the replay to see why.' : variant === 'fixed' ? 'Fixed build ready. Run the same actions to check it.' : 'Ready to break. Every action happens in the real app.' : 'Starting the app…')}</div>
+        <iframe ref={iframe} key={`${variant}-${session}`} onLoad={() => { if (usesCartridge) iframe.current?.contentWindow?.postMessage({ type: 'bugarcade:bind-parent' }, '*'); }} title={`${challenge.title} playable app`} srcDoc={usesCartridge && cartridge?.key === cartridgeKey ? cartridge.html : undefined} src={usesCartridge ? undefined : `http://127.0.0.1:4174/fixture/${encodeURIComponent(challenge.id)}/${variant}?reset=${session}&parentOrigin=${encodeURIComponent(location.origin)}`} sandbox="allow-scripts" referrerPolicy="no-referrer"/>
+        <div className="app-status" role="status">{frame.error || (loadError ? (usesCartridge ? 'Cartridge did not start. Reset or inspect the run evidence.' : 'App unavailable. Start the fixture server, then reset.') : frame.replaying ? 'Replaying the recorded actions…' : frame.ready ? frame.complete && frame.assertionPassed !== null ? frame.assertionPassed ? 'This play session passed the check. Captured verification is available below.' : 'Bug triggered. Reveal the replay to see why.' : variant === 'fixed' ? 'Fixed build ready. Run the same actions to check it.' : 'Ready to break. Every action happens in the real app.' : 'Starting the app…')}</div>
       </section>
       <aside className="mission arena-player-guidance" aria-label="Challenge guidance">
         <h2>How to play</h2><p>Try to trigger the bug described above. You don’t need to edit any code.</p>
@@ -186,7 +192,7 @@ function Evidence({ challenge, jobId, jobMode }: { challenge: Challenge; jobId?:
   useJobPolling(job, setJob, setError);
   const artifactBase = jobId ? `/api/job-artifacts/${jobId}` : `/api/artifacts/${challenge.id}`;
   const verify = async () => { setBusy(true); setError(''); try { setJob(await request<Job>('/api/jobs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ challengeId: challenge.id, mode: 'recorded', idempotencyKey: crypto.randomUUID() }) })); } catch (e) { setError((e as Error).message); } finally { setBusy(false); } };
-  return <div id="detail-panel" className="evidence-panel motion-panel" role="tabpanel" aria-labelledby="tab-evidence"><div className="evidence-intro"><div><h3>Proof you can inspect.</h3><p>Captured browser runs. A deterministic assertion decides the result.</p></div>{!jobId && <button className="button secondary" onClick={verify} disabled={busy || Boolean(job && !terminalStates.has(job.state))}><Icon name="reset"/>{busy || (job && !terminalStates.has(job.state)) ? 'Verification running…' : 'Verify again locally'}</button>}</div>{error && <><p className="error-message" role="alert">{error}</p><button className="text-button" onClick={() => setEvidenceAttempt(value => value + 1)}>Reload captured evidence <Icon name="reset" size={14}/></button></>}{job && <JobProgress job={job} onCancel={async () => { setJob(await request<Job>(`/api/jobs/${job.id}/cancel`, { method: 'POST' })); }}/>} {evidence ? <><div className="verification-grid"><div><span>BUGGY · ASSERTION FAILURES</span><strong>{buggyRuns.filter(r => r.status === "failed").length}<small> / {buggyRuns.length}</small></strong></div><div><span>FIXED · ASSERTION PASSES</span><strong>{fixedRuns.filter(r => r.status === "passed").length}<small> / {fixedRuns.length}</small></strong></div><div><span>ACTIONS · INITIAL → MINIMIZED</span><strong>{String(evidence.initialActionCount ?? "—")}<small> → </small>{String(evidence.minimizedActionCount ?? "—")}</strong></div></div><div className="evidence-badges"><span><Icon name="file"/> Captured evidence</span><span>{evidence.runner === 'modal-sandbox' ? 'MODAL SANDBOX' : 'LOCAL RUNNER'}</span><span>{evidence.mode === 'live' ? 'LIVE MODEL PROPOSALS' : 'NO MODEL CALLS'}</span></div><p className="tiny muted">Chromium {String(evidence.browserVersion ?? "unknown")} · {typeof evidence.elapsedMs === "number" ? (evidence.elapsedMs / 1000).toFixed(1) : "—"}s verification · {String(evidence.modelCalls ?? 0)} live model {evidence.modelCalls === 1 ? 'call' : 'calls'}</p><p className="evidence-limit">Three buggy failures and three fixed passes under one schedule establish repeatability for that schedule, not broad reliability.</p><div className="artifact-links"><a className="button secondary" href={`${artifactBase}/regression.test.mjs`} download><Icon name="download"/> Regression test</a><a className="button secondary" href={`${artifactBase}/summary.json`} download><Icon name="file"/> Evidence JSON</a><a className="button secondary" href={`${artifactBase}/${jobId ? 'buggy-trace.zip' : 'buggy-1/trace.zip'}`} download><Icon name="download"/> Buggy trace</a><a className="button secondary" href={`${artifactBase}/${jobId ? 'fixed-trace.zip' : 'fixed-1/trace.zip'}`} download><Icon name="download"/> Fixed trace</a><a className="button secondary" href={`${artifactBase}/${jobId ? 'buggy-recording.webm' : 'buggy-1/recording.webm'}`} download><Icon name="play"/> Captured recording</a></div>{checkedJob && jobId && <InvestigationProof data={checkedJob} jobId={jobId}/>}<details className="raw-evidence"><summary>Inspect hashes, schedule, assertions and run results</summary><pre>{JSON.stringify(evidence, null, 2)}</pre></details></> : !error && <p className="muted" role="status">Loading recorded evidence…</p>}</div>;
+  return <div id="detail-panel" className="evidence-panel motion-panel" role="tabpanel" aria-labelledby="tab-evidence"><div className="evidence-intro"><div><h3>Proof you can inspect.</h3><p>Captured browser runs. A deterministic assertion decides the result.</p></div>{!jobId && !PUBLIC_DEMO && <button className="button secondary" onClick={verify} disabled={busy || Boolean(job && !terminalStates.has(job.state))}><Icon name="reset"/>{busy || (job && !terminalStates.has(job.state)) ? 'Verification running…' : 'Verify again locally'}</button>}</div>{error && <><p className="error-message" role="alert">{error}</p><button className="text-button" onClick={() => setEvidenceAttempt(value => value + 1)}>Reload captured evidence <Icon name="reset" size={14}/></button></>}{job && <JobProgress job={job} onCancel={async () => { setJob(await request<Job>(`/api/jobs/${job.id}/cancel`, { method: 'POST' })); }}/>} {evidence ? <><div className="verification-grid"><div><span>BUGGY · ASSERTION FAILURES</span><strong>{buggyRuns.filter(r => r.status === "failed").length}<small> / {buggyRuns.length}</small></strong></div><div><span>FIXED · ASSERTION PASSES</span><strong>{fixedRuns.filter(r => r.status === "passed").length}<small> / {fixedRuns.length}</small></strong></div><div><span>ACTIONS · INITIAL → MINIMIZED</span><strong>{String(evidence.initialActionCount ?? "—")}<small> → </small>{String(evidence.minimizedActionCount ?? "—")}</strong></div></div><div className="evidence-badges"><span><Icon name="file"/> Captured evidence</span><span>{evidence.runner === 'modal-sandbox' ? 'MODAL SANDBOX' : 'LOCAL RUNNER'}</span><span>{evidence.mode === 'live' ? 'LIVE MODEL PROPOSALS' : 'NO MODEL CALLS'}</span></div><p className="tiny muted">Chromium {String(evidence.browserVersion ?? "unknown")} · {typeof evidence.elapsedMs === "number" ? (evidence.elapsedMs / 1000).toFixed(1) : "—"}s verification · {String(evidence.modelCalls ?? 0)} live model {evidence.modelCalls === 1 ? 'call' : 'calls'}</p><p className="evidence-limit">Three buggy failures and three fixed passes under one schedule establish repeatability for that schedule, not broad reliability.</p><div className="artifact-links"><a className="button secondary" href={apiUrl(`${artifactBase}/regression.test.mjs`)} download><Icon name="download"/> Regression test</a><a className="button secondary" href={apiUrl(`${artifactBase}/summary.json`)} download><Icon name="file"/> Evidence JSON</a><a className="button secondary" href={apiUrl(`${artifactBase}/${jobId ? 'buggy-trace.zip' : 'buggy-1/trace.zip'}`)} download><Icon name="download"/> Buggy trace</a><a className="button secondary" href={apiUrl(`${artifactBase}/${jobId ? 'fixed-trace.zip' : 'fixed-1/trace.zip'}`)} download><Icon name="download"/> Fixed trace</a><a className="button secondary" href={apiUrl(`${artifactBase}/${jobId ? 'buggy-recording.webm' : 'buggy-1/recording.webm'}`)} download><Icon name="play"/> Captured recording</a></div>{checkedJob && jobId && <InvestigationProof data={checkedJob} jobId={jobId}/>}<details className="raw-evidence"><summary>Inspect hashes, schedule, assertions and run results</summary><pre>{JSON.stringify(evidence, null, 2)}</pre></details></> : !error && <p className="muted" role="status">Loading recorded evidence…</p>}</div>;
 }
 
 function useJobPolling(job: Job | null, setJob: (job: Job) => void, setError: (error: string) => void) {
@@ -307,12 +313,12 @@ export default function App() {
     });
     return () => cancelAnimationFrame(frame);
   }, [route]);
-  useEffect(() => { const controller = new AbortController(); request<Health>('/api/health', { signal: controller.signal }).then(setHealth).catch(() => {}); return () => controller.abort(); }, []);
+  useEffect(() => { if (PUBLIC_DEMO) return; const controller = new AbortController(); request<Health>('/api/health', { signal: controller.signal }).then(setHealth).catch(() => {}); return () => controller.abort(); }, []);
   const challenge = challenges.find(c => c.id === route.id);
   const goGallery = () => {
     location.hash = '';
     window.scrollTo({ top: 0, behavior: 'instant' });
     document.getElementById('main')?.focus({ preventScroll: true });
   };
-  return <div className="site-shell"><a href="#main" className="skip-link" onClick={e => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a><SiteHeader brand={<Brand/>} currentHash={location.hash} onHome={goGallery} onCreate={() => { location.hash = 'create'; }}/><main id="main" tabIndex={-1}>{route.view === 'job' ? <CreatedChallenge key={route.id} id={route.id} onBack={goGallery}/> : route.view === 'create' ? <Create health={health} onBack={goGallery}/> : challenge ? <Arena key={challenge.id} challenge={challenge} onBack={goGallery}/> : <LandingPage challenges={challenges} summaries={summaries} categories={labels} onPlay={id => { location.hash = `play/${id}`; }} onCreate={() => { location.hash = 'create'; }}/>}</main><footer className="site-footer"><Brand compact/><span>BREAK IT. UNDERSTAND IT. PROVE IT.</span><span className="footer-mode"><span className="status-dot"/> {route.view === 'job' ? 'CARTRIDGE PLAYBACK · SEE PROVENANCE' : 'LOCAL ARCADE · RECORDED SEEDS'}</span></footer></div>;
+  return <div className="site-shell"><a href="#main" className="skip-link" onClick={e => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a><SiteHeader brand={<Brand/>} currentHash={location.hash} onHome={goGallery} onCreate={() => { location.hash = 'create'; }}/><main id="main" tabIndex={-1}>{PUBLIC_DEMO && (route.view === 'job' || route.view === 'create') ? <HostedWorkflow onBack={goGallery}/> : route.view === 'job' ? <CreatedChallenge key={route.id} id={route.id} onBack={goGallery}/> : route.view === 'create' ? <Create health={health} onBack={goGallery}/> : challenge ? <Arena key={challenge.id} challenge={challenge} onBack={goGallery}/> : <LandingPage challenges={challenges} summaries={summaries} categories={labels} onPlay={id => { location.hash = `play/${id}`; }} onCreate={() => { location.hash = 'create'; }}/>}</main><footer className="site-footer"><Brand compact/><span>BREAK IT. UNDERSTAND IT. PROVE IT.</span><span className="footer-mode"><span className="status-dot"/> {PUBLIC_DEMO ? 'PLAYABLE ARCADE · CAPTURED EVIDENCE' : route.view === 'job' ? 'CARTRIDGE PLAYBACK · SEE PROVENANCE' : 'LOCAL ARCADE · RECORDED SEEDS'}</span></footer></div>;
 }

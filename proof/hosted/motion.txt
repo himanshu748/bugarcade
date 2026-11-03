@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:64919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/motion.spec.ts:7:1 › motion follows real moves, reset, replay selection and visible proof stages (2.1s)
+  ✓  2 tests/e2e/motion.spec.ts:59:1 › a replay waiting for an unavailable app stops and can be retried (14.0s)
+  ✓  3 tests/e2e/motion.spec.ts:73:1 › reduced motion keeps mobile and keyboard interactions still and functional (933ms)
+
+  3 passed (20.6s)

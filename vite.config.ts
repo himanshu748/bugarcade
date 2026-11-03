@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
+const publicDemo = process.env.VITE_PUBLIC_DEMO === 'true';
 export default defineConfig({
+  base: publicDemo ? (process.env.BUGARCADE_PUBLIC_BASE || '/bugarcade/') : '/',
+  build: { outDir: publicDemo ? 'dist-hosted' : 'dist' },
   server: {
     port: 5173,
     strictPort: true,

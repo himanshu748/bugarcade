@@ -80,7 +80,7 @@ node --experimental-strip-types --test tests/arcade-progress.test.mjs tests/job-
 The portable browser suite starts the local services when needed:
 
 ```sh
-npx playwright test tests/e2e/arcade.spec.ts tests/e2e/focus.spec.ts tests/e2e/gamification.spec.ts tests/e2e/hallmark.spec.ts tests/e2e/job-status.spec.ts tests/e2e/landing.spec.ts tests/e2e/motion.spec.ts
+npx playwright test tests/e2e/arcade.spec.ts tests/e2e/focus.spec.ts tests/e2e/gamification.spec.ts tests/e2e/hallmark.spec.ts tests/e2e/job-status.spec.ts tests/e2e/landing.spec.ts tests/e2e/motion.spec.ts tests/e2e/replay-admission.spec.ts
 ```
 
 For already-running services on port 4173, prefix that command with `BUGARCADE_BASE_URL=http://127.0.0.1:4173 BUGARCADE_EXISTING_SERVERS=1`. `investigation-proof.spec.ts` is a maintainer capture test that depends on the excluded private completed-job database; it is outside the portable suite.
@@ -99,3 +99,7 @@ To recapture all five trusted seeds, run `npm run verify:seeds`. This executes r
 | Old model job unavailable | Use the portable proof pages; the public install does not include private job history. |
 
 Local uploads and jobs are stored in `.data/`. Traces and recordings may contain entered app content. Review exports before sharing, and preserve anything you need before resetting local state.
+
+## Static arcade
+
+For a static version of the five included cases with captured evidence and no API server, see [Hosted arcade](HOSTED_DEMO.md). The creator stays local.

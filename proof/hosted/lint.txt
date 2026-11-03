@@ -1,0 +1,4 @@
+
+> bugarcade@0.1.0 lint
+> eslint frontend fixtures worker scripts --max-warnings 0
+
