@@ -1,0 +1,44 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "fill",
+      "target": "query",
+      "value": "re"
+    },
+    "atMs": 3484,
+    "elapsedMs": 217,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "fill",
+      "target": "query",
+      "value": "react"
+    },
+    "atMs": 3844,
+    "elapsedMs": 102,
+    "status": "executed"
+  },
+  {
+    "index": 2,
+    "action": {
+      "type": "release",
+      "request": "search-2"
+    },
+    "atMs": 4025,
+    "elapsedMs": 14,
+    "status": "executed"
+  },
+  {
+    "index": 3,
+    "action": {
+      "type": "release",
+      "request": "search-1"
+    },
+    "atMs": 4173,
+    "elapsedMs": 3,
+    "status": "executed"
+  }
+]

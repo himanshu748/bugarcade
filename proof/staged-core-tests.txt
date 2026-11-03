@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.11, pytest-8.4.2, pluggy-1.7.0
+rootdir: /redacted/local-path
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 360 items
+
+tests/test_artifact_transfer.py ........................................ [ 11%]
+.                                                                        [ 11%]
+tests/test_backend.py ..............................................     [ 24%]
+tests/test_cgroup_guard.py ............................................. [ 36%]
+.....................................................................    [ 55%]
+tests/test_guard_transport.py ................                           [ 60%]
+tests/test_live_preflight.py ............................                [ 68%]
+tests/test_modal_planner.py .........................                    [ 75%]
+tests/test_provider_health.py ..                                         [ 75%]
+tests/test_recording.py ...                                              [ 76%]
+tests/test_regression_validation.py .................................... [ 86%]
+....................                                                     [ 91%]
+tests/test_resource_evidence.py ...............                          [ 96%]
+tests/test_sandbox_privileges.py ..............                          [100%]
+
+=============================== warnings summary ===============================
+../../.venv/lib/python3.12/site-packages/starlette/testclient.py:45
+  /redacted/local-path DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 360 passed, 1 warning in 11.34s ========================

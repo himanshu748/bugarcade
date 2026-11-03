@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "actions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "click",
+        "target": "place-order"
+      },
+      "atMs": 2754,
+      "elapsedMs": 235,
+      "status": "executed"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "click",
+        "target": "place-order"
+      },
+      "atMs": 3058,
+      "elapsedMs": 54,
+      "status": "executed"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "release",
+        "request": "order-1"
+      },
+      "atMs": 3167,
+      "elapsedMs": 5,
+      "status": "executed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "order-1",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-001"
+      }
+    },
+    {
+      "id": "order-2",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-002"
+      }
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "elapsedMs": 3921,
+  "artifacts": {
+    "result": "result.json",
+    "actions": "actions.json",
+    "console": "console.json",
+    "schedule": "network.json",
+    "trace": "trace.zip",
+    "screenshot": "final.png",
+    "frames": "frames.json",
+    "player": "player.html"
+  },
+  "error": null,
+  "assertion": {
+    "target": "request-count",
+    "operator": "equals",
+    "expected": "1",
+    "actual": "1",
+    "pass": true,
+    "hash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e",
+    "completion": {
+      "target": "order-state",
+      "value": "Order confirmed"
+    }
+  },
+  "network": [
+    {
+      "type": "request",
+      "id": "order-1",
+      "key": "order",
+      "payload": {
+        "product": "Field notes",
+        "quantity": 1
+      },
+      "atMs": 715
+    },
+    {
+      "type": "release",
+      "id": "order-1",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-001"
+      },
+      "atMs": 1017
+    }
+  ],
+  "seed": 0,
+  "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+  "variant": "fixed",
+  "challengeId": "duplicate"
+}

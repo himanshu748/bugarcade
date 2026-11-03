@@ -1,0 +1,395 @@
+{
+  "kind": "public-derived-guarded-runtime-verification",
+  "status": "verified",
+  "generatedAt": "2026-11-03T09:57:51.039920+00:00",
+  "scope": "One reviewed private Modal VM image, five unchanged known seeds under one schedule each. Not arbitrary-repository compatibility, broad reliability, production certification or model generalization.",
+  "runtime": {
+    "provider": "Modal",
+    "runtime": "vm",
+    "sdkVersion": "1.6.3",
+    "cpuRequestedPhysicalCores": 1,
+    "cpuMaximumPhysicalCores": 2,
+    "cpuMaximumKind": "provider soft throttling; separate workload CPU-time bounds",
+    "outerMemoryMiB": [
+      2048,
+      2048
+    ],
+    "workloadMemoryLimitBytes": 1073741824,
+    "workloadSwapMaxBytes": 0,
+    "sandboxTtlSeconds": 45,
+    "browserVersion": "156.0.8078.4",
+    "guardSha256": "854606d69491d23a628896797479e78e60227cd60f0de26245cad60713172f44"
+  },
+  "memoryEvidence": {
+    "kernelConstraint": "CONSTRAINT_MEMCG",
+    "exactLeafAndVictimPidMatched": true,
+    "globalOomObserved": false,
+    "localEventDeltas": {
+      "high": 0,
+      "low": 0,
+      "max": 35,
+      "oom": 1,
+      "oom_group_kill": 1,
+      "oom_kill": 2,
+      "sock_throttled": 0
+    },
+    "allocatedMiBBeforeKill": 992,
+    "supervisorSurvivedOutsideLeaf": true,
+    "rootProtectedReceiptVerified": true,
+    "leafCleanupVerified": true
+  },
+  "boundary": {
+    "passed": 6,
+    "total": 6,
+    "controls": [
+      {
+        "mode": "probe-memory",
+        "status": "passed"
+      },
+      {
+        "mode": "probe-manual-kill",
+        "status": "passed"
+      },
+      {
+        "mode": "probe-timeout",
+        "status": "passed"
+      },
+      {
+        "mode": "readiness-failure",
+        "status": "passed"
+      },
+      {
+        "mode": "cancellation",
+        "status": "passed"
+      },
+      {
+        "mode": "provider-ttl",
+        "status": "passed"
+      }
+    ]
+  },
+  "seedVerification": {
+    "pairs": 5,
+    "runs": 30,
+    "buggyFailures": 15,
+    "fixedPasses": 15,
+    "cases": [
+      {
+        "id": "lost-note",
+        "buggyFailures": 3,
+        "fixedPasses": 3,
+        "sourceHashes": {
+          "buggy": "3e3691816b35c455c4b6110de9dd8bd113ffe42abcdaf7714eea6818a099a882",
+          "fixed": "734bd14d0e4b44db1d2356164ee1b813863c0a12152709a7412776fcafc0652b"
+        },
+        "invariantHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+        "actions": [
+          {
+            "target": "sync",
+            "type": "click"
+          },
+          {
+            "target": "add-note",
+            "type": "click"
+          },
+          {
+            "request": "save-1",
+            "type": "release"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "save-1",
+            "key": "save",
+            "optional": false,
+            "response": {
+              "saved": true
+            },
+            "status": 200
+          }
+        ],
+        "seed": 0,
+        "resultHashes": [
+          "f95f8edd29ed0f7503c41f7d1a4c866bee62cddb6072e8fdd0fe4db1bd3a6a69",
+          "e9a3dfbce917f43ffa7b750baf9505d64931d732ac3ffa568946d59a540426c5",
+          "d73daed67e0806f2e533523130d3e68fa75fe9c438a8c294b021120336beb228",
+          "37bf052bc8dfcdacf2f51c18d4c3b83b573550aa716feb5ee88314c80a6d8aac",
+          "4d32595ef976cffe614acbfb896351de1eb1a5f4cfae352924973753a88a9d09",
+          "6bf1d4f1f002e8aa6d9fb252194c760e7662798238bba28814a4c806d263b5c3"
+        ]
+      },
+      {
+        "id": "rollback",
+        "buggyFailures": 3,
+        "fixedPasses": 3,
+        "sourceHashes": {
+          "buggy": "c13c1f3c8355cfe40b1cb9001123ffd8f96b91598be0d1e01f79c438baecde93",
+          "fixed": "a02e1e98adff4052174526d3cda301dd6b6ff4d9bdf9a5b7daf7117b8cff99c8"
+        },
+        "invariantHash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac",
+        "actions": [
+          {
+            "target": "rename-weekend",
+            "type": "click"
+          },
+          {
+            "target": "rename-launch",
+            "type": "click"
+          },
+          {
+            "request": "rename-2",
+            "type": "release"
+          },
+          {
+            "request": "rename-1",
+            "type": "release"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "rename-1",
+            "key": "rename",
+            "optional": false,
+            "response": {
+              "error": "Temporary write failure"
+            },
+            "status": 503
+          },
+          {
+            "id": "rename-2",
+            "key": "rename",
+            "optional": false,
+            "response": {
+              "saved": true
+            },
+            "status": 200
+          }
+        ],
+        "seed": 0,
+        "resultHashes": [
+          "f567c0b9daadafe60eef2285aa1eed6d6916835e14712806bd1ce619090053d8",
+          "876a618d4a682844958f1e1a2ff6a4d8673f5badf035b96cdca8470046de0592",
+          "f1fed81ff1f56882bba7f81ce11130fbab32887a823d6018c38602832ac0eef4",
+          "9d3e991e39efade587e067c24e913e58b991789a04df3e791e924c717146ddc6",
+          "00d668c0d528aad1f6a7ad0fa47bf97ef013334c1e01fedfd205630e08953fcb",
+          "cfd7379b61c469ddb33243711cb45da340385c83630c1930919ace9e8821c21c"
+        ]
+      },
+      {
+        "id": "search",
+        "buggyFailures": 3,
+        "fixedPasses": 3,
+        "sourceHashes": {
+          "buggy": "8914e567659f9edc900bea60e3571162b9cc989ade6bba4fa2aa139000c28a84",
+          "fixed": "22e7d38c0284435ccb125725e0d2de53d009e37186c0bb447943455431e0571a"
+        },
+        "invariantHash": "893c9cce37d2f1efa7f064e4d54cbd034ca544daba5a81bbb1eea8eca3a2a8a3",
+        "actions": [
+          {
+            "target": "query",
+            "type": "fill",
+            "value": "re"
+          },
+          {
+            "target": "query",
+            "type": "fill",
+            "value": "react"
+          },
+          {
+            "request": "search-2",
+            "type": "release"
+          },
+          {
+            "request": "search-1",
+            "type": "release"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "search-1",
+            "key": "search",
+            "optional": false,
+            "response": {
+              "items": [
+                "Remote work field guide",
+                "Reading the room"
+              ]
+            },
+            "status": 200
+          },
+          {
+            "id": "search-2",
+            "key": "search",
+            "optional": false,
+            "response": {
+              "items": [
+                "React handbook",
+                "React patterns in practice"
+              ]
+            },
+            "status": 200
+          }
+        ],
+        "seed": 0,
+        "resultHashes": [
+          "3f6713b078068ea22a6a3b3aa6ed9a1861284adafcde253a24c4c3a685872b21",
+          "37a53ff0b04b9a9c3ed935306640b985b6d6bf611c6977aaa8d63e69a1c060de",
+          "e504fc5720840289ab5f707cfd670e3842764be6d0e288b171286f437f24553a",
+          "339c48f63fb16d7713e6a8a3fa77be6639571e9eee08b01c819e43fe2986b88f",
+          "a21f517e71f9684ad304b9cb8fd73ceddbb96287fc720c2b02889eb7ac10b9de",
+          "5e24755b4967c17f8a694ead0ce82e7e340613454dfd8ac61b893bc5904cdad3"
+        ]
+      },
+      {
+        "id": "duplicate",
+        "buggyFailures": 3,
+        "fixedPasses": 3,
+        "sourceHashes": {
+          "buggy": "d512fe29cac25e188b83c48c3fbf2ad2cc4461452574baeeda5d5723b5afcad0",
+          "fixed": "f4adb87886bf8ac1308f6e1d65a27de0cb2afd9fd459b369f66a0e9cf9c72cb8"
+        },
+        "invariantHash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e",
+        "actions": [
+          {
+            "target": "place-order",
+            "type": "click"
+          },
+          {
+            "target": "place-order",
+            "type": "click"
+          },
+          {
+            "request": "order-1",
+            "type": "release"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "order-1",
+            "key": "order",
+            "optional": false,
+            "response": {
+              "receipt": "ORD-001"
+            },
+            "status": 200
+          },
+          {
+            "id": "order-2",
+            "key": "order",
+            "optional": false,
+            "response": {
+              "receipt": "ORD-002"
+            },
+            "status": 200
+          }
+        ],
+        "seed": 0,
+        "resultHashes": [
+          "322547835b35d948f1e9e0903bfa749637b09ac57ab14b155390bfda8758c6a5",
+          "87fdffae2cf0aadd600f888195199c54ddff93bee56e2ea744026eebd97a801b",
+          "c66641f10d88fee667f2c288386f0fa181b13948a4cbd21a645e3ebabc218039",
+          "93b37add9c18f3512cb9fd44467561d0756368099386c9fe3ac9ecb766f670ea",
+          "e497852c9f3447a6511e31fb7e20147a2fb00e44354db495ec0c257be5d0353d",
+          "78d9dd99f91ffdedcdabae253b4f0bc2bf54d7d990eed314220dd4427eeb4024"
+        ]
+      },
+      {
+        "id": "cleanup",
+        "buggyFailures": 3,
+        "fixedPasses": 3,
+        "sourceHashes": {
+          "buggy": "49cbee9e419c641e40fbeaa8b3fff96ee937d5b6525474980281bd30a73bd955",
+          "fixed": "a549ebd11e24b9f7f45ceaf9dc22b946ccbf7b9a338953d1d7e67845e8e68746"
+        },
+        "invariantHash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c",
+        "actions": [
+          {
+            "target": "nav-b",
+            "type": "click"
+          },
+          {
+            "request": "project-b-1",
+            "type": "release"
+          },
+          {
+            "request": "project-a-1",
+            "type": "release"
+          }
+        ],
+        "schedule": [
+          {
+            "id": "project-a-1",
+            "key": "project-a",
+            "optional": false,
+            "response": {
+              "title": "Project A \u00b7 Studio refresh"
+            },
+            "status": 200
+          },
+          {
+            "id": "project-b-1",
+            "key": "project-b",
+            "optional": false,
+            "response": {
+              "title": "Project B \u00b7 Launch calendar"
+            },
+            "status": 200
+          }
+        ],
+        "seed": 0,
+        "resultHashes": [
+          "f97392ca4fc76758a51adb34d2a2d6a58abea09e692dc4b19f1652dac021cce3",
+          "8954e807bf750a029496cb459ea5b10eba6df255bb6dd34fc4cb4689795bb328",
+          "8afde9500103b351b22fbef9fe7d20d6e1da42f2f727fa74a27edb988fcdafd2",
+          "d6a9b4e4fdbab0fa56d6262842acd713515905ac30daa0ec6c9f0ac7ff7e5c68",
+          "fc76388832ce98f94c086dfdc3b9622b65be7d85c5610e7dd4e62597fe2c5aaf",
+          "5a64ec250f8878f889a4b0cc9fb1166a5c394e00a1ce97d65262541fc38dd4a4"
+        ]
+      }
+    ]
+  },
+  "exactRegression": {
+    "testSha256": "ea47155bf32626691e0324645cc4934debf68f9af28d2b1dd6fc4b98ad616e48",
+    "runs": [
+      {
+        "variant": "buggy",
+        "testExitCode": 1,
+        "result": "failed",
+        "outputSha256": "cd47b0b18920820168f0a5a9124704268f127c879f76e03f05047bb5aa8c8c4c"
+      },
+      {
+        "variant": "fixed",
+        "testExitCode": 0,
+        "result": "passed",
+        "outputSha256": "a9909517d10995ec82c9f2843a67a5b577a211008a4df92bb26f8b93f14d7da8"
+      }
+    ],
+    "sameTestAgainstBothBuilds": true,
+    "guardProtectedReceiptsVerified": true
+  },
+  "termination": {
+    "boundaryVmsTerminal": 6,
+    "seedVmsTerminal": 30,
+    "regressionVmsTerminal": 2,
+    "verifiedCohortVmsTerminal": 38,
+    "firstFailedCohortVmsTerminal": 6
+  },
+  "currentLiveApiEnabled": false,
+  "modelCallsInRuntimeVerification": 0,
+  "modelProof": "Separate known-note and first-party pipeline-held-out coupon investigations contain genuine Muse proposals and exact executed actions. This runtime cohort replays fixed seed actions; it makes no new model call.",
+  "history": "Old gVisor outer-memory exit137 remains inconclusive. The first new VM cohort failed a host TTL-cleanup exception; preserved as failed. The corrected independently reviewed boundary cohort passed. A later metadata readback timed out after27 completed browser runs; original failed phase is preserved. A separately reviewed hash-bound recovery reconciled telemetry and executed only3 remaining trials, producing30 verified results without repeating completed runs or weakening checks.",
+  "recovery": {
+    "manifestSha256": "81012d067686f5bbb78cb974788563ef92d9329128821cac8e73c4d88b73c672",
+    "preservedBrowserRuns": 27,
+    "newBrowserRuns": 3,
+    "metadataReadbacksRecovered": 1,
+    "originalFailedPhasePreserved": true
+  },
+  "bindings": {
+    "runtimeManifestSha256": "2f44718dde841fda250c516242c2b97f1fb58f240578e08960345c0eea3c5992",
+    "boundaryPhaseSha256": "09962cc8781e5a268c25020f9ce3975bee898a5dbbf8525081f7a065c75dce87",
+    "seedPhaseSha256": "8845c6e0cdcbe753f92dabd334ca37ed99bea383913866eeb269ffb43e9c3f4a",
+    "regressionReceiptSha256": "5490025e09a7110b28a9807bfb7ae656e167d1fa74e8a76b4bb29f76f3c03003"
+  },
+  "redactions": "Derived public summary omits private account/provider IDs, paths, reservations and credentials. Raw private evidence retained locally."
+}

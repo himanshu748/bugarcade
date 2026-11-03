@@ -1,0 +1,74 @@
+{
+  "kind": "pipeline-held-out-candidate-freeze",
+  "frozenAt": "2026-11-03T07:47:00.872Z",
+  "source": "Newly authored first-party app; outside shipped gallery and planner examples",
+  "sourceHashes": {
+    "manifest.json": "c1a95bc268689705d86e39c42aa7852f81888359298829a207fe2120181a1faf",
+    "buggy/App.tsx": "f189ec641c26b2513428c514b642f897e1ecdcf355d5911c5ae972c9f0a7c97d",
+    "fixed/App.tsx": "dd991fd8cfcdded808966e8e51135053b3a4796bbf82bef2599415ebc0c80a43",
+    "README.md": "5c71618f5657fc3203a5972a820ae5ccf0d22e5896832be55fcc880ef1a1d0e0"
+  },
+  "invariantHash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+  "seed": 7331,
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "status": 200,
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      }
+    }
+  ],
+  "assertion": {
+    "target": "total",
+    "operator": "equals",
+    "expected": "$43.20"
+  },
+  "completion": {
+    "target": "discount-status",
+    "value": "Coupon applied · 10% off"
+  },
+  "witnessOrigin": "Authored solely for baseline checks and genuine recording; not a model proposal",
+  "witnessHash": "7c90dc2c905dde4b48a4948d451b9f77210b10aa4b14ce81246fdea6f14b641a",
+  "manifestActionsEmpty": true,
+  "modelCalls": 0,
+  "cloudCalls": 0,
+  "dependencies": {
+    "name": "bugarcade",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "engines": {
+      "node": ">=22.14.0"
+    },
+    "scripts": {
+      "dev": "vite --host 127.0.0.1",
+      "dev:fixtures": "node worker/server.mjs",
+      "build": "tsc --noEmit && vite build",
+      "typecheck": "tsc --noEmit",
+      "lint": "eslint frontend fixtures worker scripts --max-warnings 0",
+      "test:worker": "node --test tests/worker.test.mjs",
+      "verify:seeds": "node scripts/verify-seeds.mjs",
+      "test:e2e": "playwright test",
+      "start": "node scripts/start.mjs"
+    },
+    "dependencies": {
+      "react": "19.3.1",
+      "react-dom": "19.3.1"
+    },
+    "devDependencies": {
+      "@playwright/test": "1.64.0",
+      "@types/react": "19.2.2",
+      "@types/react-dom": "19.2.2",
+      "esbuild": "0.25.12",
+      "typescript": "5.9.3",
+      "vite": "7.3.7",
+      "eslint": "9.39.1",
+      "typescript-eslint": "8.46.3"
+    }
+  },
+  "lockfileHash": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b",
+  "nodeVersion": "v26.12.0"
+}

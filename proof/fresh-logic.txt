@@ -1,0 +1,41 @@
+✔ first run and malformed or unsupported storage are empty (9.002334ms)
+✔ storage roundtrip keeps separate seed and job milestones (2.407208ms)
+✔ unknown keys and prototype-shaped keys cannot enter progress (1.311584ms)
+✔ inconsistent achievements and weakened record shapes are discarded per case (13.999833ms)
+✔ storage is bounded by both UTF-8 bytes and entry count (3.193375ms)
+✔ fixed replay before a player bug earns nothing (1.555375ms)
+✔ manual bug earns discovery, target is independent, fix earns its own star (6.032417ms)
+✔ best moves only improves; duplicate or slower outcomes preserve identity (0.821708ms)
+✔ invalid events cannot award or alter milestones (0.792584ms)
+✔ codec and merge reject nonplain records and accessor values without invoking them (1.253333ms)
+✔ merge preserves independent updates and converges in either order (1.085833ms)
+✔ bounded merges retain arcade cases and select custom jobs deterministically (17.059416ms)
+✔ genuine live proposal, actual initial trace and six final outcomes stay connected (22.447542ms)
+✔ genuine recorded capture stays authored with zero calls and normalized source hashes (6.432167ms)
+✔ schema key ordering and omitted optional:false do not invent a schedule mismatch (17.166ms)
+✔ a caller-mode or runner mismatch cannot turn a recorded run into a model run (7.455ms)
+✔ missing verification and fabricated repeated counts fail closed (14.810583ms)
+✔ weakened declared assertions and completion checkpoints are rejected (11.649458ms)
+✔ actual observations decide pass/fail rather than labels or self-reported flags (10.490125ms)
+✔ timeouts, infrastructure errors and missing deterministic results cannot count (9.091917ms)
+✔ final validation must contain three distinct alternating pairs with one seed and schedule (12.079542ms)
+✔ unsafe, duplicate and foreign-job artifact paths never reach the display contract (52.455583ms)
+✔ an unsupported action or incomplete executed trace is rejected (48.583125ms)
+✔ minimization may delete steps but cannot insert or reorder them (2.081041ms)
+✔ the accepted proposal must match its actual initial pair and final proposal correlation (55.01425ms)
+✔ provider identity and the fixed endpoint allowlist remain consistent (30.619084ms)
+✔ valid configurable Baseten routing does not masquerade as a Modal endpoint (5.892ms)
+✔ recording samples and model usage are bounded and internally consistent (27.035875ms)
+✔ absent estimated cost stays unknown instead of becoming a zero-cost claim (8.233084ms)
+✔ source inventories and aliases cannot contradict each other (3.342292ms)
+✔ oversized arrays and strings are rejected before iteration (15.064625ms)
+✔ accessor fields and nonplain objects cannot silently supply evidence (2.545875ms)
+✔ the returned display data does not mutate or alias the captured source (2.513833ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1423.606875

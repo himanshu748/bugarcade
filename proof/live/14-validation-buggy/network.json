@@ -1,0 +1,35 @@
+{
+  "schedule": [
+    {
+      "id": "save-1",
+      "key": "save",
+      "response": {
+        "saved": true
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "save-1",
+      "key": "save",
+      "payload": {
+        "notes": [
+          "Ship the rough cut"
+        ]
+      },
+      "atMs": 540
+    },
+    {
+      "type": "release",
+      "id": "save-1",
+      "status": 200,
+      "response": {
+        "saved": true
+      },
+      "atMs": 803
+    }
+  ]
+}

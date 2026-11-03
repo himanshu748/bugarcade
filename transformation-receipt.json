@@ -1,0 +1,436 @@
+{
+  "kind": "explicit-public-derivative",
+  "scope": "Staged copies only; private originals unchanged",
+  "transformations": [
+    {
+      "path": "frontend/InvestigationProof.tsx",
+      "originalSha256": "ca8e991439cc3985e69baeca164ab4baa3f937c2f97dfae2e0bbbc1258d625db",
+      "packagedSha256": "730b3c2064783eac09859f90c3763473aabddf7b9e9db87982bf8357ec3bafbb",
+      "reasons": [
+        "workspace endpoint identifier: 1"
+      ]
+    },
+    {
+      "path": "proof/staged-core-tests.txt",
+      "originalSha256": "2b6e2bc00fa7c7acdb673cffa12a4852afe77d6d8c513c6e9d7ae2307617a7b6",
+      "packagedSha256": "1774c4043bde52fac0b24ea548fcfa5392db080ee15d768f2e318a21d5b11ef4",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/regression-buggy.txt",
+      "originalSha256": "0b9c7f7e037a655ee40174170d5ddbfebd57797b244ca27857b36a1e76bc900a",
+      "packagedSha256": "3c4b87481d4847ec3f7243ddf16deec97ba2ef5e8e4068d0675e08cbf118a824",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/buggy-1/trace.zip!trace.trace",
+      "originalSha256": "deb54929a48bbf6217be93c2498a26c576079feec6561a51258599e0a371d9b4",
+      "packagedSha256": "7deb8f50da9c2d7d3cdee2098a5daae52edb0c897c8cf9e8731c29ccb4722921",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/buggy-1/trace.zip!trace.stacks",
+      "originalSha256": "3a3097ba2e0e5c2066cf35adfc05c42e1607b0675ccd0ff5b5ebbfc761c77105",
+      "packagedSha256": "eccf475dd06847ab377ec398070d8ce5d3d6b15f740984594c07b8ebcd347f41",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/buggy-2/trace.zip!trace.stacks",
+      "originalSha256": "7239fc4e3a832c90284b34515e488d88e97cae5b9bb4ed5017911053d1da0b35",
+      "packagedSha256": "9845e48ee95affc8f1715249c1477300450290bb20b7baab8e483f515e455d50",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/buggy-3/trace.zip!trace.stacks",
+      "originalSha256": "4fdfa960cc21231bf3fb1d86a1155518b36dc0e4a5bbf6599f92ecff23783458",
+      "packagedSha256": "c06b048749f65fac7f696b5d1ea8123f1917ca4cbb7e56a42348298a940270ee",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/fixed-1/trace.zip!trace.trace",
+      "originalSha256": "155dade66e938ba4638d72158e2234f61d12a6ebf46183a5be430d7d6f9ef868",
+      "packagedSha256": "dccdb4725b45727b2cf26add6d91d381188ae5d27655b39a2baa285ebcd25b8d",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/fixed-1/trace.zip!trace.stacks",
+      "originalSha256": "35095e681bbd8351cbba69cd05c69f8c9ad066dddc12860ef739e1bdbaab7c62",
+      "packagedSha256": "875b800eff7c7e72588553d093d47858d9eb6e6b4700c624c36e45db62f53924",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/fixed-2/trace.zip!trace.stacks",
+      "originalSha256": "ea7cdd72cd222e630dc7aab9c0dca30eff8e983253cd275e9d133efceba5ade9",
+      "packagedSha256": "723d68da91d6b44a2fc48519028e3402d7050d166dfdb04140ac13479c4015c6",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/lost-note/fixed-3/trace.zip!trace.stacks",
+      "originalSha256": "04b32fe71f5fb20eee265131d996f65c70142d341157bfc71901d44f3aab5e44",
+      "packagedSha256": "f7887943b34748ef219a11ee9493896722f4997fc7bbce9f62e93c8a2d9d6aab",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/regression-buggy.txt",
+      "originalSha256": "55cb5ce49b7cd49b8f57ee04f997f50d05b5ab6fbcdaedbb053591b87236264c",
+      "packagedSha256": "18ec1635b8f19aea2b676782082d34f7075080daa23cef68801f1510ea778754",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/buggy-1/trace.zip!trace.trace",
+      "originalSha256": "05571ffe10cdff807a38d8e2ff33cc146b2a289613425134cbe7823a222c0049",
+      "packagedSha256": "e9bc77ce0c2fdb6cabfd19d69ffd2cbe4d1999da6093f3a1b2947cc2fc35683f",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/buggy-1/trace.zip!trace.stacks",
+      "originalSha256": "96a59e441ec480656cdf1a3001ac92e7014a64e6661cb98e230d0dcb0248e0f0",
+      "packagedSha256": "d8a1d8825529a3eab6528d4a8e687ea5036ef9e76ec68b1b8af5fea6b78585c4",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/buggy-2/trace.zip!trace.stacks",
+      "originalSha256": "9e4537a0c22f3288c35522ac7485724435d32bcac7a29a351a4d565b0d52ac3a",
+      "packagedSha256": "c62722527f0ba88e72310af2fb507960e6a776fc534dc963f9d1337cb718a81e",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/buggy-3/trace.zip!trace.stacks",
+      "originalSha256": "1ea5256edbbf9a54de16bbc93a15e305dba0b15b02278616f7311a9406b6abda",
+      "packagedSha256": "225d6ced4d16c032656333592387b35dd425152f805966235de0484c95c4eb91",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/fixed-1/trace.zip!trace.trace",
+      "originalSha256": "f889d82612e3d2e9572ac966507f198651cd5848983a4b071a07af054040f1bb",
+      "packagedSha256": "ee55eb0b0bcdfd9e06dfeac8de53528ec62e6271893a851923e5a3c37680f792",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/fixed-1/trace.zip!trace.stacks",
+      "originalSha256": "cd59b7d64637f08171031fd15affa8dab845bba963c1114bd2cf9c7d6189584d",
+      "packagedSha256": "411e105be50aa69934bf2a1862203118925368eeb209f4a4402aec244daf2d48",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/fixed-2/trace.zip!trace.stacks",
+      "originalSha256": "a031665cdc78fff49924429bd01e5972f9c8868a8e005bebda3a3ca9bdad50e0",
+      "packagedSha256": "abb2d844ec05a257165587190e4f011e1927fc39b4951c4165908dec59cb6f11",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/rollback/fixed-3/trace.zip!trace.stacks",
+      "originalSha256": "77ed2222007d925040c0de3b0d97355f5922b3911f59c37f83f633c81fce507d",
+      "packagedSha256": "a2a0eb89a2ce703dd606940ece102949e3dc019ec0d45cdc2cd767f48142cbae",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/regression-buggy.txt",
+      "originalSha256": "4c18818bb57afcccb99a850b258f31ebe813a5e5591d50c509427f17bdb6af1e",
+      "packagedSha256": "ee14ecf5d5559c259e7c7580759dd99af5229851228df4c05377d514cef30dd0",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/buggy-1/trace.zip!trace.trace",
+      "originalSha256": "fe73f92b3f5fb79c5910d3b290c96a06014ef877aed7ee8ff916841134dd85e3",
+      "packagedSha256": "825d483ba5d3709a0822973e983fe4ff58acd43b913ff7995e3e14ba15fb97b7",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/buggy-1/trace.zip!trace.stacks",
+      "originalSha256": "a614cc6f88b7c02ed84699d05bce2082e30fbf40ee4e34eb901b369523719805",
+      "packagedSha256": "f51c65f88d3a4d9d5395eeaa1c5dbdd5254e28326989c3deeb421fd4f4234018",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/buggy-2/trace.zip!trace.stacks",
+      "originalSha256": "86fd67cb3e302b73c07c45df431fab0c6d830d0a7b51ba1d3e977dbfc361ceee",
+      "packagedSha256": "5d5ad74fe9a6c90f1f290831bd6c801254783f41e9775b650b3321f2932df0d4",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/buggy-3/trace.zip!trace.stacks",
+      "originalSha256": "9d53dc875c03e2e2836a3602a97094fde891c88c04ac9f7f6da136b100db96cc",
+      "packagedSha256": "a27be05fb535644a424c22d489f711c8733ad919bc6c1c2e8171cdc252978ceb",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/fixed-1/trace.zip!trace.trace",
+      "originalSha256": "74ad7d1280c61a60335bcdbd63bd3de8c824b78f6d09c320f8b7c11ee43d27ed",
+      "packagedSha256": "84845eba7dc8bb34075447b41561f1797d128c40dc0cb68f7b3d7b7181e3617d",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/fixed-1/trace.zip!trace.stacks",
+      "originalSha256": "3a5e1cb8045b3c52b0e8ff8f677b2350ff7759966c9c5d47e9a25bbc01420dda",
+      "packagedSha256": "0567570559ad396967280e80e3b6eda8296400d8d7677796d02cc5bf78fe5ab9",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/fixed-2/trace.zip!trace.stacks",
+      "originalSha256": "cfd5284dcc24ce94dd8eeb7876f554cbef48f8f36b550f273cb837eccd95abcb",
+      "packagedSha256": "a7eb18dfbdbc5508b7f73858228942835d14b9830d6f99aad14e162432bc7182",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/search/fixed-3/trace.zip!trace.stacks",
+      "originalSha256": "8dfa5ba2001bb1589973e417ad03c913e16c1a8b4bfd6dd2ad418945efc97f82",
+      "packagedSha256": "a1bf0e9bc8755716ca2e46ebed6455ff69c73f6ed380a6840402ae4492a7eea9",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/regression-buggy.txt",
+      "originalSha256": "78f237e50e8b25f3bf1892e793a582d4a668c44924eade83039e7195796891b8",
+      "packagedSha256": "827d2b153787b6daddee95fb16de672a9a3b94c0fcf8323078ddb0b1c1d90e5e",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/buggy-1/trace.zip!trace.trace",
+      "originalSha256": "6d816063efa1e86e7e33c148bbddda351a470622606f084388fe7d68dc13db4d",
+      "packagedSha256": "938d3509028ae3c5570f00a6d787d32fc5c42cf9b2e10bed6072ec52da3d2abc",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/buggy-1/trace.zip!trace.stacks",
+      "originalSha256": "4ec8afb0ec1dc17c1ef167d34bed19529864759d591c9648819ef52888cc8b92",
+      "packagedSha256": "a526c8a191f4817c78e806d5aad332821eeb32b1ca3430be41f0ceeef4bb1c4e",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/buggy-2/trace.zip!trace.stacks",
+      "originalSha256": "130dc56b020fcd15acef3720546f764e57cdc96455e4c3588b507f36408b5769",
+      "packagedSha256": "853946c801cbcc566f2e9bedafd466a910fd78a11849174075a319c5ba9986de",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/buggy-3/trace.zip!trace.stacks",
+      "originalSha256": "cf04cb0ad6f18aba786d7ed523b8b927be9303c167c39b981249e8e66e6f5e6f",
+      "packagedSha256": "be46a056fc6fd771e701a45c259836d0e9d22ef3532c4800ddfee1925702aa9b",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/fixed-1/trace.zip!trace.trace",
+      "originalSha256": "a39618c5be69d47dc49672288d82b9525b526300e10973472c19988cc514de90",
+      "packagedSha256": "a895ace4f17133492f38ad99bf5ae7f7eea127dbae9edbb3b2740855b87b8842",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/fixed-1/trace.zip!trace.stacks",
+      "originalSha256": "0403f0473fff55a1e0de40a86b3c5034019ea2bbdefd553ebf66e7613c4e2abb",
+      "packagedSha256": "76c8edcd5006f7093ddedb58bcc705002d9d92b8f18dcad9a4f7a31d8d11a5da",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/fixed-2/trace.zip!trace.stacks",
+      "originalSha256": "a7d2382af1c0007f6715655c390fe921bbb31c7f810b3816c15bdf3c7ae692b4",
+      "packagedSha256": "e62ee55179d88393e6c80d76add8f0e05ac77adad7723eb9d7d1803e3cf69e91",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/duplicate/fixed-3/trace.zip!trace.stacks",
+      "originalSha256": "8e0bfd5cf4eaa361338a80e44760c4ab19ab30c41136c739ac2bfda484ba24b0",
+      "packagedSha256": "ff7baaf02f3dbf5ebe5da5e90a3c7a564783fda4d74576605e56cfc5c91a0236",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/regression-buggy.txt",
+      "originalSha256": "86d98a45784cc386521d0da69749e1c861ac0e0cb16acea109f59545c79288cd",
+      "packagedSha256": "03af0f1e0d59d559d922dccb5db7212d05ccaaef42e6cad7b0825ac3857ca0ff",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/buggy-1/trace.zip!trace.trace",
+      "originalSha256": "fe603a58ade8c38d9f0f10bb0017dc2cb6d4988cc76aac6d3d5f4369345918f0",
+      "packagedSha256": "960f5dc269cde7d7571400561088e28e0dd0bafce9ceff3d323b5d8047d9afff",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/buggy-1/trace.zip!trace.stacks",
+      "originalSha256": "e0d90b4199fb0874a40c873f5a0f6cc9e35c6e47eb999fc0a8013397f9c4a619",
+      "packagedSha256": "9c0593710e8cf5fca69238069590701dedaad41318f4201232a68cbac600b12f",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/buggy-2/trace.zip!trace.stacks",
+      "originalSha256": "5c072c6d308fc6d8015330acaa021ab7265876497da844ada4cf30532955dfca",
+      "packagedSha256": "08937585e274c9d44e177f18fe9bad91c09058d073c9b9793ca0b04b8ef2b49c",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/buggy-3/trace.zip!trace.stacks",
+      "originalSha256": "b54b173bae2afd09f0f1baf9d023fdd4f726500df96e3062c1974c90cc385dcd",
+      "packagedSha256": "5ad60672e75831bf4f2b05af5ec0745ed64f895318a33952247d5e137365be99",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/fixed-1/trace.zip!trace.trace",
+      "originalSha256": "f81254ec1c8ba00b7f99c1edca99639012fd1955d6e9faf4ff91f65220533ed0",
+      "packagedSha256": "5fda1553113e4e5e99dda8ed87256e9c37ea0d7de888e61eba18796e27571fca",
+      "reasons": [
+        "personal host filesystem path: 1"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/fixed-1/trace.zip!trace.stacks",
+      "originalSha256": "0279f64f9dcd7e5ffaf9f88065f75939961c69fa2697272e8e20e792c497230a",
+      "packagedSha256": "6807e771ae42bb05459e8427316b943fc074f1460e333b72636ff3009194a041",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/fixed-2/trace.zip!trace.stacks",
+      "originalSha256": "5a515482f60e5b9341fb5e8151df584c201005cf97a1c9accac964ffa8415af5",
+      "packagedSha256": "c3079d70f8e52c9daf8956eb50ace817bc7020b2754afce40369061930e61b60",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    },
+    {
+      "path": "evidence/seeds/cleanup/fixed-3/trace.zip!trace.stacks",
+      "originalSha256": "f41f942dcfa71bb888450f45dc98298f6abdd1546f4564c2059936a2cedf75c4",
+      "packagedSha256": "50a1a521da48495632aec024656189f98706b4bf1fcc927b49d159f9a2e3d8b0",
+      "reasons": [
+        "personal host filesystem path: 2"
+      ]
+    }
+  ],
+  "selectedDerivativeSources": {
+    "proof/live/summary.public.json": {
+      "source": "evidence/jobs/6d18b3f942ea45698c972d6763ce3383/summary.json",
+      "originalSha256": "b105e6e399ae2737f5e54a7d325f7d7882589ff7bafc66abf248d0bb208a607f",
+      "packagedSha256": "77bac409a90c355705825aa3e84b0d645f9fffd737f8976fc085374de8b93c9c",
+      "byteIdentical": false,
+      "derivative": true
+    },
+    "proof/live/provenance.public.json": {
+      "source": "evidence/jobs/6d18b3f942ea45698c972d6763ce3383/provenance.json",
+      "originalSha256": "c61b7b1752608ad5627f284b4720bb350740c6cf34316b496c9970ca310f0ca6",
+      "packagedSha256": "1d32765a24b88254cd4e8d5876587e7b779fd6942872a67d8c8d8c96e7a6a8e5",
+      "byteIdentical": false,
+      "derivative": true
+    },
+    "proof/heldout/summary.public.json": {
+      "source": "evidence/jobs/a75b736d5dc942c8a31e69c56ee599f9/summary.json",
+      "originalSha256": "33e175e6c050e53ee72a3bd7e5262b1f1f1e668b8a40b752088698cca1dbe70a",
+      "packagedSha256": "73586d65510af183fff03b249bf79a6c68f237e0e83eb76ae57cd619296d0a14",
+      "byteIdentical": false,
+      "derivative": true
+    },
+    "proof/heldout/provenance.public.json": {
+      "source": "evidence/jobs/a75b736d5dc942c8a31e69c56ee599f9/provenance.json",
+      "originalSha256": "c38862be6bc85e0c8d39c9ed21a042c78ae11d14cf5987d3651e097dc10dcfb2",
+      "packagedSha256": "9cb0433738e9132de7a1c3dacd9be1264a66c656a31a40ebfe87bfa9edcc62ab",
+      "byteIdentical": false,
+      "derivative": true
+    }
+  },
+  "protected": {
+    "fixtureSourcesUnchanged": true,
+    "liveRegressionSha256": "ea47155bf32626691e0324645cc4934debf68f9af28d2b1dd6fc4b98ad616e48",
+    "proposalPayloadSha256": "4b35729c729a5c754b7e01efaa46390febfd3001218ecc4786d4a6ddc4379e1f",
+    "validationResultSha256": {
+      "10-validation-buggy": "8196ce12503d6e7ddb4413f948bcdc3dbecaacc71a34083972fdc653f7bd7def",
+      "11-validation-fixed": "fcb077e945cd773fc7b5092ccf5fbf2b7f1690b6e615e78855af148e9be44dc9",
+      "12-validation-buggy": "0286c89f702993f39723d6509172d712502f1a314256d5593bcdd42965148032",
+      "13-validation-fixed": "af9dcb21c188445b44d81c0494a5d723ec6c2a3e021528a7cfa59e4d202e7b59",
+      "14-validation-buggy": "6817373742ae817616cfaa009b155af5a274e733744e222513c61256ce1343d4",
+      "15-validation-fixed": "958dca01ae0cf2cf8d26487ed616444e864f269529d0a8b4be8c2dfe7f7b046a"
+    },
+    "heldoutRegressionSha256": "128e318ef56cdc02999181c57f9a47a4839c3c2e2ba76e118f1ab648010a4c66",
+    "heldoutProposalPayloadSha256": "fd12906e7d3620f55034ba6fa024be3b74feeadfd94c6a1539f79627a84950f6",
+    "heldoutValidationResultSha256": {
+      "08-validation-buggy": "02b7e158371709a384e9982d330d79a9409b5c002b9a63f37e7a3a3fda3f370f",
+      "09-validation-fixed": "1c3a66a14d23f0f5a4ea9a0def6c4e7e6da9fdf9d7011aa2bc46d8be05c7169d",
+      "10-validation-buggy": "73c8cea1ae7fa3c53712b5197d881b6b090717c53a21c9fe23b71c4307c96f56",
+      "11-validation-fixed": "30f9672e290f602e44909186432587d809d5799429551b6e4aedcf5eb0ab5a83",
+      "12-validation-buggy": "649cf37a8e965a1d34b24db1fc8b0d93279ae6e20ac32c9d2ad061b04808ca30",
+      "13-validation-fixed": "b3ce6dffab9f29e1b573e1921a31d0334a4495e909049ba56b3dfa0bb4dfebd1"
+    }
+  },
+  "limits": "Known text identifiers and paths redacted; PNG/MP4/WebM content requires visual review. Public derivatives are not original signed attestations."
+}

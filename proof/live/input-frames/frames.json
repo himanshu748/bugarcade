@@ -1,0 +1,22 @@
+[
+  {
+    "timestampMs": 0,
+    "sha256": "3d96f85468a852c00a960d54cda8cbf5496e3bdb8b0fec7ded557a83e861c20b",
+    "file": "frame-00.png"
+  },
+  {
+    "timestampMs": 720,
+    "sha256": "19f642000041fb388f0c9f017a3aa908a045fbb1c320ba44c4e9f3ee29cd59b0",
+    "file": "frame-01.png"
+  },
+  {
+    "timestampMs": 1400,
+    "sha256": "709c2f2407394b12c2553bc7e23dc6b465659d883c6a85b91991a9a0c4dea186",
+    "file": "frame-02.png"
+  },
+  {
+    "timestampMs": 2080,
+    "sha256": "f8fc0f6053dab3ce6e62f3a7e49de06bde5fa1e7dab8987195649b125f575ddf",
+    "file": "frame-03.png"
+  }
+]

@@ -1,0 +1,28 @@
+✖ The undo from the past — intended invariant (3880.572833ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5465.382917
+
+✖ failing tests:
+
+test at evidence/seeds/rollback/regression.test.mjs:9:1
+✖ The undo from the past — intended invariant (3880.572833ms)
+  AssertionError [ERR_ASSERTION]: {"status":"failed","assertion":{"target":"board-title","operator":"equals","expected":"Launch board","actual":"Untitled board","pass":false,"hash":"fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac","completion":{"target":"rename-state","value":"2 updates settled"}},"error":null}
+  
+  'failed' !== 'passed'
+  
+      at TestContext.<anonymous> (file:///redacted/local-path
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'failed',
+    expected: 'passed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

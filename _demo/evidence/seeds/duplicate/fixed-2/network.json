@@ -1,0 +1,41 @@
+{
+  "schedule": [
+    {
+      "id": "order-1",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-001"
+      }
+    },
+    {
+      "id": "order-2",
+      "key": "order",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-002"
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "order-1",
+      "key": "order",
+      "payload": {
+        "product": "Field notes",
+        "quantity": 1
+      },
+      "atMs": 715
+    },
+    {
+      "type": "release",
+      "id": "order-1",
+      "status": 200,
+      "response": {
+        "receipt": "ORD-001"
+      },
+      "atMs": 1017
+    }
+  ]
+}

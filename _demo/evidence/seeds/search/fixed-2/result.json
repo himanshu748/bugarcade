@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "actions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "fill",
+        "target": "query",
+        "value": "re"
+      },
+      "atMs": 2578,
+      "elapsedMs": 87,
+      "status": "executed"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "fill",
+        "target": "query",
+        "value": "react"
+      },
+      "atMs": 2742,
+      "elapsedMs": 80,
+      "status": "executed"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "release",
+        "request": "search-2"
+      },
+      "atMs": 2888,
+      "elapsedMs": 5,
+      "status": "executed"
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "release",
+        "request": "search-1"
+      },
+      "atMs": 2957,
+      "elapsedMs": 3,
+      "status": "executed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "search-1",
+      "key": "search",
+      "status": 200,
+      "response": {
+        "items": [
+          "Remote work field guide",
+          "Reading the room"
+        ]
+      }
+    },
+    {
+      "id": "search-2",
+      "key": "search",
+      "status": 200,
+      "response": {
+        "items": [
+          "React handbook",
+          "React patterns in practice"
+        ]
+      }
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "elapsedMs": 3531,
+  "artifacts": {
+    "result": "result.json",
+    "actions": "actions.json",
+    "console": "console.json",
+    "schedule": "network.json",
+    "trace": "trace.zip",
+    "screenshot": "final.png",
+    "frames": "frames.json",
+    "player": "player.html"
+  },
+  "error": null,
+  "assertion": {
+    "target": "results",
+    "operator": "contains",
+    "expected": "React handbook",
+    "actual": "↗ React handbook↗ React patterns in practice",
+    "pass": true,
+    "hash": "893c9cce37d2f1efa7f064e4d54cbd034ca544daba5a81bbb1eea8eca3a2a8a3",
+    "completion": {
+      "target": "search-state",
+      "value": "2 searches settled"
+    }
+  },
+  "network": [
+    {
+      "type": "request",
+      "id": "search-1",
+      "key": "search",
+      "payload": {
+        "query": "re"
+      },
+      "atMs": 578
+    },
+    {
+      "type": "request",
+      "id": "search-2",
+      "key": "search",
+      "payload": {
+        "query": "react"
+      },
+      "atMs": 751
+    },
+    {
+      "type": "release",
+      "id": "search-2",
+      "status": 200,
+      "response": {
+        "items": [
+          "React handbook",
+          "React patterns in practice"
+        ]
+      },
+      "atMs": 847
+    },
+    {
+      "type": "release",
+      "id": "search-1",
+      "status": 200,
+      "response": {
+        "items": [
+          "Remote work field guide",
+          "Reading the room"
+        ]
+      },
+      "atMs": 914
+    }
+  ],
+  "seed": 0,
+  "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+  "variant": "fixed",
+  "challengeId": "search"
+}

@@ -1,0 +1,30 @@
+✖ The vanishing note invariant (2971.515275ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3038.054059
+
+✖ failing tests:
+
+test at ../../tmp/regression.test.mjs:8:1
+✖ The vanishing note invariant (2971.515275ms)
+  AssertionError [ERR_ASSERTION]: {"target":"notes","operator":"contains","expected":"Book the demo slot","actual":"Ship the rough cut","pass":false,"hash":"072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951","completion":{"target":"sync-state","value":"Synced · 1 added"}}
+  
+  'failed' !== 'passed'
+  
+      at TestContext.<anonymous> (file:///tmp/regression.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'failed',
+    expected: 'passed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

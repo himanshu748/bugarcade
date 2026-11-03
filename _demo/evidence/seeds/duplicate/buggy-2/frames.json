@@ -1,0 +1,26 @@
+{
+  "kind": "captured-browser-screenshots",
+  "frames": [
+    {
+      "timestampMs": 3179,
+      "path": "frame-00.png",
+      "actionIndex": -1
+    },
+    {
+      "timestampMs": 3454,
+      "path": "frame-01.png",
+      "actionIndex": 0
+    },
+    {
+      "timestampMs": 3590,
+      "path": "frame-02.png",
+      "actionIndex": 1
+    },
+    {
+      "timestampMs": 3642,
+      "path": "frame-03.png",
+      "actionIndex": 2
+    }
+  ],
+  "warning": "Frames are sampled after actions. Trace contains event ordering; fast interactions can occur between frames."
+}

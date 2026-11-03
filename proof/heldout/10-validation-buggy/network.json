@@ -1,0 +1,35 @@
+{
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "payload": {
+        "code": "WELCOME10"
+      },
+      "atMs": 818
+    },
+    {
+      "type": "release",
+      "id": "coupon-1",
+      "status": 200,
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "atMs": 916
+    }
+  ]
+}

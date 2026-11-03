@@ -1,0 +1,20 @@
+{
+  "kind": "current-publication-release-audit",
+  "status": "passed",
+  "preparedAt": "2026-11-03T18:21:27.963190+00:00",
+  "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
+  "payloadFiles": 770,
+  "expandedPayloadBytes": 48225134,
+  "knownPatternFindings": [],
+  "intentionalSyntheticFixtureExclusions": {
+    "tests/test_live_preflight.py": 2,
+    "tests/test_modal_planner.py": 3
+  },
+  "manifestSha256": "36f436b4fb899d82b6679456a5573289296e5a6a2bc1d4a6866406d2a4295352",
+  "canonicalInvestigationAndSeedSourceBytesUnchanged": true,
+  "runtimeSourceBytesUnchanged": false,
+  "originalApprovedZipUnchanged": true,
+  "freshPublicChecks": "proof/local-checks.json",
+  "noGitAccountOrSubmissionActions": true,
+  "scanLimitations": "Bounded known-pattern and nested-ZIP scan. No guarantee for unknown secret formats or OCR."
+}

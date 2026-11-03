@@ -1,0 +1,88 @@
+{
+  "status": "failed",
+  "actions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "click",
+        "target": "apply-coupon"
+      },
+      "atMs": 2019,
+      "elapsedMs": 50,
+      "status": "executed"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "release",
+        "request": "coupon-1"
+      },
+      "atMs": 2144,
+      "elapsedMs": 18,
+      "status": "executed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "elapsedMs": 2838,
+  "artifacts": {
+    "result": "result.json",
+    "actions": "actions.json",
+    "console": "console.json",
+    "schedule": "network.json",
+    "trace": "trace.zip",
+    "screenshot": "final.png",
+    "frames": "frames.json",
+    "recording": "recording.webm",
+    "player": "player.html"
+  },
+  "error": null,
+  "assertion": {
+    "target": "total",
+    "operator": "equals",
+    "expected": "$43.20",
+    "actual": "$48.00",
+    "pass": false,
+    "hash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+    "completion": {
+      "target": "discount-status",
+      "value": "Coupon applied · 10% off"
+    }
+  },
+  "network": [
+    {
+      "type": "request",
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "payload": {
+        "code": "WELCOME10"
+      },
+      "atMs": 818
+    },
+    {
+      "type": "release",
+      "id": "coupon-1",
+      "status": 200,
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "atMs": 916
+    }
+  ],
+  "seed": 7331,
+  "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+  "variant": "buggy",
+  "challengeId": "coupon-total"
+}

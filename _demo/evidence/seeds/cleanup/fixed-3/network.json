@@ -1,0 +1,54 @@
+{
+  "schedule": [
+    {
+      "id": "project-a-1",
+      "key": "project-a",
+      "status": 200,
+      "response": {
+        "title": "Project A · Studio refresh"
+      }
+    },
+    {
+      "id": "project-b-1",
+      "key": "project-b",
+      "status": 200,
+      "response": {
+        "title": "Project B · Launch calendar"
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "project-a-1",
+      "key": "project-a",
+      "payload": null,
+      "atMs": 429
+    },
+    {
+      "type": "request",
+      "id": "project-b-1",
+      "key": "project-b",
+      "payload": null,
+      "atMs": 609
+    },
+    {
+      "type": "release",
+      "id": "project-b-1",
+      "status": 200,
+      "response": {
+        "title": "Project B · Launch calendar"
+      },
+      "atMs": 745
+    },
+    {
+      "type": "release",
+      "id": "project-a-1",
+      "status": 200,
+      "response": {
+        "title": "Project A · Studio refresh"
+      },
+      "atMs": 809
+    }
+  ]
+}

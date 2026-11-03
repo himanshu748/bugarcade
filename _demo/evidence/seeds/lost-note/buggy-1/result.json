@@ -1,0 +1,97 @@
+{
+  "status": "failed",
+  "actions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "click",
+        "target": "sync"
+      },
+      "atMs": 2783,
+      "elapsedMs": 144,
+      "status": "executed"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "click",
+        "target": "add-note"
+      },
+      "atMs": 3003,
+      "elapsedMs": 126,
+      "status": "executed"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "release",
+        "request": "save-1"
+      },
+      "atMs": 3199,
+      "elapsedMs": 8,
+      "status": "executed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "save-1",
+      "key": "save",
+      "status": 200,
+      "response": {
+        "saved": true
+      }
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "elapsedMs": 4624,
+  "artifacts": {
+    "result": "result.json",
+    "actions": "actions.json",
+    "console": "console.json",
+    "schedule": "network.json",
+    "trace": "trace.zip",
+    "screenshot": "final.png",
+    "frames": "frames.json",
+    "recording": "recording.webm",
+    "player": "player.html"
+  },
+  "error": null,
+  "assertion": {
+    "target": "notes",
+    "operator": "contains",
+    "expected": "Book the demo slot",
+    "actual": "Ship the rough cut",
+    "pass": false,
+    "hash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951",
+    "completion": {
+      "target": "sync-state",
+      "value": "Synced · 1 added"
+    }
+  },
+  "network": [
+    {
+      "type": "request",
+      "id": "save-1",
+      "key": "save",
+      "payload": {
+        "notes": [
+          "Ship the rough cut"
+        ]
+      },
+      "atMs": 740
+    },
+    {
+      "type": "release",
+      "id": "save-1",
+      "status": 200,
+      "response": {
+        "saved": true
+      },
+      "atMs": 1094
+    }
+  ],
+  "seed": 0,
+  "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+  "variant": "buggy",
+  "challengeId": "lost-note"
+}

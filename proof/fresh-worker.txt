@@ -1,0 +1,28 @@
+
+> bugarcade@0.1.0 test:worker
+> node --test tests/worker.test.mjs
+
+✔ all five seed contracts have valid bounded actions and immutable completion checkpoints (3.114833ms)
+✔ rejects arbitrary action code, unknown targets, overlong input and excessive actions (0.617542ms)
+✔ rejects unsupported variants, external artifact paths and changed assertions as errors (8.8915ms)
+✔ uploaded projects cannot be executed by local development worker (0.977417ms)
+✔ minimizer rejects vacuous failure if fixed also fails and holds assertion constant (0.911958ms)
+✔ minimizer does not treat infra failure as reproduced (0.87075ms)
+✔ real simulator holds requests until explicit release and records ordering (252.558042ms)
+✔ real buggy and fixed lost-note app differ under identical schedule (8332.975417ms)
+✔ missing completion is execution error, never reproduced (4573.60775ms)
+✔ deadline before browser readiness cannot produce a positive reproduction (1262.872792ms)
+✔ capture without video never advertises a nonexistent recording (2645.832584ms)
+✔ main-world prototype and harness tampering cannot forge driver reads or simulator releases (1680.284166ms)
+✔ offline cartridge refuses submitted compilation outside Modal (0.790167ms)
+✔ all ten offline seed cartridges replay in opaque scripts-only iframe with expected outcomes (9319.67325ms)
+✔ offline cartridge manual play and reset work; connect CSP and source checks block foreign requests (2079.333875ms)
+✔ cartridge binds only its loopback parent once and supports both UI ports (3378.396917ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34368.107458

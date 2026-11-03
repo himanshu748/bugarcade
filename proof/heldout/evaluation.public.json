@@ -1,0 +1,194 @@
+{
+  "verified": true,
+  "mode": "live",
+  "runner": "modal-sandbox",
+  "challengeId": "coupon-total",
+  "sourceHashes": {
+    "manifest.json": "c1cd40598b440c73dd369f3b5cbbf6f3b2d0748e1aee4f5f40919b8192558074",
+    "fixed/App.tsx": "dd991fd8cfcdded808966e8e51135053b3a4796bbf82bef2599415ebc0c80a43",
+    "README.md": "5c71618f5657fc3203a5972a820ae5ccf0d22e5896832be55fcc880ef1a1d0e0",
+    "buggy/App.tsx": "f189ec641c26b2513428c514b642f897e1ecdcf355d5911c5ae972c9f0a7c97d"
+  },
+  "invariantHash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+  "assertion": {
+    "target": "total",
+    "operator": "equals",
+    "expected": "$43.20"
+  },
+  "completion": {
+    "target": "discount-status",
+    "value": "Coupon applied · 10% off"
+  },
+  "seed": 7331,
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "status": 200,
+      "optional": false
+    }
+  ],
+  "initialActions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    },
+    {
+      "type": "wait",
+      "target": "discount-status",
+      "value": "Coupon applied · 10% off"
+    }
+  ],
+  "actions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    }
+  ],
+  "initialActionCount": 3,
+  "minimizedActionCount": 2,
+  "minimizationProbes": 5,
+  "minimality": "bounded deletion search; not a global optimum",
+  "buggyFailures": 3,
+  "fixedPasses": 3,
+  "validationRuns": 6,
+  "browserRuns": 14,
+  "infrastructureErrors": 4,
+  "elapsedMs": 270751,
+  "modelCalls": 1,
+  "modelUsage": [
+    {
+      "prompt_tokens": 2164,
+      "completion_tokens": 1799,
+      "total_tokens": 3963
+    }
+  ],
+  "modelProvider": "modal",
+  "estimatedModelCostUsd": 0.01035075,
+  "publicDerivative": true,
+  "evaluationScope": "One pipeline-held-out first-party app, frozen before model use; not an independent benchmark or model-training holdout",
+  "modelIdentity": "meta-models/Muse-Spark-Open-816B-A42B",
+  "workspaceEndpoint": "redacted",
+  "frozenAt": "2026-11-03T07:47:00.872Z",
+  "originalSummarySha256": "33e175e6c050e53ee72a3bd7e5262b1f1f1e668b8a40b752088698cca1dbe70a",
+  "originalProvenanceSha256": "c38862be6bc85e0c8d39c9ed21a042c78ae11d14cf5987d3651e097dc10dcfb2",
+  "inputFrames": [
+    {
+      "timestampMs": 0,
+      "sha256": "6c6f35065afbaf3640633bfc18398eba6e4442c8078a5e91273f303880d45435",
+      "file": "frame-00.png"
+    },
+    {
+      "timestampMs": 440,
+      "sha256": "e2c0e04207c2690a373b4c41a5ca3663d4ef1b800c006b61a6d46521da284f0d",
+      "file": "frame-01.png"
+    },
+    {
+      "timestampMs": 880,
+      "sha256": "05ad22d0a5ee30118d17932859c5cf8df242466ed54db8f43db69185a265b5fe",
+      "file": "frame-02.png"
+    },
+    {
+      "timestampMs": 1280,
+      "sha256": "9a5e8a46b00c2677aaefa863dc49a740c3577007be420993ed9ae38fa05f472e",
+      "file": "frame-03.png"
+    }
+  ],
+  "validation": [
+    {
+      "directory": "08-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "$48.00",
+      "resultSha256": "02b7e158371709a384e9982d330d79a9409b5c002b9a63f37e7a3a3fda3f370f"
+    },
+    {
+      "directory": "09-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "$43.20",
+      "resultSha256": "1c3a66a14d23f0f5a4ea9a0def6c4e7e6da9fdf9d7011aa2bc46d8be05c7169d"
+    },
+    {
+      "directory": "10-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "$48.00",
+      "resultSha256": "73c8cea1ae7fa3c53712b5197d881b6b090717c53a21c9fe23b71c4307c96f56"
+    },
+    {
+      "directory": "11-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "$43.20",
+      "resultSha256": "30f9672e290f602e44909186432587d809d5799429551b6e4aedcf5eb0ab5a83"
+    },
+    {
+      "directory": "12-validation-buggy",
+      "variant": "buggy",
+      "status": "failed",
+      "actual": "$48.00",
+      "resultSha256": "649cf37a8e965a1d34b24db1fc8b0d93279ae6e20ac32c9d2ad061b04808ca30"
+    },
+    {
+      "directory": "13-validation-fixed",
+      "variant": "fixed",
+      "status": "passed",
+      "actual": "$43.20",
+      "resultSha256": "b3ce6dffab9f29e1b573e1921a31d0334a4495e909049ba56b3dfa0bb4dfebd1"
+    }
+  ],
+  "regressionSha256": "128e318ef56cdc02999181c57f9a47a4839c3c2e2ba76e118f1ab648010a4c66",
+  "regressionOutputs": {
+    "buggy": {
+      "exitCode": 1,
+      "originalSha256": "73087901f68ef9e8f15f9f7447f710f06cf7c9b3607c717877f5e8ea2911b77b",
+      "publicSha256": "73087901f68ef9e8f15f9f7447f710f06cf7c9b3607c717877f5e8ea2911b77b",
+      "output": "✖ The coupon that did not add up invariant (3219.116783ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3321.513907\n\n✖ failing tests:\n\ntest at ../../tmp/regression.test.mjs:8:1\n✖ The coupon that did not add up invariant (3219.116783ms)\n  AssertionError [ERR_ASSERTION]: {\"target\":\"total\",\"operator\":\"equals\",\"expected\":\"$43.20\",\"actual\":\"$48.00\",\"pass\":false,\"hash\":\"3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c\",\"completion\":{\"target\":\"discount-status\",\"value\":\"Coupon applied · 10% off\"}}\n  \n  'failed' !== 'passed'\n  \n      at TestContext.<anonymous> (file:///tmp/regression.test.mjs:16:10)\n      at Test.runInAsyncScope (node:async_hooks:227:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.start (node:internal/test_runner/test:1262:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 'failed',\n    expected: 'passed',\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n"
+    },
+    "fixed": {
+      "exitCode": 0,
+      "originalSha256": "961ebd190c4f21ae44392358ceea347a4f37e30a281b1b635a7091adeea18933",
+      "publicSha256": "961ebd190c4f21ae44392358ceea347a4f37e30a281b1b635a7091adeea18933",
+      "output": "✔ The coupon that did not add up invariant (3259.196026ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3347.447577\n"
+    }
+  },
+  "sandboxesTerminal": 16,
+  "proposal": {
+    "actions": [
+      {
+        "type": "click",
+        "target": "apply-coupon"
+      },
+      {
+        "type": "release",
+        "request": "coupon-1"
+      },
+      {
+        "type": "wait",
+        "target": "discount-status",
+        "value": "Coupon applied · 10% off"
+      }
+    ],
+    "candidateAssertion": {
+      "target": "total",
+      "operator": "equals",
+      "expected": "$43.20"
+    },
+    "rationale": "Default coupon WELCOME10 gives 10% off 2x$24=$48 => $43.20 expected. App memoizes total on [quantity] only, so discount state change does not recompute total. Applying coupon and releasing validate-coupon leaves status 'Coupon applied · 10% off' while total stays $48.00, violating the $43.20 assertion."
+  },
+  "proposalPayloadSha256": "fd12906e7d3620f55034ba6fa024be3b74feeadfd94c6a1539f79627a84950f6",
+  "limits": "One first-party pipeline-held-out case under one schedule. Historical cloud run predates the new guarded VM runtime; current runtime evidence is documented separately."
+}

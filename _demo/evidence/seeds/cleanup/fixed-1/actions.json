@@ -1,0 +1,32 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "click",
+      "target": "nav-b"
+    },
+    "atMs": 3640,
+    "elapsedMs": 350,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "release",
+      "request": "project-b-1"
+    },
+    "atMs": 4153,
+    "elapsedMs": 8,
+    "status": "executed"
+  },
+  {
+    "index": 2,
+    "action": {
+      "type": "release",
+      "request": "project-a-1"
+    },
+    "atMs": 4241,
+    "elapsedMs": 4,
+    "status": "executed"
+  }
+]

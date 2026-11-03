@@ -1,0 +1,44 @@
+{
+  "kind": "captured-local-browser",
+  "synthetic": false,
+  "modelRun": false,
+  "recording": "buggy-1/recording.webm",
+  "durationMs": 3040,
+  "frames": [
+    {
+      "timestampMs": 0,
+      "path": "recording-frames/frame-001.png"
+    },
+    {
+      "timestampMs": 423,
+      "path": "recording-frames/frame-002.png"
+    },
+    {
+      "timestampMs": 846,
+      "path": "recording-frames/frame-003.png"
+    },
+    {
+      "timestampMs": 1269,
+      "path": "recording-frames/frame-004.png"
+    },
+    {
+      "timestampMs": 1691,
+      "path": "recording-frames/frame-005.png"
+    },
+    {
+      "timestampMs": 2114,
+      "path": "recording-frames/frame-006.png"
+    },
+    {
+      "timestampMs": 2537,
+      "path": "recording-frames/frame-007.png"
+    },
+    {
+      "timestampMs": 2960,
+      "path": "recording-frames/frame-008.png"
+    }
+  ],
+  "timestampBasis": "Requested presentation seek positions in captured WebM; decoded frame is at or after each seek, within one video frame",
+  "extractor": "Pinned Playwright bundled FFmpeg (VP9 WebM decoder)",
+  "warning": "Sampled frames can miss fast interactions. Browser trace and action timestamps are the authoritative execution sequence."
+}

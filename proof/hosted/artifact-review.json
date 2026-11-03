@@ -1,0 +1,18 @@
+{
+  "kind": "prepared-hosted-artifact-verification",
+  "status": "passed",
+  "deployed": false,
+  "target": "https://himanshu748.github.io/bugarcade/",
+  "files": 653,
+  "bytes": 49206106,
+  "internalHtmlReferencesChecked": 91,
+  "missingInternalReferences": [],
+  "knownPatternFindings": [],
+  "catalogSha256": "3bd24d32e3ee26dda55541c69dff48bcddf33edfbff0652610ad1a6cd911b73a",
+  "catalogBytes": 15865,
+  "appSourcePairs": 5,
+  "providerCalls": 0,
+  "appUploadsSupported": false,
+  "scanLimitations": "Known-pattern scan including nested traces; unknown secret formats and OCR are not covered.",
+  "scope": "Prepared application and evidence before attaching hosting documentation; final publication remains unapproved."
+}

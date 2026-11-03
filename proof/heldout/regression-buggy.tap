@@ -1,0 +1,30 @@
+✖ The coupon that did not add up invariant (3219.116783ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3321.513907
+
+✖ failing tests:
+
+test at ../../tmp/regression.test.mjs:8:1
+✖ The coupon that did not add up invariant (3219.116783ms)
+  AssertionError [ERR_ASSERTION]: {"target":"total","operator":"equals","expected":"$43.20","actual":"$48.00","pass":false,"hash":"3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c","completion":{"target":"discount-status","value":"Coupon applied · 10% off"}}
+  
+  'failed' !== 'passed'
+  
+      at TestContext.<anonymous> (file:///tmp/regression.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'failed',
+    expected: 'passed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,314 @@
+{
+  "origin": "live-model",
+  "provider": "modal",
+  "model": "workspace-endpoint-redacted.us-west.modal.direct",
+  "endpoint": "https://inference.us-west.modal.direct/v1/chat/completions",
+  "configuration": {
+    "maxOutputTokens": 2048,
+    "temperature": 0.2
+  },
+  "providerCallAttempted": true,
+  "attemptedAt": 1793693722.9097412,
+  "finishedAt": 1793693740.438387,
+  "requestHash": "05cd6c2b8b8df252cdbcdeda16f8c8db49e3c4b0af59b798b61601bbf2aef973",
+  "invariantHash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+  "frames": [
+    {
+      "timestampMs": 0,
+      "sha256": "6c6f35065afbaf3640633bfc18398eba6e4442c8078a5e91273f303880d45435"
+    },
+    {
+      "timestampMs": 440,
+      "sha256": "e2c0e04207c2690a373b4c41a5ca3663d4ef1b800c006b61a6d46521da284f0d"
+    },
+    {
+      "timestampMs": 880,
+      "sha256": "05ad22d0a5ee30118d17932859c5cf8df242466ed54db8f43db69185a265b5fe"
+    },
+    {
+      "timestampMs": 1280,
+      "sha256": "9a5e8a46b00c2677aaefa863dc49a740c3577007be420993ed9ae38fa05f472e"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2164,
+    "completion_tokens": 1799,
+    "total_tokens": 3963
+  },
+  "estimatedModelCostUsd": 0.01035075,
+  "executedActions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    },
+    {
+      "type": "wait",
+      "target": "discount-status",
+      "value": "Coupon applied · 10% off"
+    }
+  ],
+  "outcome": "proposed",
+  "admission": {
+    "textBytes": 3348,
+    "frameCount": 4,
+    "inputTokenReservation": 24000,
+    "outputTokenCeiling": 2048,
+    "limitation": "Input token reservation is a conservative estimate; provider usage is checked after the response."
+  },
+  "elapsedMs": 17529,
+  "responseContentHash": "05cac4eb63f229c64bdeb9a0b5b3fc2000581ac38b13a5d39ee2df00276b403c",
+  "proposalId": "fd12906e7d3620f55034ba6fa024be3b74feeadfd94c6a1539f79627a84950f6",
+  "proposal": {
+    "actions": [
+      {
+        "type": "click",
+        "target": "apply-coupon"
+      },
+      {
+        "type": "release",
+        "request": "coupon-1"
+      },
+      {
+        "type": "wait",
+        "target": "discount-status",
+        "value": "Coupon applied · 10% off"
+      }
+    ],
+    "candidateAssertion": {
+      "target": "total",
+      "operator": "equals",
+      "expected": "$43.20"
+    },
+    "rationale": "Default coupon WELCOME10 gives 10% off 2x$24=$48 => $43.20 expected. App memoizes total on [quantity] only, so discount state change does not recompute total. Applying coupon and releasing validate-coupon leaves status 'Coupon applied · 10% off' while total stays $48.00, violating the $43.20 assertion."
+  },
+  "proposedActions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    },
+    {
+      "type": "wait",
+      "target": "discount-status",
+      "value": "Coupon applied · 10% off"
+    }
+  ],
+  "attemptNumber": 1,
+  "executions": [
+    {
+      "variant": "buggy",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        },
+        {
+          "type": "wait",
+          "target": "discount-status",
+          "value": "Coupon applied · 10% off"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/00-initial-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "initial",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        },
+        {
+          "type": "wait",
+          "target": "discount-status",
+          "value": "Coupon applied · 10% off"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/01-initial-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [],
+      "status": "error",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/02-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/03-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/04-minimize-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/05-minimize-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [],
+      "status": "error",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/06-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "minimize",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        }
+      ],
+      "status": "error",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/07-minimize-buggy"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/08-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/09-validation-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/10-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/11-validation-fixed"
+    },
+    {
+      "variant": "buggy",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "failed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/12-validation-buggy"
+    },
+    {
+      "variant": "fixed",
+      "phase": "validation",
+      "actions": [
+        {
+          "type": "click",
+          "target": "apply-coupon"
+        },
+        {
+          "type": "release",
+          "request": "coupon-1"
+        }
+      ],
+      "status": "passed",
+      "artifactDirectory": "jobs/a75b736d5dc942c8a31e69c56ee599f9/13-validation-fixed"
+    }
+  ]
+}

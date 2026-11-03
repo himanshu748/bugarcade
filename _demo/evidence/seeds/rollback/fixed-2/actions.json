@@ -1,0 +1,42 @@
+[
+  {
+    "index": 0,
+    "action": {
+      "type": "click",
+      "target": "rename-weekend"
+    },
+    "atMs": 3510,
+    "elapsedMs": 477,
+    "status": "executed"
+  },
+  {
+    "index": 1,
+    "action": {
+      "type": "click",
+      "target": "rename-launch"
+    },
+    "atMs": 4140,
+    "elapsedMs": 90,
+    "status": "executed"
+  },
+  {
+    "index": 2,
+    "action": {
+      "type": "release",
+      "request": "rename-2"
+    },
+    "atMs": 4394,
+    "elapsedMs": 7,
+    "status": "executed"
+  },
+  {
+    "index": 3,
+    "action": {
+      "type": "release",
+      "request": "rename-1"
+    },
+    "atMs": 4517,
+    "elapsedMs": 3,
+    "status": "executed"
+  }
+]

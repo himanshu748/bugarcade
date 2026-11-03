@@ -1,0 +1,130 @@
+{
+  "status": "failed",
+  "actions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "click",
+        "target": "rename-weekend"
+      },
+      "atMs": 3728,
+      "elapsedMs": 174,
+      "status": "executed"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "click",
+        "target": "rename-launch"
+      },
+      "atMs": 4027,
+      "elapsedMs": 67,
+      "status": "executed"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "release",
+        "request": "rename-2"
+      },
+      "atMs": 4206,
+      "elapsedMs": 7,
+      "status": "executed"
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "release",
+        "request": "rename-1"
+      },
+      "atMs": 4310,
+      "elapsedMs": 3,
+      "status": "executed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "rename-1",
+      "key": "rename",
+      "status": 503,
+      "response": {
+        "error": "Temporary write failure"
+      }
+    },
+    {
+      "id": "rename-2",
+      "key": "rename",
+      "status": 200,
+      "response": {
+        "saved": true
+      }
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "elapsedMs": 5446,
+  "artifacts": {
+    "result": "result.json",
+    "actions": "actions.json",
+    "console": "console.json",
+    "schedule": "network.json",
+    "trace": "trace.zip",
+    "screenshot": "final.png",
+    "frames": "frames.json",
+    "player": "player.html"
+  },
+  "error": null,
+  "assertion": {
+    "target": "board-title",
+    "operator": "equals",
+    "expected": "Launch board",
+    "actual": "Untitled board",
+    "pass": false,
+    "hash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac",
+    "completion": {
+      "target": "rename-state",
+      "value": "2 updates settled"
+    }
+  },
+  "network": [
+    {
+      "type": "request",
+      "id": "rename-1",
+      "key": "rename",
+      "payload": {
+        "title": "Weekend project"
+      },
+      "atMs": 961
+    },
+    {
+      "type": "request",
+      "id": "rename-2",
+      "key": "rename",
+      "payload": {
+        "title": "Launch board"
+      },
+      "atMs": 1188
+    },
+    {
+      "type": "release",
+      "id": "rename-2",
+      "status": 200,
+      "response": {
+        "saved": true
+      },
+      "atMs": 1327
+    },
+    {
+      "type": "release",
+      "id": "rename-1",
+      "status": 503,
+      "response": {
+        "error": "Temporary write failure"
+      },
+      "atMs": 1426
+    }
+  ],
+  "seed": 0,
+  "rngPolicy": "Seeded Math.random; real wall clock; controlled request schedule",
+  "variant": "buggy",
+  "challengeId": "rollback"
+}

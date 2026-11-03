@@ -1,0 +1,70 @@
+{
+  "schedule": [
+    {
+      "id": "search-1",
+      "key": "search",
+      "status": 200,
+      "response": {
+        "items": [
+          "Remote work field guide",
+          "Reading the room"
+        ]
+      }
+    },
+    {
+      "id": "search-2",
+      "key": "search",
+      "status": 200,
+      "response": {
+        "items": [
+          "React handbook",
+          "React patterns in practice"
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "id": "search-1",
+      "key": "search",
+      "payload": {
+        "query": "re"
+      },
+      "atMs": 1123
+    },
+    {
+      "type": "request",
+      "id": "search-2",
+      "key": "search",
+      "payload": {
+        "query": "react"
+      },
+      "atMs": 1405
+    },
+    {
+      "type": "release",
+      "id": "search-2",
+      "status": 200,
+      "response": {
+        "items": [
+          "React handbook",
+          "React patterns in practice"
+        ]
+      },
+      "atMs": 1560
+    },
+    {
+      "type": "release",
+      "id": "search-1",
+      "status": 200,
+      "response": {
+        "items": [
+          "Remote work field guide",
+          "Reading the room"
+        ]
+      },
+      "atMs": 1715
+    }
+  ]
+}

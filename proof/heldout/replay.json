@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "challengeId": "coupon-total",
+  "actions": [
+    {
+      "type": "click",
+      "target": "apply-coupon"
+    },
+    {
+      "type": "release",
+      "request": "coupon-1"
+    }
+  ],
+  "assertion": {
+    "target": "total",
+    "operator": "equals",
+    "expected": "$43.20"
+  },
+  "completion": {
+    "target": "discount-status",
+    "value": "Coupon applied \u00b7 10% off"
+  },
+  "invariantHash": "3f6de2a19614fc99b8a684b8fc2d7adee4a638e337306144d53c9689942f7f3c",
+  "seed": 7331,
+  "schedule": [
+    {
+      "id": "coupon-1",
+      "key": "validate-coupon",
+      "response": {
+        "code": "WELCOME10",
+        "percent": 10
+      },
+      "status": 200,
+      "optional": false
+    }
+  ]
+}

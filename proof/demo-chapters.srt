@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:04,000
+Can you make this app lose a note in three moves?
+
+2
+00:00:04,000 --> 00:00:07,500
+1. Sync notes   2. Add a note
+
+3
+00:00:07,500 --> 00:00:13,000
+3. Release the response → the note disappears
+
+4
+00:00:13,000 --> 00:00:19,000
+BugArcade · Play a real bug. Understand it. Test the fix.
+
+5
+00:00:19,000 --> 00:00:32,000
+Muse proposed the actions. The browser executed them.
+
+6
+00:00:32,000 --> 00:00:39,000
+Four model actions → three reproducible moves
+
+7
+00:00:39,000 --> 00:00:46,000
+The assertion stays locked. The verifier decides.
+
+8
+00:00:46,000 --> 00:00:51,000
+The exact regression fails on the buggy app.
+
+9
+00:00:51,000 --> 00:00:57,000
+Same moves, fixed app: the note survives.
+
+10
+00:00:57,000 --> 00:01:05,500
+Three buggy failures · three fixed passes · same assertion
+
+11
+00:01:05,500 --> 00:01:19,000
+Captured playback · authored gallery · live uploads disabled
+
+12
+00:01:19,000 --> 00:01:27,000
+Start with a bug you can break. Finish with a test that catches it.
+
+13
+00:01:27,000 --> 00:01:39,000
+Muse proposes. The browser executes. The verifier decides.
+
+14
+00:01:39,000 --> 00:01:51,000
+The exact response schedule is recorded with the replay.
+
+15
+00:01:51,000 --> 00:02:04,000
+The unchanged regression fails buggy and passes fixed.
+
+16
+00:02:04,000 --> 00:02:16,000
+Three buggy failures and three fixed passes under the same schedule.
+
+17
+00:02:16,000 --> 00:02:29,000
+Current runtime verification: six controls; all 38 cohort VMs terminated.
+
+18
+00:02:29,000 --> 00:02:42,000
+Five authored gallery cases; personal scores are separate from evidence.
+
+19
+00:02:42,000 --> 00:02:54,000
+Separate first-party coupon case: three model actions minimized to two.
+
+20
+00:02:54,000 --> 00:03:00,000
+Play the bug. Keep the test. Source and proof on GitHub.

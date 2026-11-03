@@ -1,0 +1,63 @@
+{
+  "kind": "static-arcade-code-validation",
+  "verifiedAt": "2026-11-03T18:16:24.587456+00:00",
+  "deployed": false,
+  "targetOrigin": "https://himanshu748.github.io",
+  "basePath": "/bugarcade/",
+  "providerCalls": 0,
+  "checks": {
+    "localWorkflowBrowser": 37,
+    "motionBrowser": 3,
+    "workerAndCartridge": 21,
+    "logic": 36,
+    "staticBrowser": 9,
+    "httpsOriginSimulation": 9,
+    "lint": "passed",
+    "types": "passed",
+    "normalBuild": "passed",
+    "hostedBuild": "passed"
+  },
+  "playbackTrialsPerEnvironment": {
+    "buggyAssertionFailures": 15,
+    "fixedPasses": 15,
+    "cases": 5,
+    "trialsPerVariantPerCase": 3,
+    "schedule": "Unchanged authored schedule for each case."
+  },
+  "httpsSimulation": "Browser routes served local files at the proposed HTTPS origin. Not a public deployment. Export bytes were checked with browser fetch; the local static-server run exercised the actual file download. A real public download remains a post-deployment check.",
+  "verificationBoundary": "Game playback and captured verification remain distinct. No fresh Meta call or Modal sandbox run was made.",
+  "sourceSha256": {
+    "frontend/App.tsx": "caa4f5589246efac305a05c3865ee9835cb25a6dbea5af257e29dc8e2547023e",
+    "frontend/LandingPage.tsx": "f1bdbe7f1f5b9d6f96ace44282441496aa8e63ba9f047ec0ea36903a8d240c93",
+    "frontend/public-demo.ts": "fa71fb255d7160fa246e3df7dbecf77322542fddfb4358a472cdac58027da7da",
+    "frontend/HostedWorkflow.tsx": "01a2254d1582b9ad93e5e5be6ef5ff20da40dfca6e4f800ce3323133ab472e8c",
+    "frontend/InvestigationProof.tsx": "a4ccb47333d3862f4dafe4a9ac3091d4ca6062de5175c1c700d2e1f84cafaa12",
+    "frontend/types.ts": "1f74a839e45dc514c5bdef714720e083ead706a23d97f40bc7bbacb8a45faf84",
+    "worker/cartridge.mjs": "6dd8ac1e65b741f09679e1da67e6bfd8ff77bf0d283542a74c24474c896da10e",
+    "fixtures/harness.tsx": "a66d98d93ab02f83dced01144869f689734dbd35bcd5891498f1b2ab358173d3",
+    "scripts/build-public-demo.mjs": "1085682fc31607e67423f7887d86aeb5ce291b8394bcb786132b4c6fc3d28142",
+    "tests/e2e/hosted.spec.ts": "a71059509902b729b745fbdf67c568bb4d3db05821cb2b80f3fd27c695ddd86d",
+    "tests/e2e/replay-admission.spec.ts": "1e3218eb0a40cd1c039ddeb6be5b96c3a6e56981fc37d2baa3433d1d512077fb",
+    "tests/public-cartridge.test.mjs": "f0ca3fc46c241933ed908b42f83c1a1e71f16d1f3ed27e750599b4b7dc90bd1a",
+    "tests/public-demo.test.mjs": "d98d96a0c9472c861c02ec7ae73d1687a908626e611b7edf8c31035d5b80c2dc",
+    "package-lock.json": "02a2e6049e0e8196a79e5b52174edea414ac80295e8f2c2c333af9beecb6314b"
+  },
+  "runtimeAssetsSha256": {
+    "assets/index-CPmWRCkK.css": "222ab31ae06edea038ed18f8550119a16329624fac70d990d7436b8df38b882b",
+    "assets/index-CimrlW_2.js": "f7be23d8110eba094c4a378d5ba9efd8112b97eef746700bb8007bc6fcc3530f"
+  },
+  "artifacts": {
+    "local-workflows.txt": "b97ed3eb581193c47ba24d4457e0a1994c2e857c6564571b934fe2309dc06955",
+    "motion.txt": "1a3e3c0d0e6a30b06a3c089a4c7de76cff60f4fc46caf2589e95d4a7395822db",
+    "worker.txt": "7169e983c5a0f266227a268ff69b710fa46a95c9d7da015c093d37c8a11db6c1",
+    "logic.txt": "53099ab7ed2716fca4bade25bf329aee814d85a548122a11213ccac358965a5c",
+    "static-browser.txt": "5b2f33c174aa85b510e40dedb52589c35fe430c81eb1e50b8231169a951a810f",
+    "https-origin-simulation.txt": "16415ced126843fdd6366b83a210a63a53b606b061c226fed17572a510947819",
+    "normal-build.txt": "18d90c93ebda4685146ac249aab3821f732087fcfb288ef046b8dc72fd92928c",
+    "hosted-build.txt": "96db2e1c4dca5753743fbf76c26c020f558ca3a9d789b88507bda68ec47334aa",
+    "lint.txt": "ad0870ed6019604df5fc99f567c67dc1859b545a63bc75c61fc7ded5a25f8ce6",
+    "landing.png": "b319262a4726e88a3342d96d3616c27a09ce50db233a0693d959c40e27f9e26b",
+    "fixed-note.png": "36c0e287f48807ce026cb49123f289abd84d0fbdd4333a8e94183565a0fa1157",
+    "mobile.png": "5fcd3501750453869c9253eddd3f608bcdc36ba2ba6f5f9774b937654fbcd51c"
+  }
+}

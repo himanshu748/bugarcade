@@ -1,0 +1,13 @@
+
+> bugarcade@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 50 modules transformed.
+rendering chunks...
+computing gzip size...
+dist-hosted/index.html                   0.70 kB │ gzip:  0.43 kB
+dist-hosted/assets/index-CPmWRCkK.css  117.17 kB │ gzip: 23.15 kB
+dist-hosted/assets/index-CimrlW_2.js   320.44 kB │ gzip: 97.96 kB
+✓ built in 712ms
