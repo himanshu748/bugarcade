@@ -1,6 +1,6 @@
 {
   "kind": "public-release-transformations",
-  "preparedAt": "2026-11-03T16:25:00.255429+00:00",
+  "preparedAt": "2026-11-03T16:33:19.585131+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "originalReviewMembers": 727,
   "revisionPurpose": "Product-first documentation, three-minute demo and portable public tests.",
@@ -13,7 +13,7 @@
     {
       "path": "README.md",
       "reviewSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
-      "releaseSha256": "fc6c9a97e60402852012156fc05946213024de19bc7eaa0ecf3b630a06266161"
+      "releaseSha256": "d6fae5a92eb156b2aa825832dc0f2300427a81df934715340d1330179bfcc67d"
     },
     {
       "path": "docs/JUDGE_GUIDE.md",
@@ -28,12 +28,12 @@
     {
       "path": "package-audit.json",
       "reviewSha256": "d9851a35cc4a98042e20bfb054bc3bd96a2765d10c69410ec142cb06b7eff78a",
-      "releaseSha256": "c465e06c090981fadbbce6b49804bfb187ae27d8babe7a9d99b39da8c4b54fcf"
+      "releaseSha256": "2a8c859bc19b1727d26d8c2f38b36b616a3bce2503c2836dc239781f6b73154c"
     },
     {
       "path": "package-manifest.json",
       "reviewSha256": "5126b00c172dc06790b012c038cce46b202e8f0f128f403a5bbdea5fcd557cfd",
-      "releaseSha256": "0d05a5a23b6ff36ca4b288afc4b1f3ca6a07cb612b99f3c1f2da4729df4ed7f8"
+      "releaseSha256": "c950ccb14d936c5117d56a09e0dd9684bb741fa1dd1f247035c1b1b2804e0f4b"
     },
     {
       "path": "proof/demo-README.md",

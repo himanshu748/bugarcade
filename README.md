@@ -106,5 +106,6 @@ node --experimental-strip-types --test tests/arcade-progress.test.mjs tests/job-
 | [Security](docs/SECURITY.md) | Trust boundaries, runtime controls and operating limitations |
 | [Evidence](docs/EVIDENCE.md) | Seed captures, real model runs, regressions and evaluation scope |
 | [Judge walkthrough](docs/JUDGE_GUIDE.md) | A guided route through the product and proof |
+| [Original release notes](docs/RELEASE_NOTES.md) | The preserved source-release snapshot |
 
 Built for the solo Indie track of the Meta AI Developer Challenge. Licensed under [MIT](LICENSE); bundled dependency notices are in [third-party](third-party/).

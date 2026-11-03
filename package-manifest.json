@@ -1,7 +1,7 @@
 {
   "kind": "current-publication-release-manifest",
   "version": 2,
-  "preparedAt": "2026-11-03T16:25:10.385484+00:00",
+  "preparedAt": "2026-11-03T16:33:36.279780+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "license": "MIT",
   "copyright": "2026 Himanshu Kumar (himanshu748)",
@@ -18,8 +18,8 @@
       "sha256": "b639538706c443997d3b796382998cac0fec7c59245c9651174ff3358f03fef5"
     },
     "README.md": {
-      "bytes": 6940,
-      "sha256": "fc6c9a97e60402852012156fc05946213024de19bc7eaa0ecf3b630a06266161"
+      "bytes": 7032,
+      "sha256": "d6fae5a92eb156b2aa825832dc0f2300427a81df934715340d1330179bfcc67d"
     },
     "backend/Dockerfile.modal": {
       "bytes": 1375,
@@ -108,6 +108,10 @@
     "docs/JUDGE_GUIDE.md": {
       "bytes": 3788,
       "sha256": "e71010249e3441d24f6af01c4b5799d37431007078564de91549eec8d3095ed0"
+    },
+    "docs/RELEASE_NOTES.md": {
+      "bytes": 4673,
+      "sha256": "01f4177447bb119438947eb39ea2851b770f96111f59d68aa63a276a4dd591f7"
     },
     "docs/SECURITY.md": {
       "bytes": 6618,
@@ -2775,7 +2779,7 @@
     },
     "release-transformations.json": {
       "bytes": 3869,
-      "sha256": "8fc54ff0341fdf7fcc3c5752dd871ce7c2072d8de23564cc16b56a16b04e5c0c"
+      "sha256": "5913135b2452ba318df2ed60c6f23df6e88ef8cea9e7f23baa07f586b2a08261"
     },
     "review-snapshot/2026-11-03/README.md": {
       "bytes": 825,
