@@ -1,6 +1,6 @@
 {
   "kind": "public-release-transformations",
-  "preparedAt": "2026-11-03T18:46:24.500408+00:00",
+  "preparedAt": "2026-11-03T19:42:10.966818+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "originalReviewMembers": 727,
   "revisionPurpose": "Judge-facing live arcade links and concise submission copy; gameplay and captured proof bytes remain frozen.",
@@ -13,12 +13,12 @@
     {
       "path": "README.md",
       "reviewSha256": "1245254ab6d0072c994bad769e5a468282fb8b26f0f3625a68a838375c0ea65b",
-      "releaseSha256": "78a7c16af91b77b4e2f3595e64d039c2a16cd025cd40823cd173d13c7fa304ec"
+      "releaseSha256": "8934e072c1edb3a2682f74f8e4198f153059f0faf7d65e1dc739de145d829c09"
     },
     {
       "path": "docs/JUDGE_GUIDE.md",
       "reviewSha256": "30b705b712e4b2af9cb42417b325d522613bf52c0f30d4d7e3da3f2285c93ae7",
-      "releaseSha256": "e71010249e3441d24f6af01c4b5799d37431007078564de91549eec8d3095ed0"
+      "releaseSha256": "2eb7cab98833d7d3cc014975fb4299cad43b3ef9551dd96d97900ffaf06552f7"
     },
     {
       "path": "docs/SUBMISSION_DRAFT.md",
@@ -33,12 +33,12 @@
     {
       "path": "frontend/App.tsx",
       "reviewSha256": "a3b190f52b317c09a05259717a3a5bf36f3fed3c2053866fbf2371f14f16cdb6",
-      "releaseSha256": "caa4f5589246efac305a05c3865ee9835cb25a6dbea5af257e29dc8e2547023e"
+      "releaseSha256": "c88a094c19ff23e77a8cba57deb610a323a8b54217443387d52a649c21450288"
     },
     {
       "path": "frontend/InvestigationProof.tsx",
       "reviewSha256": "730b3c2064783eac09859f90c3763473aabddf7b9e9db87982bf8357ec3bafbb",
-      "releaseSha256": "a4ccb47333d3862f4dafe4a9ac3091d4ca6062de5175c1c700d2e1f84cafaa12"
+      "releaseSha256": "1ea465440d19d08b398942592ffc98f659f11534948494cb56f1f4f8c951c360"
     },
     {
       "path": "frontend/LandingPage.tsx",
@@ -53,12 +53,12 @@
     {
       "path": "package-audit.json",
       "reviewSha256": "d9851a35cc4a98042e20bfb054bc3bd96a2765d10c69410ec142cb06b7eff78a",
-      "releaseSha256": "36cc58f17d7b077d22f4c4ef7f680dc6190e0b5fd53082c3b831dfc4f660cfb0"
+      "releaseSha256": "ac6d4a82a019eda0fd595a896a4243605df2161a32e33c314e8e2b4c29b2d3d1"
     },
     {
       "path": "package-manifest.json",
       "reviewSha256": "5126b00c172dc06790b012c038cce46b202e8f0f128f403a5bbdea5fcd557cfd",
-      "releaseSha256": "36f436b4fb899d82b6679456a5573289296e5a6a2bc1d4a6866406d2a4295352"
+      "releaseSha256": "5cb0de808642e456616c24c74a9b99ff3233679484dab5203aac6231ef09b7e7"
     },
     {
       "path": "proof/demo-README.md",

@@ -422,14 +422,14 @@
     "lost-note": {
       "buggy": {
         "url": "_demo/fixtures/lost-note/buggy.html",
-        "sha256": "2a60899b7caffd99de658aa0f8df3638114803fae20e13d53642c3006db66cb7",
+        "sha256": "42b1b3727b96b33706cca062b828a4916cb363b2dbd96ac4fbdeff2f9ea5e213",
         "sourceSha256": "3e3691816b35c455c4b6110de9dd8bd113ffe42abcdaf7714eea6818a099a882",
         "manifestSha256": "2d2e48564354d3b0dfa6f144203ea27272285d93ce9a99dc8da46f9b71d02d2b",
         "assertionHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951"
       },
       "fixed": {
         "url": "_demo/fixtures/lost-note/fixed.html",
-        "sha256": "01b55c3ebdfb0a196fa615abd8c64c1389f6ad5f09c64b3048cc0a593b300054",
+        "sha256": "90b6ff195008c7d3f95501dbea6162df69111549466c8704580125387b2c744a",
         "sourceSha256": "734bd14d0e4b44db1d2356164ee1b813863c0a12152709a7412776fcafc0652b",
         "manifestSha256": "2d2e48564354d3b0dfa6f144203ea27272285d93ce9a99dc8da46f9b71d02d2b",
         "assertionHash": "072beb8f5d60874ac281b2b3ae95148d9f2d46de456d55c8167751d4183c8951"
@@ -438,14 +438,14 @@
     "rollback": {
       "buggy": {
         "url": "_demo/fixtures/rollback/buggy.html",
-        "sha256": "07c1ee3025aa3f195f14dac53a1d2b02ae76f77acb220b47b84a0c1e050b0fa8",
+        "sha256": "04ede8113ae56fd5e6aaa746749afec7d9f2a63b129e3bd0966d65e31f73113d",
         "sourceSha256": "c13c1f3c8355cfe40b1cb9001123ffd8f96b91598be0d1e01f79c438baecde93",
         "manifestSha256": "81c8b24336d696e999fecf9e1f61989b5b36d978a2d8c75e5fe875c7313ccf40",
         "assertionHash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac"
       },
       "fixed": {
         "url": "_demo/fixtures/rollback/fixed.html",
-        "sha256": "8c6bf1d522262a258bbcd62ebf456c0c513739b47c1e4814596db1da5cb8ce14",
+        "sha256": "5601304abe9685f7c59b52d270d263fab908b139733cbd32d689be1c43271b5b",
         "sourceSha256": "a02e1e98adff4052174526d3cda301dd6b6ff4d9bdf9a5b7daf7117b8cff99c8",
         "manifestSha256": "81c8b24336d696e999fecf9e1f61989b5b36d978a2d8c75e5fe875c7313ccf40",
         "assertionHash": "fb659c01403c03fb9127fe29f5a8105416c48c1fc1c56d50c12a0fd219f37bac"
@@ -454,14 +454,14 @@
     "search": {
       "buggy": {
         "url": "_demo/fixtures/search/buggy.html",
-        "sha256": "2f024071213b870cd61400c619eace7ddbb0f4c86dd85c524a609d1878a1279e",
+        "sha256": "e17ac8b803d2230e00721e81f4aa18157ab9782538205abc391403e6fcf3ebf8",
         "sourceSha256": "8914e567659f9edc900bea60e3571162b9cc989ade6bba4fa2aa139000c28a84",
         "manifestSha256": "5b499ac18db54dfa6a09a2626c29d1b457c5b99bda6d4ea15fb00a45f91fe719",
         "assertionHash": "893c9cce37d2f1efa7f064e4d54cbd034ca544daba5a81bbb1eea8eca3a2a8a3"
       },
       "fixed": {
         "url": "_demo/fixtures/search/fixed.html",
-        "sha256": "085e94dda3f993e89a86a3ee36c5a48cdcdb2f436b6409bca38402b46f29c131",
+        "sha256": "06f7797870ac78ab2a1e1d14474ce682061a91d3ae103869350a4d5917e42593",
         "sourceSha256": "22e7d38c0284435ccb125725e0d2de53d009e37186c0bb447943455431e0571a",
         "manifestSha256": "5b499ac18db54dfa6a09a2626c29d1b457c5b99bda6d4ea15fb00a45f91fe719",
         "assertionHash": "893c9cce37d2f1efa7f064e4d54cbd034ca544daba5a81bbb1eea8eca3a2a8a3"
@@ -470,14 +470,14 @@
     "duplicate": {
       "buggy": {
         "url": "_demo/fixtures/duplicate/buggy.html",
-        "sha256": "c2bb6599ea565de34a7c2de9ebdbc399d9806189f51bf1160deec8b81d3c4283",
+        "sha256": "456965f84081ea298862bf0ed1a2aed8b07f877a516babc8717324127840e46e",
         "sourceSha256": "d512fe29cac25e188b83c48c3fbf2ad2cc4461452574baeeda5d5723b5afcad0",
         "manifestSha256": "7ffaea44b1078ceeeaabf67613e7c84e32508908b231cfaa34f83a1ba7709f15",
         "assertionHash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e"
       },
       "fixed": {
         "url": "_demo/fixtures/duplicate/fixed.html",
-        "sha256": "f3f0b63136ac75df42ca005fad32ef3a8e3727a7bad2a21d411663f5df5bae77",
+        "sha256": "699a4a8b7bb4dbdc61d0a044e33dbd2ab1074f86cdf05cdb9ffe7a184750e9f2",
         "sourceSha256": "f4adb87886bf8ac1308f6e1d65a27de0cb2afd9fd459b369f66a0e9cf9c72cb8",
         "manifestSha256": "7ffaea44b1078ceeeaabf67613e7c84e32508908b231cfaa34f83a1ba7709f15",
         "assertionHash": "e7fbe057c2911678d872a1233fae38d817cce5c7b8c5a1027e7ec2cd50721e4e"
@@ -486,23 +486,23 @@
     "cleanup": {
       "buggy": {
         "url": "_demo/fixtures/cleanup/buggy.html",
-        "sha256": "e9a1e8d6122167b604b6d53a8a37f2dbf67d9f94033de18640f50984dfe9248b",
+        "sha256": "53d31f4e410454ccaf14e256bc34467f912f526b49b6d6c474f25fb6ab08f87a",
         "sourceSha256": "49cbee9e419c641e40fbeaa8b3fff96ee937d5b6525474980281bd30a73bd955",
         "manifestSha256": "44adc3e34e027eca38c38006e07bcc57f84401d17aa7ac06d4b1993c706f51ce",
         "assertionHash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c"
       },
       "fixed": {
         "url": "_demo/fixtures/cleanup/fixed.html",
-        "sha256": "e2b9485968fe9433fa696565999b54ab193054f1e9c476cf97ae06335bacb6ae",
+        "sha256": "10f4952273279cac2e9d63c16ff8772d373ce875a06132fda962fc3e54ccb464",
         "sourceSha256": "a549ebd11e24b9f7f45ceaf9dc22b946ccbf7b9a338953d1d7e67845e8e68746",
         "manifestSha256": "44adc3e34e027eca38c38006e07bcc57f84401d17aa7ac06d4b1993c706f51ce",
         "assertionHash": "fcb7af4901690860827c995983cc702306bb3ec1ea839ce5a21798b677e8339c"
       }
     }
   },
-  "publicEvidenceManifestSha256": "06919cbd4aa64da2339c54a85b3473925e541174baa290dc6831a7e763ff91c9",
+  "publicEvidenceManifestSha256": "c2929ae61fb6d8a0ab7788ee2d66ecac9a64e55b269721bd859b8daa99042d87",
   "artifactIndex": {
     "url": "_demo/artifacts.json",
-    "sha256": "03f679eb97246fedd840fa55b944af5ba71873e72738685d099867922bc1e0b6"
+    "sha256": "35c404b850e582d0b43e0bd8a83badb9ff67713714cdeb932480eba2acc13bb8"
   }
 }

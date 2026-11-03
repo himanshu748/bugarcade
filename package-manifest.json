@@ -1,7 +1,7 @@
 {
   "kind": "current-publication-release-manifest",
   "version": 2,
-  "preparedAt": "2026-11-03T18:46:44.920628+00:00",
+  "preparedAt": "2026-11-03T19:42:16.189971+00:00",
   "baseReviewZipSha256": "c33c4d5388460afee74d5ded4291611084e0bece992fe87f702f60e905e37a00",
   "license": "MIT",
   "copyright": "2026 Himanshu Kumar (himanshu748)",
@@ -18,8 +18,8 @@
       "sha256": "b639538706c443997d3b796382998cac0fec7c59245c9651174ff3358f03fef5"
     },
     "README.md": {
-      "bytes": 7207,
-      "sha256": "78a7c16af91b77b4e2f3595e64d039c2a16cd025cd40823cd173d13c7fa304ec"
+      "bytes": 7202,
+      "sha256": "8934e072c1edb3a2682f74f8e4198f153059f0faf7d65e1dc739de145d829c09"
     },
     "backend/Dockerfile.modal": {
       "bytes": 1375,
@@ -110,8 +110,8 @@
       "sha256": "73025bb64db6f953dd050fa13b84bdad50018bc0f81f58546eabffa44d1111d2"
     },
     "docs/JUDGE_GUIDE.md": {
-      "bytes": 3788,
-      "sha256": "e71010249e3441d24f6af01c4b5799d37431007078564de91549eec8d3095ed0"
+      "bytes": 3785,
+      "sha256": "2eb7cab98833d7d3cc014975fb4299cad43b3ef9551dd96d97900ffaf06552f7"
     },
     "docs/RELEASE_NOTES.md": {
       "bytes": 4676,
@@ -1862,8 +1862,8 @@
       "sha256": "6a640ef7886cf02196fcbe8d02c0df3597afc6e4f6727eaaa2cefc3bcd32ac84"
     },
     "frontend/App.tsx": {
-      "bytes": 41450,
-      "sha256": "caa4f5589246efac305a05c3865ee9835cb25a6dbea5af257e29dc8e2547023e"
+      "bytes": 41448,
+      "sha256": "c88a094c19ff23e77a8cba57deb610a323a8b54217443387d52a649c21450288"
     },
     "frontend/ArcadeProgress.tsx": {
       "bytes": 8213,
@@ -1882,12 +1882,12 @@
       "sha256": "9f98a7c93eb0c543821b666a07bb545418697e46c034086c2741cccca2ca78b3"
     },
     "frontend/HostedWorkflow.tsx": {
-      "bytes": 1054,
-      "sha256": "01a2254d1582b9ad93e5e5be6ef5ff20da40dfca6e4f800ce3323133ab472e8c"
+      "bytes": 1053,
+      "sha256": "caa28e12090e35f1c0334d4d77b526af7ed9c324348c4177d666aa3f431cfcd1"
     },
     "frontend/InvestigationProof.tsx": {
-      "bytes": 12500,
-      "sha256": "a4ccb47333d3862f4dafe4a9ac3091d4ca6062de5175c1c700d2e1f84cafaa12"
+      "bytes": 12499,
+      "sha256": "1ea465440d19d08b398942592ffc98f659f11534948494cb56f1f4f8c951c360"
     },
     "frontend/LandingPage.tsx": {
       "bytes": 22583,
@@ -2389,6 +2389,10 @@
       "bytes": 2410,
       "sha256": "73586d65510af183fff03b249bf79a6c68f237e0e83eb76ae57cd619296d0a14"
     },
+    "proof/heldout/view.html": {
+      "bytes": 11487,
+      "sha256": "12921d30995ace826a50ba6a2bf7778ac3d4365929dffb49fa5b73d4d20edc4c"
+    },
     "proof/hosted/artifact-review.json": {
       "bytes": 725,
       "sha256": "c35f101bba435b82aa0f4ade1ab79b1d6d89d9c3cd0af795d1148023525038da"
@@ -2821,6 +2825,10 @@
       "bytes": 1911,
       "sha256": "1774c4043bde52fac0b24ea548fcfa5392db080ee15d768f2e318a21d5b11ef4"
     },
+    "proof/view.html": {
+      "bytes": 17539,
+      "sha256": "9879ae404219a220bcbb120dc34b97b9878ebe592bd6ed95dcf6ef45aa0d55b4"
+    },
     "public/favicon.svg": {
       "bytes": 284,
       "sha256": "d341a9f7db330599ba1418e6de150fc03cb57e9257d00a6a215a754360860363"
@@ -2851,7 +2859,7 @@
     },
     "release-transformations.json": {
       "bytes": 5929,
-      "sha256": "8bf0fcaa2d4cb67bb30117df803ed3f9aa71e3ac9c893179af79e5d428d518e2"
+      "sha256": "9865f060656bc6076e85b5a22ad1a66267f5022aa6ada112676d83c362a62cea"
     },
     "review-snapshot/2026-11-03/README.md": {
       "bytes": 825,
@@ -2872,6 +2880,10 @@
     "scripts/audit-evidence.mjs": {
       "bytes": 3721,
       "sha256": "4055978db8c05daf6aad42d45c0e7fba00a6dbf4188de252f97cca9241aac1ee"
+    },
+    "scripts/build-proof-view.mjs": {
+      "bytes": 3542,
+      "sha256": "fd24132fb3013374d42de4d3996b79d960a3d3eaea4980bef73c61f3d8514d80"
     },
     "scripts/build-public-demo.mjs": {
       "bytes": 10186,
@@ -2934,8 +2946,8 @@
       "sha256": "e5cac0e5631af2622545cc79e3bbae72519a56be74adf846db310489f1e3b61c"
     },
     "tests/e2e/hosted.spec.ts": {
-      "bytes": 10730,
-      "sha256": "a71059509902b729b745fbdf67c568bb4d3db05821cb2b80f3fd27c695ddd86d"
+      "bytes": 11976,
+      "sha256": "f9ef5051e061a477d881724e2f47ebc07238e88a8be2e12ac2feb522b57415e5"
     },
     "tests/e2e/investigation-proof.spec.ts": {
       "bytes": 12303,
